@@ -1,6 +1,46 @@
+//COLORS
+// grey colors
+$color-gray-600: #5f697c;
+$color-gray-500: #828897;
+$color-gray-400: #c4c7cf;
+$color-gray-300: #e3e4e8;
+$color-gray-200: #f7f7f8;
+$color-gray-100: #fcfcfd;
 
-$green: #0fda20;
+// UI colors
+$color-blue: #0087d2;
+$color-blue-hover: #00a0f7;
+$color-yellow: #fed150;
+$color-white: #ffffff;
+$color-success: #14ae5c;
+$color-error: #f24822;
+$color-object-1: #b3cdea;
+$color-object-2: #fff3b3;
 
-.variables{
-    color: $green;
-}
+//Typography colors
+$color-text-primary: #262626;
+$color-text-secondary: #343536;
+
+//breakpoints
+$width-xl: 1440px;
+$width-l: 992px;
+$width-m: 768px;
+$width-s: 576px;
+$width-xs: 375px;
+
+//font
+$font-size-base: 16px;
+$line-height-base: 160%;
+$font-weight-base: 600;
+$font-family-base: "Comfortaa", sans-serif;
+$font-family-accent: "Dihjauti", sans-serif;
+
+//container
+$width-min-body: 375px;
+$width-max-container: 1664px; //max-width content + padding
+
+//other
+$box-shadow-normal: 0 2px 8px 0 rgba(40, 41, 61, 0.04);
+$box-shadow-hover: 0 8px 16px 0 rgba(29, 147, 211, 0.2),
+  0 2px 4px 0 rgba(40, 41, 61, 0.1);
+$transition-base: cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
