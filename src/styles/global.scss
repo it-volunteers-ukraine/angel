@@ -1,0 +1,129 @@
+@import "variables.scss";
+
+body {
+  min-width: $width-min-body;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  background-color: $color-gray-100;
+
+  @media (max-width: $width-l) {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: $width-max-container;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+
+  @media (max-width: $width-s) {
+    padding: 0 16px;
+  }
+}
+
+.title-h1 {
+  //Main title on home page
+  font-family: $font-family-accent;
+  font-size: 92px;
+  line-height: 140%;
+  font-weight: 700;
+  color: $color-white;
+
+  @media (max-width: $width-l) {
+    font-size: 72px;
+    line-height: 100%;
+  }
+  @media (max-width: $width-m) {
+    font-size: 54px;
+  }
+  @media (max-width: $width-s) {
+    font-size: 84px;
+  }
+  @media (max-width: $width-xs) {
+    font-size: 40px;
+  }
+}
+
+.title-h2 {
+  //Blue title on sections
+  font-family: $font-family-accent;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: center;
+  color: $color-blue;
+
+  @media (max-width: $width-l) {
+    font-size: 40px;
+  }
+  @media (max-width: $width-m) {
+    font-size: 32px;
+  }
+  @media (max-width: $width-xs) {
+    font-size: 24px;
+  }
+}
+
+.title-h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+
+  @media (max-width: $width-l) {
+    font-size: 24px;
+  }
+  @media (max-width: $width-m) {
+    font-size: 18px;
+  }
+}
+
+.title-h4 {
+  font-family: $font-family-accent;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+
+  @media (max-width: $width-m) {
+    font-size: 18px;
+  }
+}
+
+.title-h5 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 160%;
+
+  @media (max-width: $width-l) {
+    font-size: 20px;
+  }
+  @media (max-width: $width-m) {
+    font-size: 16px;
+  }
+}
+
+.title-h6 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 160%;
+
+  @media (max-width: $width-l) {
+    font-size: 18px;
+  }
+}
+
+.info {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+
+  @media (max-width: $width-l) {
+    font-size: 14px;
+  }
+  @media (max-width: $width-m) {
+    font-size: 12px;
+  }
+}
