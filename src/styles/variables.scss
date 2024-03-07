@@ -22,14 +22,14 @@ $color-text-primary: #262626;
 $color-text-secondary: #343536;
 
 //breakpoints
-$width-xl: 1440px;
-$width-l: 992px;
-$width-m: 768px;
-$width-s: 576px;
+$width-xl: 1920px;
+$width-l: 1440px;
+$width-m: 992px;
+$width-s: 768px;
 $width-xs: 375px;
 
 //font
-$font-size-base: 16px;
+$font-size-base: 18px;
 $line-height-base: 160%;
 $font-weight-base: 600;
 $font-family-base: "Comfortaa", sans-serif;
@@ -37,7 +37,7 @@ $font-family-accent: "Dihjauti", sans-serif;
 
 //container
 $width-min-body: 375px;
-$width-max-container: 1664px; //max-width content + padding
+$width-max-container: 1680px; //max-width content + padding
 
 //other
 $box-shadow-normal: 0 2px 8px 0 rgba(40, 41, 61, 0.04);

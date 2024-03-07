@@ -1,0 +1,142 @@
+@import "./variables.scss";
+
+.button {
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform $transition-base;
+  user-select: none;
+
+  @media (max-width: $width-l) {
+    font-size: 18px;
+  }
+  @media (max-width: $width-xs) {
+    font-size: 16px;
+  }
+}
+
+//Small and simple buttons
+.text-button {
+  @extend .button;
+  color: $color-text-primary;
+  padding: 14px 0px;
+  width: 133px;
+  height: 38px;
+
+  &:hover {
+    color: $color-blue;
+  }
+}
+
+.small-button {
+  @extend .button;
+  color: $color-white;
+  background-color: $color-blue;
+  border-radius: 100px;
+  padding: 6px 32px;
+  min-width: 120px;
+  height: 38px;
+
+  &:hover {
+    background-color: $color-blue-hover;
+    box-shadow: $box-shadow-normal;
+  }
+
+  &--disabled {
+    @extend .small-button;
+    background-color: $color-gray-300;
+    pointer-events: none;
+  }
+}
+
+//Big buttons
+.big-button {
+  @extend .button;
+  height: 58px;
+  padding: 14px 24px;
+  border-radius: 50px;
+  min-width: 240px;
+}
+
+.primary-button {
+  @extend .big-button;
+  border-radius: 0 50px 50px 50px;
+  min-width: 260px;
+  background-color: $color-yellow;
+
+  &:hover {
+    border: 1px solid $color-text-primary;
+    box-shadow: $box-shadow-normal;
+  }
+
+  &--disabled {
+    @extend .primary-button;
+    background-color: $color-gray-300;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  @media (max-width: $width-l) {
+    min-width: 240px;
+  }
+  @media (max-width: $width-xs) {
+    width: 100%;
+  }
+}
+
+.secondary-button {
+  @extend .big-button;
+  background-color: $color-blue;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-blue-hover;
+    box-shadow: $box-shadow-normal;
+  }
+
+  &--disabled {
+    @extend .secondary-button;
+    background-color: $color-gray-300;
+    color: $color-white;
+    pointer-events: none;
+  }
+
+  @media (max-width: $width-xs) {
+    width: 100%;
+  }
+}
+
+.tertiary-button {
+  @extend .big-button;
+  color: $color-blue;
+  background-color: $color-white;
+  border: 1px solid $color-blue;
+
+  &:hover {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+
+  &--disabled {
+    @extend .tertiary-button;
+    border-color: $color-gray-300;
+    color: $color-gray-300;
+    pointer-events: none;
+  }
+}
+
+.footer-button {
+  @extend .big-button;
+  color: $color-text-primary;
+  background-color: $color-white;
+  width: 100%;
+  box-shadow: 5px 6px 15px 5px rgba(151, 151, 151, 0.1);
+
+  &:hover {
+    background-color: $color-blue-hover;
+    box-shadow: $box-shadow-normal;
+    color: $color-white;
+  }
+}
