@@ -14,7 +14,7 @@
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    
+
                     <div class="logo-wrapper">
                         <div class="logo">
                             <?php 
@@ -26,20 +26,33 @@
                         <div class="logo-text">Архангел Cвітла</div>
                     </div>
 
-                    <div class="menu">
-                        <nav class="menu__nav">
-
+                    <div id="headerMenu" class="menu">
+                        <nav class="menu-nav">
                             <?php wp_nav_menu( [
                                 'theme_location'       => 'header',                          
                                 'container'            => false,                           
                                 'menu_id'              => false,    
                                 'echo'                 => true,                            
-                                'items_wrap'           => '<ul id="%1$s" class="header_list %2$s">%3$s</ul>',  
+                                'items_wrap'           => '<ul id="%1$s" class="menu_list %2$s">%3$s</ul>',  
                                 ] ); 
                             ?>
 
                         </nav>
+
+                        <nav class="mobile-menu-nav">
+
+                        </nav>
+
                     </div>
+
+
+                    <button id="headerMenuToggle" class="menu-toggle" aria-label="Перемикач мобільного меню">
+                        <svg width="28" height="21">
+                            <use
+                                href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-burger-button">
+                            </use>
+                        </svg>
+                    </button>
                     <div class="lang-btns">
                         <button>Укр</button>
                         <button>Eng</button>
@@ -47,6 +60,12 @@
 
                     <div class="account">
                         <a href="/" class="small-button">Вхід</a>
+                        <a href="/" class="user-icon-button">
+                            <svg width="28" height="28" aria-label="Посиланна на реєстрацію">
+                                <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-user">
+                                </use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>

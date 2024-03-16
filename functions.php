@@ -61,6 +61,15 @@ function wp_it_volunteers_menus() {
 
 add_action( 'init', 'wp_it_volunteers_menus');
 
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'about_fund_sub_menu' => __( 'About fund sub menu' ),
+      'projects' => __( 'Projects' ),
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
 
 /** ACF add options page */
 if( function_exists('acf_add_options_page') ) {
