@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: contacts
+Template Name: projects
 */
 get_header();
 ?>
-<h2>contacts page</h2>
+<h2>projects page</h2>
 
 
 
