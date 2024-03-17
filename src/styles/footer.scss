@@ -1,3 +1,67 @@
 .footer {
-    color: pink;
+    background: $color-text-primary;
+    color: $color-white;
+
+    .footer-wrapper {
+        display: flex;
+        gap: 32px;
+    }
+
+    .footer-heading {
+        color: $color-white;
+    }
+
+    .footer-logo-wrapper {
+        color: $color-white;
+    }
+
+    .footer-logo-socials-wrapper {
+        max-width: 512px;
+        @media (max-width: $width-m) {
+            display: flex;
+        }
+    
+        @media (max-width: $width-s) {
+            display: block;
+        }
+    }
+
+    .footer-menu-wrapper {
+        width: 240px;
+    }
+    
+
+    #menu-footer_menu {
+        color: $color-white;
+       
+        .menu-item {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+
+    .footer-logo-link {
+        display: flex;
+        justify-content: start;
+    }
+
+    .contacts {
+        max-width: 376px;
+    }
+
+    .contact-us {
+        max-width: 376px;
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
