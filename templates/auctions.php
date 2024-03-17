@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: contacts
+Template Name: auctions
 */
 get_header();
 ?>
-<h2>contacts page</h2>
+<h2>auctions page</h2>
 
 
 

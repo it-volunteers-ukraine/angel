@@ -27,6 +27,7 @@ $width-l: 1440px;
 $width-m: 992px;
 $width-s: 768px;
 $width-xs: 375px;
+$width-mobile-menu: 1050px;
 
 //font
 $font-size-base: 18px;
@@ -43,4 +44,4 @@ $width-max-container: 1680px; //max-width content + padding
 $box-shadow-normal: 0 2px 8px 0 rgba(40, 41, 61, 0.04);
 $box-shadow-hover: 0 8px 16px 0 rgba(29, 147, 211, 0.2),
   0 2px 4px 0 rgba(40, 41, 61, 0.1);
-$transition-base: cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+$transition-base: cubic-bezier(0.4, 0, 0.2, 1) 1s;
