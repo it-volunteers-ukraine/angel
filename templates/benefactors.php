@@ -1,13 +1,10 @@
 <?php
 /*
-Template Name: about
+Template Name: Benefactors
 */
 get_header();
 ?>
-<main>
-
-    
-</main>
+<h2>Benefactors page</h2>
 
 
 

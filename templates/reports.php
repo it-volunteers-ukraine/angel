@@ -1,13 +1,10 @@
 <?php
 /*
-Template Name: about
+Template Name: reports
 */
 get_header();
 ?>
-<main>
-
-    
-</main>
+<h2>reports page</h2>
 
 
 

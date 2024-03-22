@@ -1,13 +1,10 @@
 <?php
 /*
-Template Name: about
+Template Name: Thanks
 */
 get_header();
 ?>
-<main>
-
-    
-</main>
+<h2>Thanks page</h2>
 
 
 

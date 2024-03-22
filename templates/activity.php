@@ -1,13 +1,10 @@
 <?php
 /*
-Template Name: about
+Template Name: Activity
 */
 get_header();
 ?>
-<main>
-
-    
-</main>
+<h2>Activity page</h2>
 
 
 
