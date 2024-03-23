@@ -4,7 +4,7 @@ Template Name: news
 */
 get_header();
 ?>
-<h2>news page</h2>
+<h2>ЗМІ про нас</h2>
 
 
 
