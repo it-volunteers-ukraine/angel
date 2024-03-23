@@ -4,7 +4,7 @@ Template Name: Individual help
 */
 get_header();
 ?>
-<h2>Individual help page</h2>
+<h2>Індивідуальна допомога</h2>
 
 
 

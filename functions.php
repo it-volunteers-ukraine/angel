@@ -54,7 +54,6 @@ function wp_it_volunteers_menus() {
   $locations = array(
     'header' => __( 'Header Menu', 'wp-it-volunteers' ),
     'footer' => __( 'Footer Menu', 'wp-it-volunteers' ),
-    'header-mobile-menu' => __('Header mobile menu')
   );
 
   register_nav_menus( $locations );

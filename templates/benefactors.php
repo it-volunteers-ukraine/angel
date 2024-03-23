@@ -4,7 +4,7 @@ Template Name: Benefactors
 */
 get_header();
 ?>
-<h2>Benefactors page</h2>
+<h2>Благодійникам</h2>
 
 
 

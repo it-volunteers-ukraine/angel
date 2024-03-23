@@ -4,7 +4,7 @@ Template Name: reports
 */
 get_header();
 ?>
-<h2>reports page</h2>
+<h2>Документи та звіти</h2>
 
 
 

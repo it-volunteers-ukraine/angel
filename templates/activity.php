@@ -4,7 +4,7 @@ Template Name: Activity
 */
 get_header();
 ?>
-<h2>Activity page</h2>
+<h2>Діяльність нашого фонду</h2>
 
 
 

@@ -25,6 +25,7 @@
                         <div class="logo-text">Архангел Cвітла</div>
                     </div>
 
+                    <!-- Desktop menu version -->
                     <div id="headerMenu" class="menu">
                         <nav class="menu-nav">
                             <?php 
@@ -84,6 +85,8 @@
                 </div>
             </div>
         </header>
+
+        <!-- Sub menu section  -->
         <section class="sub-menu-section">
             <?php
             $top_items = get_nav_items_of_parent('header_menu', 0);
