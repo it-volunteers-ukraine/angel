@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: about
+Template Name: Blog
 */
 get_header();
 ?>
-<h2>about page</h2>
+<h2>Блог</h2>
 
 
 
