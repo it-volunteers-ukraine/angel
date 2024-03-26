@@ -22,7 +22,11 @@
                             }
                             ?>
                         </div>
-                        <div class="logo-text">Архангел Cвітла</div>
+                        <a href="<?php echo site_url(''); ?>">
+                            <p class="logo-text">
+                                <?php the_field('logo_title','option'); ?>
+                            </p>
+                        </a>
                     </div>
 
                     <!-- Desktop menu version -->
@@ -68,13 +72,10 @@
                         </svg>
                     </button>
 
-                    <div class="lang-btns">
-                        <button>Укр</button>
-                        <button>Eng</button>
-                    </div>
-
                     <div class="account">
-                        <a href="/" class="small-button">Вхід</a>
+                        <a href="/" class="small-button">
+                            <?php the_field('sign_in_button','option'); ?>
+                        </a>
                         <a href="/" class="user-icon-button">
                             <svg width="28" height="28" aria-label="Посиланна на реєстрацію">
                                 <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-user">
@@ -90,8 +91,21 @@
         <section class="sub-menu-section">
             <?php
             $top_items = get_nav_items_of_parent('header_menu', 0);
+            if ($top_items) {
+                foreach($top_items as $top_item) {
+                    $children = get_nav_items_of_parent('header_menu', $top_item->ID);
+                    
+                    foreach ($children as $child) {
+                        $current_url = esc_url(get_permalink());
+                        if($child->url === $current_url) {
+                            echo render_menu_section($children, "sub-menu", $top_item->title);
+                        }
+                    }
+                }
+            } 
+            $top_items = get_nav_items_of_parent('header_menu_ENG', 0);
             foreach($top_items as $top_item) {
-                $children = get_nav_items_of_parent('header_menu', $top_item->ID);
+                $children = get_nav_items_of_parent('header_menu_ENG', $top_item->ID);
                 
                 foreach ($children as $child) {
                     $current_url = esc_url(get_permalink());
