@@ -9,117 +9,140 @@
   z-index: 10;
   background-color: $color-white;
   color: $color-text-secondary;
-}
 
-.header-content {
-  padding: 12px 0;
-  display: grid;
-  align-items: center;
-  grid-template-columns: min-content auto min-content min-content;
-  grid-template-areas: "logo menu lang-btns login-btn";
+  .header-content {
+    padding: 12px 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: min-content auto min-content;
+    grid-template-areas: "logo menu  login-btn";
 
-  @media (max-width: $width-l) {
-    padding: 10px 0;
-  }
+    @media (max-width: $width-l) {
+      padding: 10px 0;
+    }
 
-  @media (max-width: $width-m) {
-    padding: 8px 0;
-    grid-template-areas: "menu lang-btns logo login-btn";
-    grid-template-columns: min-content min-content auto min-content;
-  }
-  @media (max-width: $width-xs) {
-    padding: 5px 0;
-  }
-}
-
-//Logo section
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  grid-area: logo;
-  @media (max-width: $width-l) {
-    gap: 12px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: $width-xs) {
-    gap: 8px;
-  }
-}
-
-.logo {
-  width: 54px;
-  height: 72px;
-
-  @media (max-width: $width-l) {
-    width: 42px;
-    height: 56px;
-  }
-  @media (max-width: $width-xs) {
-    width: 28px;
-    height: 38px;
-  }
-  img {
-    max-width: 100%;
-  }
-}
-
-.logo-text {
-  font-family: $font-family-accent;
-  color: $color-blue;
-  font-size: 18px;
-  line-height: 140%;
-  width: 82px;
-  @media (max-width: $width-l) {
-    font-size: 16px;
-  }
-  @media (max-width: $width-xs) {
-    font-size: 10px;
-    width: 53px;
-    height: 28px;
-  }
-}
-
-//Menu items - main menu
-.menu {
-  grid-area: menu;
-  margin-left: auto;
-
-  &--mobile .mobile-menu-nav {
-    left: 0;
-  }
-}
-
-.menu-nav {
-  @media (max-width: $width-m) {
-    display: none;
-  }
-}
-
-.menu_list {
-  display: flex;
-  gap: 28px;
-  @media (max-width: $width-m) {
-    display: none;
-  }
-}
-
-.menu-item {
-  position: relative;
-  padding: 4px 8px;
-
-  &.current-menu-item > a {
-    color: $color-blue;
-    &::after {
-      opacity: 1;
+    @media (max-width: $width-m) {
+      padding: 8px 0;
+      grid-template-areas: "menu  logo login-btn";
+      grid-template-columns: min-content auto min-content;
+    }
+    @media (max-width: $width-xs) {
+      padding: 5px 0;
     }
   }
 
-  a {
+  //Logo section
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    grid-area: logo;
+    @media (max-width: $width-l) {
+      gap: 12px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: $width-xs) {
+      gap: 8px;
+    }
+  }
+
+  .logo {
+    width: 54px;
+    height: 72px;
+
+    @media (max-width: $width-l) {
+      width: 42px;
+      height: 56px;
+    }
+    @media (max-width: $width-xs) {
+      width: 28px;
+      height: 38px;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .logo-text {
+    font-family: $font-family-accent;
+    color: $color-blue;
+    font-size: 18px;
+    line-height: 140%;
+    width: 82px;
+    @media (max-width: $width-l) {
+      font-size: 16px;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 10px;
+      width: 53px;
+      height: 28px;
+    }
+  }
+
+  //Menu items - main menu
+  .menu {
+    grid-area: menu;
+    margin-left: auto;
+
+    &--mobile .mobile-menu-nav {
+      left: 0;
+    }
+  }
+
+  .menu-nav {
+    @media (max-width: $width-m) {
+      display: none;
+    }
+  }
+
+  .menu_list {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+
+    @media (max-width: $width-m) {
+      display: none;
+      gap: 16px;
+    }
+  }
+  .menu-item {
+    position: relative;
+    padding: 4px 8px;
+
+    &.current-menu-item > a {
+      color: $color-blue;
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    a {
+      transition: color $transition-base;
+      &::after {
+        opacity: 0;
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-blue;
+        transition: opacity $transition-base;
+      }
+      &:hover {
+        color: $color-blue;
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .current-menu-parent > a {
+    color: $color-blue;
     transition: color $transition-base;
     &::after {
-      opacity: 0;
       position: absolute;
       content: "";
       left: 0;
@@ -128,31 +151,204 @@
       height: 2px;
       background-color: $color-blue;
       transition: opacity $transition-base;
-    }
-    &:hover {
-      color: $color-blue;
-      &::after {
-        opacity: 1;
+      opacity: 1;
+      @media (max-width: $width-m) {
+        content: none;
       }
     }
   }
-}
+  //Change language buttons
+  .lang-item {
+    & > a {
+      display: block;
+      width: 36px;
+      white-space: nowrap;
+      overflow: hidden;
+      @media (max-width: $width-l) {
+        width: 32px;
+      }
+      &:hover {
+        color: inherit;
+        &::after {
+          content: none;
+        }
+      }
+    }
+    color: $color-gray-500;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    padding: 0 8px;
+    margin-left: -25px;
+  }
+  .lang-item-first {
+    border-right: 2px solid $color-gray-500;
+    margin-left: 25px;
+    @media (max-width: $width-l) {
+      margin-left: 16px;
+    }
+  }
+  .current-lang {
+    color: $color-text-primary;
+  }
 
-.current-menu-parent > a {
-  color: $color-blue;
-  transition: color $transition-base;
-  &::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: $color-blue;
-    transition: opacity $transition-base;
-    opacity: 1;
+  //Mobile version
+
+  .mobile-menu-nav {
+    display: none;
+    transition: left $transition-base;
     @media (max-width: $width-m) {
-      content: none;
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: -200%;
+      background-color: $color-white;
+      height: auto;
+      width: 100%;
+      overflow: auto;
+      max-height: 80vh;
+    }
+    @media (max-width: $width-xs) {
+      top: 99%;
+      width: 100%;
+    }
+    .mobile-menu__bg {
+      background-image: url("../images/bg/crop-mobile-menu-bg.jpg");
+      background-size: 35px;
+      background-repeat: repeat-x;
+      background-position: top;
+      width: 100%;
+      height: 70px;
+      @media (max-width: $width-xs) {
+        background-size: 33px;
+      }
+    }
+    .menu-item-has-children {
+      &::after {
+        content: "";
+        background-image: url("../images/icon-btn-arrow.svg");
+        background-size: contain;
+        background-position: center;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        rotate: 90deg;
+        cursor: pointer;
+        z-index: 1;
+        transition: rotate $transition-base;
+        @media (max-width: $width-xs) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .toggel-icon {
+      &::after {
+        rotate: 270deg;
+      }
+    }
+  }
+
+  .mobile-menu_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 50px 40px 64px 40px;
+    .current-menu-item a {
+      &::after {
+        content: none;
+      }
+      &:hover {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    .menu-item:not(.lang-item) {
+      color: $color-text-primary;
+      font-family: $font-family-accent;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 120%;
+      transition: color $transition-base;
+      padding: 0;
+
+      @media screen and (max-width: $width-xs) {
+        font-size: 18px;
+      }
+      a {
+        border-bottom: 1px solid $color-gray-300;
+        display: block;
+        height: 48px;
+        padding: 7px 0 12px;
+        position: relative;
+        z-index: 2;
+        &:hover {
+          &::after {
+            content: none;
+          }
+        }
+      }
+    }
+
+    .lang-item {
+      position: fixed;
+      top: 23px;
+      left: 160px;
+      margin: 0;
+      @media screen and (max-width: $width-s) {
+        left: 118px;
+      }
+      @media screen and (max-width: 480px) {
+        position: absolute;
+        top: 85px;
+        right: 15px;
+        width: fit-content;
+        left: auto;
+      }
+    }
+
+    .lang-item-first {
+      left: 104px;
+      @media screen and (max-width: $width-s) {
+        left: 70px;
+      }
+      @media screen and (max-width: 480px) {
+        right: 63px;
+        left: auto;
+      }
+    }
+
+    .sub-menu {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      display: none;
+      & > .menu-item {
+        font-family: $font-family-base;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 160%;
+        padding: 10px 40px;
+        color: $color-gray-600;
+        @media screen and (max-width: $width-xs) {
+          font-size: 16px;
+        }
+        a {
+          border: none;
+          padding: 0;
+          height: auto;
+          &:hover {
+            &::after {
+              content: none;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -269,168 +465,6 @@
   }
 }
 
-//Mobile version
-
-.mobile-menu-nav {
-  display: none;
-  transition: left $transition-base;
-  @media (max-width: $width-m) {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: -200%;
-    background-color: $color-white;
-    height: auto;
-    width: 100%;
-    overflow: auto;
-    max-height: 80vh;
-  }
-  @media (max-width: $width-xs) {
-    top: 99%;
-    width: 100%;
-  }
-  .mobile-menu__bg {
-    background-image: url("../images/bg/crop-mobile-menu-bg.jpg");
-    background-size: 35px;
-    background-repeat: repeat-x;
-    background-position: top;
-    width: 100%;
-    height: 70px;
-    @media (max-width: $width-xs) {
-      background-size: 33px;
-    }
-  }
-  .menu-item-has-children {
-    &::after {
-      content: "";
-      background-image: url("../images/icon-btn-arrow.svg");
-      background-size: contain;
-      background-position: center;
-      width: 24px;
-      height: 24px;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      rotate: 90deg;
-      cursor: pointer;
-      z-index: 1;
-      transition: rotate $transition-base;
-      @media (max-width: $width-xs) {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-  .toggel-icon {
-    &::after {
-      rotate: 270deg;
-    }
-  }
-}
-
-.mobile-menu_list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 50px 40px 64px 40px;
-  .current-menu-item a {
-    &::after {
-      content: none;
-    }
-    &:hover {
-      &::after {
-        content: none;
-      }
-    }
-  }
-
-  .menu-item {
-    color: $color-text-primary;
-    font-family: $font-family-accent;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 120%;
-    transition: color $transition-base;
-    padding: 0;
-
-    @media screen and (max-width: $width-xs) {
-      font-size: 18px;
-    }
-    a {
-      border-bottom: 1px solid $color-gray-300;
-      display: block;
-      height: 48px;
-      padding: 7px 0 12px;
-      position: relative;
-      z-index: 2;
-      &:hover {
-        &::after {
-          content: none;
-        }
-      }
-    }
-  }
-
-  .sub-menu {
-    margin-top: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    // height: 0;
-    display: none;
-    & > .menu-item {
-      font-family: $font-family-base;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 160%;
-      padding: 10px 40px;
-      color: $color-gray-600;
-      @media screen and (max-width: $width-xs) {
-        font-size: 16px;
-      }
-      a {
-        border: none;
-        padding: 0;
-        height: auto;
-        &:hover {
-          &::after {
-            content: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-//Change language buttons
-.lang-btns {
-  display: flex;
-  gap: 1px;
-  height: 29px;
-  max-width: 105px;
-  background-color: $color-gray-600;
-  margin-left: 56px;
-  grid-area: lang-btns;
-
-  @media (max-width: $width-l) {
-    margin-left: 32px;
-  }
-  @media (max-width: $width-m) {
-    margin-left: 20px;
-  }
-  @media (max-width: $width-xs) {
-    display: none;
-    pointer-events: none;
-    visibility: hidden;
-  }
-  button {
-    background-color: $color-white;
-    border: none;
-    padding: 0 8px;
-    font-weight: 600;
-  }
-}
-
 //Account container
 .account {
   grid-area: login-btn;
@@ -452,7 +486,7 @@
       fill: $color-blue-hover;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 560px) {
     margin: 0;
     .user-icon-button {
       display: inline-flex;
