@@ -143,7 +143,7 @@
                                 <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-envelope"></use>
                             </svg>
                         </span>
-                        <p class=""><?php the_field( 'email', 'option' ); ?></p>
+                        <p class="contacts-link-item"><?php the_field( 'email', 'option' ); ?></p>
                     </a>
                 </div>
 
@@ -155,7 +155,7 @@
                                 <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-location"></use>
                             </svg>
                         </span>
-                        <p class=""><?php the_field('address', 'options' ); ?></p>
+                        <p class="contacts-link-item"><?php the_field('address', 'options' ); ?></p>
                     </a>
                 </div>
                 <div class="contacts-item">
@@ -179,15 +179,15 @@
                             <a href="tel:<?php the_field( 'hotline_phone', 'option' ); ?>"
                                     target="_blank">
                                 
-                                <p>
-                                    <span class=""><?php the_field( 'hotline_phone', 'option' ); ?></span>
+                                <p class="contacts-link-item">
+                                    <span><?php the_field( 'hotline_phone', 'option' ); ?></span>
                                     <span><?php the_field( 'hotline_phone_text', 'option' ); ?></span>
                                 </p>
                             </a>
                             <a href="tel:<?php the_field( 'help_phone', 'option' ); ?>"
                                     target="_blank">
-                                <p>
-                                    <span class=""><?php the_field( 'help_phone', 'option' ); ?></span>
+                                <p class="contacts-link-item">
+                                    <span><?php the_field( 'help_phone', 'option' ); ?></span>
                                     <span><?php the_field( 'help_phone_text','option' ); ?></span>
                                 </p>
                             </a>
@@ -197,9 +197,15 @@
             </div>
             <div class="contact-us">
                 <h6 class="title-h6 footer-heading footer-heading-not-socials">Зв’яжіться з нами</h6>
-                <a href="/" class="footer-button">Стати партнером</a>
-                <a href="/" class="footer-button">Стати волонтером</a>
-                <a href="/" class="footer-button">Запит на допомогу</a>
+                <?php if ( get_field( 'footer_btn_1_text', 'option' ) ) { ?>
+                    <a href="<?php the_field( 'footer_btn_1_link', 'option' ); ?>" class="footer-button"><?php the_field( 'footer_btn_1_text','option' ); ?></a>
+                <?php } ?>
+                <?php if ( get_field( 'footer_btn_2_text', 'option' ) ) { ?>
+                    <a href="<?php the_field( 'footer_btn_2_link', 'option' ); ?>" class="footer-button"><?php the_field( 'footer_btn_2_text','option' ); ?></a>
+                <?php } ?>
+                <?php if ( get_field( 'footer_btn_3_text', 'option' ) ) { ?>
+                    <a href="<?php the_field( 'footer_btn_3_link', 'option' ); ?>" class="footer-button"><?php the_field( 'footer_btn_3_text','option' ); ?></a>
+                <?php } ?>
             </div>
        </div>
        <div class="footer-copyright-wrapper">

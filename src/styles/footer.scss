@@ -354,6 +354,12 @@
         }
     }
 
+    .contacts-link-item {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .contacts-phones {
         display: flex;
         flex-direction: column;
