@@ -12,7 +12,7 @@
                             
                             <a class="footer-logo-link" href="<?php echo site_url(''); ?>">
                                 <p class="footer-logo-name title-h3">
-                                    Архангел світла
+                                    <?php the_field('logo_title','option'); ?>
                                 </p>
                             </a>
                         </div>
@@ -23,9 +23,9 @@
                     </div>
                     
                     <div class="socials-wrapper">
-                        <h6 class="title-h6 footer-heading footer-heading-socials">
-                            Соціальні мережі
-                        </h6>
+                        <h2 class="title-h6 footer-heading footer-heading-socials">
+                            <?php the_field( 'footer_title_1', 'option' ); ?>
+                        </h2>
                         <ul class="socials">
                             <?php if ( get_field( 'instagram', 'option' ) ) { ?>
                                 <li class="social-item">
@@ -45,7 +45,7 @@
                                         target="_blank">
                                         
                                             <svg width="11" height="19">
-                                            <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-facebook"></use>
+                                            <use  href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-facebook"></use>
                                             </svg>
                                 
                                     </a>
@@ -57,7 +57,7 @@
                                         target="_blank">
                                         
                                             <svg width="20" height="18">
-                                            <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-twitter-x"></use>
+                                            <use  href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-twitter-x"></use>
                                             </svg>
                                 
                                     </a>
@@ -92,7 +92,7 @@
                                     <a class="social-link" class='' href="<?php the_field( 'youtube', 'option' ); ?>"
                                         target="_blank">
                                     
-                                            <svg width="20.73" height="15.11">
+                                            <svg width="21px" height="15px">
                                             <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-youtube"></use>
                                             </svg>
                                     
@@ -105,7 +105,7 @@
             </div>
             <div class="footer-menu-wrapper">
                 <div class="footer-menu-heading-wrapper">
-                    <h6 class="title-h6 footer-heading">Посилання</h6>
+                    <h2 class="title-h6 footer-heading"><?php the_field( 'footer_title_2', 'option' ); ?></h2>
                     <div class="footer-menu-heading-icon-wrapper">
                         <svg class="footer-menu-heading-icon" width="13.82" height="8">
                             <use
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="contacts">
-                <h6 class="title-h6 footer-heading footer-heading-not-socials">Наші контакти</h6>
+                <h2 class="title-h6 footer-heading footer-heading-not-socials"><?php the_field( 'footer_title_3', 'option' ); ?></h2>
                 <div class="contacts-item">
                     <a class="contacts-link" href="mailto:<?php the_field( 'email', 'option' ); ?>"
                             target="_blank">
@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div class="contact-us">
-                <h6 class="title-h6 footer-heading footer-heading-not-socials">Зв’яжіться з нами</h6>
+                <h2 class="title-h6 footer-heading footer-heading-not-socials"><?php the_field( 'footer_title_4', 'option' ); ?></h2>
                 <?php if ( get_field( 'footer_btn_1_text', 'option' ) ) { ?>
                     <a href="<?php the_field( 'footer_btn_1_link', 'option' ); ?>" class="footer-button"><?php the_field( 'footer_btn_1_text','option' ); ?></a>
                 <?php } ?>
