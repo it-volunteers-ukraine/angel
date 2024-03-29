@@ -21,7 +21,7 @@
       padding: 10px 0;
     }
 
-    @media (max-width: $width-m) {
+    @media (max-width: 1150px) {
       padding: 8px 0;
       grid-template-areas: "menu  logo login-btn";
       grid-template-columns: min-content auto min-content;
@@ -91,7 +91,7 @@
   }
 
   .menu-nav {
-    @media (max-width: $width-m) {
+    @media (max-width: $width-mobile-menu) {
       display: none;
     }
   }
@@ -101,9 +101,12 @@
     gap: 28px;
     align-items: center;
 
+    @media (max-width: $width-l) {
+      gap: 16px;
+    }
+
     @media (max-width: $width-m) {
       display: none;
-      gap: 16px;
     }
   }
   .menu-item {
@@ -179,7 +182,10 @@
     padding: 0;
     justify-content: center;
     padding: 0 8px;
-    margin-left: -25px;
+    margin-left: -28px;
+    @media (max-width: $width-l) {
+      margin-left: -16px;
+    }
   }
   .lang-item-first {
     border-right: 2px solid $color-gray-500;
@@ -197,7 +203,7 @@
   .mobile-menu-nav {
     display: none;
     transition: left $transition-base;
-    @media (max-width: $width-m) {
+    @media (max-width: 1150px) {
       display: block;
       position: absolute;
       top: 100%;
@@ -444,7 +450,7 @@
     fill: $color-blue-hover;
   }
 
-  @media screen and (max-width: $width-m) {
+  @media screen and (max-width: $width-mobile-menu) {
     display: inline-flex;
     pointer-events: all;
     visibility: visible;
