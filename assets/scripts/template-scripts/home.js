@@ -1,1 +1,1 @@
-console.log("home page");
+const swiper=new Swiper(".advantages-cards",{loop:!0,keyboard:{enabled:!0},slidesPerView:1,slidesPerGroup:1,direction:"horizontal",spaceBetween:32,breakpoints:{993:{slidesPerView:2,slidesPerGroup:2,spaceBetween:24,direction:"vertical"},575:{slidesPerView:2,slidesPerGroup:2,direction:"horizontal"}},navigation:{nextEl:".button-next",prevEl:".button-prev"}});

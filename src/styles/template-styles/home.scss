@@ -114,6 +114,15 @@
 
 .section {
   margin-top: 160px;
+  @media (max-width: $width-l) {
+    margin-top: 136px;
+  }
+  @media (max-width: $width-m) {
+    margin-top: 120px;
+  }
+  @media (max-width: $width-xs) {
+    margin-top: 84px;
+  }
 }
 
 .about-fund {
@@ -126,12 +135,36 @@
       "image main-info"
       "image sub-info";
     margin: 32px 0 80px;
+    @media (max-width: $width-l) {
+      margin: 24px 0 64px;
+      gap: 24px 64px;
+    }
+    @media (max-width: $width-m) {
+      margin: 24px 0 44px;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "main-info"
+        "image"
+        "sub-info";
+    }
+    @media (max-width: $width-xs) {
+      gap: 20px;
+    }
   }
   .main-info {
     grid-area: main-info;
     font-size: 24px;
     font-weight: 700;
     line-height: 160%;
+    @media (max-width: $width-l) {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 16px;
+    }
   }
   .image-wrapper {
     grid-area: image;
@@ -146,6 +179,13 @@
       font-size: 24px;
       font-weight: 700;
       line-height: 160%;
+      @media (max-width: $width-l) {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      @media (max-width: $width-l) {
+        font-size: 16px;
+      }
     }
     ul {
       list-style: disc;
@@ -155,6 +195,9 @@
       line-height: 160%;
       font-size: 18px;
       font-weight: 600;
+      @media (max-width: $width-l) {
+        font-size: 16px;
+      }
     }
   }
   .advantages-wrapper {
@@ -162,25 +205,63 @@
     flex-direction: column;
     gap: 56px;
     align-items: center;
+    @media (max-width: $width-l) {
+      gap: 44px;
+    }
   }
   .advantages-text {
     font-weight: 700;
     font-size: 24px;
     line-height: 160%;
     text-align: center;
+    color: $color-text-secondary;
+    @media (max-width: $width-l) {
+      font-size: 20px;
+    }
+    @media (max-width: $width-m) {
+      font-size: 18px;
+      text-align: left;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 16px;
+    }
   }
   .advantages-cards {
     display: flex;
     gap: 32px;
+    @media (max-width: $width-l) {
+      gap: 24px;
+    }
+    @media (max-width: $width-m) {
+      flex-wrap: wrap;
+      width: 600px;
+    }
+    @media (max-width: $width-s) {
+      width: 100%;
+    }
+
     .card {
       width: 25%;
       border: 1px solid $color-gray-200;
       border-radius: 32px;
       padding: 32px;
       box-shadow: $box-shadow-normal;
+      @media (max-width: $width-l) {
+        padding: 20px 24px;
+      }
+      @media (max-width: $width-m) {
+        padding: 24px;
+        width: calc((100% - 24px) / 2);
+      }
+      @media (max-width: $width-xs) {
+        padding: 28px 20px;
+        width: 100%;
+      }
       img {
         margin: 0 auto;
         margin-bottom: 16px;
+        color: $color-blue;
+        fill: inherit;
       }
       .counter {
         font-family: $font-family-accent;
@@ -188,12 +269,27 @@
         font-size: 48px;
         line-height: 120%;
         text-align: center;
+        @media (max-width: $width-l) {
+          font-size: 40px;
+        }
+        @media (max-width: $width-m) {
+          font-size: 32px;
+        }
+        @media (max-width: $width-xs) {
+          font-size: 24px;
+        }
       }
       .description {
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
         text-align: center;
+        @media (max-width: $width-l) {
+          font-size: 18px;
+        }
+        @media (max-width: $width-xs) {
+          font-size: 16px;
+        }
       }
     }
   }
