@@ -245,7 +245,25 @@
       border: 1px solid $color-gray-200;
       border-radius: 32px;
       padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       box-shadow: $box-shadow-normal;
+      cursor: pointer;
+      transition: box-shadow $transition-base;
+
+      &:hover {
+        box-shadow: $box-shadow-hover;
+        svg {
+          fill: $color-blue;
+        }
+        .counter {
+          color: $color-blue;
+        }
+        .description {
+          color: $color-blue;
+        }
+      }
       @media (max-width: $width-l) {
         padding: 20px 24px;
       }
@@ -257,11 +275,19 @@
         padding: 28px 20px;
         width: 100%;
       }
-      img {
-        margin: 0 auto;
+      svg {
+        width: 80px;
+        height: 80px;
         margin-bottom: 16px;
-        color: $color-blue;
-        fill: inherit;
+        transition: fill $transition-base;
+        @media (max-width: $width-l) {
+          margin-bottom: 12px;
+        }
+        @media (max-width: $width-m) {
+          fill: $color-blue;
+          width: 60px;
+          height: 60px;
+        }
       }
       .counter {
         font-family: $font-family-accent;
@@ -269,6 +295,7 @@
         font-size: 48px;
         line-height: 120%;
         text-align: center;
+        transition: color $transition-base;
         @media (max-width: $width-l) {
           font-size: 40px;
         }
@@ -284,6 +311,8 @@
         font-size: 20px;
         line-height: 160%;
         text-align: center;
+        transition: color $transition-base;
+
         @media (max-width: $width-l) {
           font-size: 18px;
         }
