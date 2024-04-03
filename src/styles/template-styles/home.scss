@@ -208,6 +208,13 @@
     @media (max-width: $width-l) {
       gap: 44px;
     }
+
+    .swiper-container {
+      display: none;
+      @media (max-width: $width-xs) {
+        display: block;
+      }
+    }
   }
   .advantages-text {
     font-weight: 700;

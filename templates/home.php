@@ -67,6 +67,7 @@ get_header();
                 </div>
                 <?php } ?>
             </div>
+
             <div class="advantages-wrapper">
                 <?php  if (get_field( 'advantages_text' )) {?>
                 <div class="advantages-text">
@@ -81,6 +82,21 @@ get_header();
                     <?php endwhile; ?>
                     <?php endif; ?>
                 </ul>
+
+                <div class="swiper-container">
+                    <ul>
+                        <?php if (have_rows('advantages_cards')): ?>
+                        <?php while ( have_rows( 'advantages_cards' ) ): the_row(); ?>
+                        <?php get_template_part('template-parts/advantages-card'); ?>
+                        <?php endwhile; ?>
+                        <?php endif; ?>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+
 
                 <?php  if (get_field( 'about_fund_btn_text' )) {?>
                 <a href=<?php the_field("about_fund_btn_link")?>

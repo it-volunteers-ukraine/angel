@@ -25,3 +25,14 @@ const swiper = new Swiper(".advantages-cards", {
     prevEl: ".button-prev",
   },
 });
+
+function showSwiper() {
+  if (window.innerWidth <= 375) {
+    swiper.init();
+  } else {
+    swiper.destroy();
+  }
+}
+
+window.addEventListener("resize", showSwiper);
+showSwiper();
