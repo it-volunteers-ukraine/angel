@@ -2,10 +2,10 @@
 $icon = get_sub_field('icon');
 $counter = get_sub_field( 'сounter' );
 $description   = get_sub_field( 'description' );
-
+$isSliderCard = $args['isSliderCard'] ?? false; 
 ?>
 
-<li class="card">
+<li class="card <?php echo( $isSliderCard ? 'swiper-slide' : '' ); ?>">
     <svg>
         <use
             href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#<?php echo esc_attr( $icon['alt'] ); ?>">

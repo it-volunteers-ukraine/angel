@@ -209,44 +209,6 @@
       gap: 44px;
     }
 
-    .swiper-container {
-      display: none;
-      @media (max-width: $width-xs) {
-        display: block;
-      }
-    }
-  }
-  .advantages-text {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 160%;
-    text-align: center;
-    color: $color-text-secondary;
-    @media (max-width: $width-l) {
-      font-size: 20px;
-    }
-    @media (max-width: $width-m) {
-      font-size: 18px;
-      text-align: left;
-    }
-    @media (max-width: $width-xs) {
-      font-size: 16px;
-    }
-  }
-  .advantages-cards {
-    display: flex;
-    gap: 32px;
-    @media (max-width: $width-l) {
-      gap: 24px;
-    }
-    @media (max-width: $width-m) {
-      flex-wrap: wrap;
-      width: 600px;
-    }
-    @media (max-width: $width-s) {
-      width: 100%;
-    }
-
     .card {
       width: 25%;
       border: 1px solid $color-gray-200;
@@ -280,7 +242,7 @@
       }
       @media (max-width: $width-xs) {
         padding: 28px 20px;
-        width: 100%;
+        width: 343px;
       }
       svg {
         width: 80px;
@@ -326,6 +288,60 @@
         @media (max-width: $width-xs) {
           font-size: 16px;
         }
+      }
+    }
+
+    .swiper-container {
+      display: none;
+      @media (max-width: $width-xs) {
+        display: block;
+        position: relative;
+        width: 343px;
+        height: 285px;
+      }
+    }
+    .swiper-wrapper {
+      height: 239px;
+    }
+    .swiper-pagination-bullet {
+      background-color: $color-gray-400;
+      &-active {
+        background-color: $color-gray-600;
+      }
+    }
+
+    .advantages-cards {
+      display: flex;
+      gap: 32px;
+      @media (max-width: $width-l) {
+        gap: 24px;
+      }
+      @media (max-width: $width-m) {
+        flex-wrap: wrap;
+        width: 600px;
+      }
+      @media (max-width: $width-s) {
+        width: 100%;
+      }
+      @media (max-width: $width-xs) {
+        display: none;
+      }
+    }
+    .advantages-text {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 160%;
+      text-align: center;
+      color: $color-text-secondary;
+      @media (max-width: $width-l) {
+        font-size: 20px;
+      }
+      @media (max-width: $width-m) {
+        font-size: 18px;
+        text-align: left;
+      }
+      @media (max-width: $width-xs) {
+        font-size: 16px;
       }
     }
   }

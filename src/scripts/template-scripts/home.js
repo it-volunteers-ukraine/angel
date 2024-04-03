@@ -1,28 +1,10 @@
-const swiper = new Swiper(".advantages-cards", {
-  loop: true,
-  keyboard: {
-    enabled: true,
-  },
-  slidesPerView: 1,
-  slidesPerGroup: 1,
+const swiper = new Swiper(".swiper-container", {
   direction: "horizontal",
-  spaceBetween: 32,
-  breakpoints: {
-    993: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      spaceBetween: 24,
-      direction: "vertical",
-    },
-    575: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      direction: "horizontal",
-    },
-  },
-  navigation: {
-    nextEl: ".button-next",
-    prevEl: ".button-prev",
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 24,
+  pagination: {
+    el: ".swiper-pagination",
   },
 });
 

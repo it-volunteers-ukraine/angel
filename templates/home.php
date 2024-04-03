@@ -84,16 +84,15 @@ get_header();
                 </ul>
 
                 <div class="swiper-container">
-                    <ul>
+                    <ul class="swiper-wrapper">
                         <?php if (have_rows('advantages_cards')): ?>
                         <?php while ( have_rows( 'advantages_cards' ) ): the_row(); ?>
-                        <?php get_template_part('template-parts/advantages-card'); ?>
+                        <?php get_template_part('template-parts/advantages-card', null, array('isSliderCard' => true)); ?>
                         <?php endwhile; ?>
                         <?php endif; ?>
                     </ul>
                     <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+
                 </div>
 
 
