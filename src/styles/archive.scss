@@ -1,0 +1,33 @@
+.section {
+    margin-bottom: 160px;
+    @media screen and (max-width: $width-l) {
+      margin-bottom: 100px;
+    }
+    @media screen and (max-width: $width-m) {
+      margin-bottom: 60px;
+    }
+}
+
+.projects {
+    .block {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+    }
+    .item__text {color: aqua;}
+    .pagination {
+        text-align: center;
+        a:active {
+            color: aqua;
+        }
+        a:hover {
+            color: aqua;
+        }
+    }
+    /*.pagination a.active {
+        color: #0087D2; 
+    }*/
+    .link.active {
+        color: #0087D2;
+    }
+}

@@ -1,0 +1,68 @@
+@import "../variables.scss";
+.section {
+    margin-bottom: 160px;
+    @media screen and (max-width: $width-l) {
+      margin-bottom: 100px;
+    }
+    @media screen and (max-width: $width-m) {
+      margin-bottom: 60px;
+    }
+}
+.project {
+    /*About================*/
+    .about {
+        &__body {}
+        &__title {
+            margin: 80px 0 32px 0;
+        }
+        &__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        &__img {
+            border-radius: 32px;
+            overflow: hidden;   
+            transition: opacity 0.8s ease 0s;
+            img {
+                border-radius: 32px;
+                opacity: 0.7;
+                transition: transform 0.8s ease 0s;
+                &:hover {               
+                    transition: ease 0.7s;
+                    transform: scale(1.1);
+                }   
+            }
+        }
+        &__info {}
+        &__purpose {}
+        &__task {
+            font-size: 20px;            
+            line-height: 32px;
+            margin-bottom: 32px;
+        }
+        &__text {
+            margin-bottom: 32px;
+        }
+        &__social {
+            display: flex;
+            align-items: center;
+            .share {                
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 38.4px;
+                margin-right: 32px;
+            }
+            .link {&:not(:last-child) { margin-right: 20px; } }
+            .icon {
+                fill: $color-blue;
+                vertical-align: middle;
+                width: 44px;
+                height: 44px;                
+                &:hover {
+                    fill: $color-blue-hover;
+                }
+            }
+        }
+    }
+}
