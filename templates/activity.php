@@ -29,7 +29,7 @@ get_header();
                 <?php } ?>
 
                 <?php if ( get_field( 'about_fond_name_text' ) ) { ?>
-                <p><?php the_field( 'about_fond_name_text' ); ?></p>
+                <p class="about-fond-name-text"><?php the_field( 'about_fond_name_text' ); ?></p>
                 <?php } ?>
             </div>
        </div>
