@@ -40,69 +40,13 @@ get_header();
         </div>
     </section>
     <section class="about-fund section">
-        <div class="container">
-            <?php  if (get_field( 'about_fund_title' )) {?>
-            <h2 class="title-h2">
-                <?php the_field("about_fund_title")?>
-            </h2>
-            <?php } ?>
 
-            <div class="info-wrapper">
-                <?php  if (get_field( 'about_fund_main_info' )) {?>
-                <div class="main-info">
-                    <?php the_field("about_fund_main_info")?>
-                </div>
-                <?php } ?>
+        <?php get_template_part('template-parts/about-fund-section'); ?>
 
-                <?php  if (get_field( 'about_fund_image' )) {?>
-                <div class="image-wrapper">
-                    <img src="<?php echo esc_url( get_field( 'about_fund_image' )['url'] ); ?>"
-                        alt="<?php echo esc_attr( get_field( 'about_fund_image' )['alt'] ); ?>" />
-                </div>
-                <?php } ?>
-
-                <?php  if (get_field( 'about_fund_sub_info' )) {?>
-                <div class="sub-info">
-                    <?php the_field("about_fund_sub_info")?>
-                </div>
-                <?php } ?>
-            </div>
-
-            <div class="advantages-wrapper">
-                <?php  if (get_field( 'advantages_text' )) {?>
-                <div class="advantages-text">
-                    <?php the_field("advantages_text")?>
-                </div>
-                <?php } ?>
-
-                <ul class="advantages-cards">
-                    <?php if (have_rows('advantages_cards')): ?>
-                    <?php while ( have_rows( 'advantages_cards' ) ): the_row(); ?>
-                    <?php get_template_part('template-parts/advantages-card'); ?>
-                    <?php endwhile; ?>
-                    <?php endif; ?>
-                </ul>
-
-                <div class="swiper-container">
-                    <ul class="swiper-wrapper">
-                        <?php if (have_rows('advantages_cards')): ?>
-                        <?php while ( have_rows( 'advantages_cards' ) ): the_row(); ?>
-                        <?php get_template_part('template-parts/advantages-card', null, array('isSliderCard' => true)); ?>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                    </ul>
-                    <div class="swiper-pagination"></div>
-
-                </div>
-
-
-
-                <?php  if (get_field( 'about_fund_btn_text' )) {?>
-                <a href=<?php the_field("about_fund_btn_link")?>
-                    class="tertiary-button"><?php the_field("about_fund_btn_text")?></a>
-                <?php } ?>
-            </div>
-        </div>
+        <?php  if (get_field( 'about_fund_btn_text' )) {?>
+        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button about-funb-btn">
+            <?php the_field("about_fund_btn_text")?></a>
+        <?php } ?>
 
     </section>
 </main>

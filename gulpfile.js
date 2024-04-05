@@ -47,13 +47,28 @@ function scriptsTemplates() {
     .pipe(dest("assets/scripts/template-scripts"));
 }
 
+function stylesTemplatesParts() {
+  return src("src/styles/template-parts-styles/*.scss")
+    .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
+    .pipe(scss({ outputStyle: "compressed" }))
+    .pipe(dest("assets/styles/template-parts-styles"));
+}
+
+function scriptsTemplatesParts() {
+  return src(["src/scripts/template-parts-scripts/*.js"])
+    .pipe(uglify())
+    .pipe(dest("assets/scripts/template-parts-scripts"));
+}
+
 function watching() {
   watch("src/styles/*scss", styles);
   watch("src/styles/template-styles/*scss", stylesTemplates);
+  watch("src/styles/template-parts-styles/*scss", stylesTemplatesParts);
   watch(["src/images"], images);
   watch(["src/fonts"], fonts);
   watch("src/scripts/*js", scripts);
   watch("src/scripts/template-scripts/*js", scriptsTemplates);
+  watch("src/scripts/template-parts-scripts/*js", scriptsTemplatesParts);
 }
 
 exports.styles = styles;
@@ -62,6 +77,8 @@ exports.images = images;
 exports.fonts = fonts;
 exports.scripts = scripts;
 exports.scriptsTemplates = scriptsTemplates;
+exports.stylesTemplatesParts = stylesTemplatesParts;
+exports.scriptsTemplatesParts = scriptsTemplatesParts;
 exports.watching = watching;
 exports.default = parallel(
   styles,
@@ -70,5 +87,7 @@ exports.default = parallel(
   fonts,
   scripts,
   scriptsTemplates,
+  stylesTemplatesParts,
+  scriptsTemplatesParts,
   watching
 );
