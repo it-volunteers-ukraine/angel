@@ -1,0 +1,60 @@
+@import "../variables.scss";
+
+.activity {
+    padding-top: 80px;
+    padding-bottom: 160px;
+    @media (max-width: $width-l) {
+        padding-bottom: 134px;
+    }
+
+    .work-directions {
+        max-width: 1051px;
+        margin-bottom: 56px;
+        @media (max-width: $width-l) {
+            max-width: 893px;
+            margin-bottom: 44px;
+        }
+        @media (max-width: $width-m) {
+            max-width: 100%;
+            margin-bottom: 24px;
+        }
+        @media (max-width: $width-m) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .activity-block-title {
+        margin-bottom: 12px;
+        @media (max-width: $width-m) {
+            font-size: 20px;
+        }
+        @media (max-width: $width-xs) {
+            font-size: 16px;
+        }
+    }
+
+    .work-directions-list {
+        list-style-type: disc;
+        list-style-position: outside;
+        padding-left: 24px;
+        @media (max-width: $width-m) {
+            font-weight: 500;
+        }
+    }
+
+    .about-fond-name {
+        max-width: 1055px;
+        @media (max-width: $width-l) {
+            max-width: 893px;
+        }
+        @media (max-width: $width-m) {
+            max-width: 100%;
+        }
+    }
+
+    .about-fond-name-text {
+        @media (max-width: $width-m) {
+            font-weight: 500;
+        }
+    }
+}
