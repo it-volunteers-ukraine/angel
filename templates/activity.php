@@ -7,7 +7,8 @@ get_header();
 <main>
     <section class="activity">
        <div class="container">
-            <h2 class="title-h5"><?php the_field( 'about_fond_work_directions_title' ); ?></h2>
+            <div class="work-directions">
+                <h2 class="title-h5 activity-block-title"><?php the_field( 'about_fond_work_directions_title' ); ?></h2>
                 <?php if( have_rows('about_fond_work_directions_list') ): ?>
                     
                     <ul class="work-directions-list">
@@ -19,16 +20,18 @@ get_header();
                         <?php endwhile; ?>
 
                     </ul>
-
                 <?php endif; ?>
+            </div>
 
-            <?php if ( get_field( 'about_fond_name_title' ) ) { ?>
-                <h2 class="title-h5"><?php the_field( 'about_fond_name_title' ); ?></h2>
-            <?php } ?>
+            <div class="about-fond-name">
+                <?php if ( get_field( 'about_fond_name_title' ) ) { ?>
+                    <h2 class="title-h5 activity-block-title"><?php the_field( 'about_fond_name_title' ); ?></h2>
+                <?php } ?>
 
-            <?php if ( get_field( 'about_fond_name_text' ) ) { ?>
-            <p><?php the_field( 'about_fond_name_text' ); ?></p>
-            <?php } ?>
+                <?php if ( get_field( 'about_fond_name_text' ) ) { ?>
+                <p><?php the_field( 'about_fond_name_text' ); ?></p>
+                <?php } ?>
+            </div>
        </div>
     </section>
    

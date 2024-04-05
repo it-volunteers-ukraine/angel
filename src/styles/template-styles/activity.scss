@@ -1,9 +1,36 @@
 .activity {
     padding-top: 80px;
     padding-bottom: 160px;
+    @media (max-width: $width-l) {
+        padding-bottom: 134px;
+    }
+
+    .work-directions {
+        max-width: 1051px;
+        margin-bottom: 56px;
+        @media (max-width: $width-l) {
+            max-width: 893px;
+            margin-bottom: 44px;
+        }
+    }
+
+    .activity-block-title {
+        margin-bottom: 12px;
+    }
+
+  
 
     .work-directions-list {
-        list-style: inside;
+        list-style-type: disc;
+        list-style-position: outside;
+        padding-left: 26px;
+    }
 
+    .about-fond-name {
+        max-width: 1055px;
+        @media (max-width: $width-l) {
+            max-width: 893px;
+        }
+        
     }
 }
