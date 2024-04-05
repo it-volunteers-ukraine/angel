@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .activity {
     padding-top: 80px;
     padding-bottom: 160px;
@@ -23,7 +25,7 @@
     .work-directions-list {
         list-style-type: disc;
         list-style-position: outside;
-        padding-left: 26px;
+        padding-left: 24px;
     }
 
     .about-fond-name {
