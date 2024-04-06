@@ -5,7 +5,7 @@ body {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -39,6 +39,11 @@ a {
 
 button {
   cursor: pointer;
+  color: inherit;
+  font: inherit;  
+  outline: none;
+  border: none;
+  background: transparent;
 }
 
 //push the footer to the bottom of the page

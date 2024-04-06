@@ -46,13 +46,15 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/assets/styles/template-styles/contacts.css', array('main') );
     wp_enqueue_script( 'contacts-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/contacts.js', array(), false, true );
   }
+  if ( is_page_template('templates/project.php') ) {
+    wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
+    wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
+  }
 
   if (is_singular() && locate_template('template-parts/about-fund-section.php')) {
-    wp_enqueue_style( 'about-fund-section', get_template_directory_uri() . '/assets/styles/template-parts-styles/about-fund-section.css', array('main') );
-    wp_enqueue_script( 'about-fund-section', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/about-fund-section.js', array(), false, true );
-    }
-
- 
+    wp_enqueue_style( 'about-fund-section-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/about-fund-section.css', array('main') );
+    wp_enqueue_script( 'about-fund-section-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/about-fund-section.js', array(), false, true );
+  }
 }
 /** add fonts */
 function add_google_fonts() {
