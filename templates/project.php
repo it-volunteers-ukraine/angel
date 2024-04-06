@@ -16,7 +16,7 @@ $project_alt = get_field('project-name', $post);
     <section class="about section"> 
         <div class="container">
             <div class="about__body section">
-                <h2 class="about__title title-h2"><?php echo $project_title ?></h2>
+                <h2 class="page-title title-h2"><?php echo $project_title ?></h2>
                 <div class="about__content">
                     <div class="about__img">
                         <img src="<?php echo $project_img ?>" alt="<?php echo $project_alt; ?>">
@@ -58,5 +58,6 @@ $project_alt = get_field('project-name', $post);
             </div>  
         </div>
     </section>
+    <section id="support-project"></secion>
 <main>
 <?php get_footer(); ?>

@@ -133,3 +133,29 @@ body {
     font-size: 12px;
   }
 }
+
+.section {
+  margin-bottom: 160px;
+  @media screen and (max-width: $width-l) {
+    margin-bottom: 136px;
+  }
+  @media screen and (max-width: $width-m) {
+    margin-bottom: 120px;
+  }
+  @media screen and (max-width: $width-mobile) {
+    margin-bottom: 80px;
+  }
+}
+
+.page-title {
+  margin: 80px 0 32px 0;
+  @media screen and (max-width: $width-l) {
+    margin: 80px 0 24px 0;
+  }
+  @media screen and (max-width: $width-m) {
+    margin: 56px 0 24px 0;
+  }
+  @media screen and (max-width: $width-mobile) {
+    margin: 40px 0 20px 0;
+  }
+}

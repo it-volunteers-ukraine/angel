@@ -62,13 +62,54 @@ document.addEventListener('DOMContentLoaded', paginateProjects);
 
 
 //shorten the text of elements using the “item__text” class
-const elements = document.querySelectorAll('.item__text');
+// const elements = document.querySelectorAll('.item__text');
 
-elements.forEach(element => {    
-    const text = element.textContent.trim();    
-    if (text.length > 30) {       
-        const shortenedText = text.substring(0, 30) + '...';
+// elements.forEach(element => {    
+//     const text = element.textContent.trim();    
+//     if (text.length > 90) {       
+//         const shortenedText = text.substring(0, 90) + '...';
         
-        element.textContent = shortenedText;
+//         element.textContent = shortenedText;
+//     }
+// });
+
+window.addEventListener('DOMContentLoaded', function() {
+    const itemTextElements = document.querySelectorAll('.item__text');
+
+    function truncateText(element, maxLength) {
+        const text = element.textContent.trim();
+        const screenWidth = window.innerWidth;
+        let truncatedText = text;
+
+        if (text.length > maxLength) {
+            const screenWidthThresholds = {
+                1920: 90,
+                1440: 50,
+                992: 40,
+                768: 35,
+                375: 20
+            };
+
+            for (const width in screenWidthThresholds) {
+                if (screenWidth <= parseInt(width)) {
+                    maxLength = screenWidthThresholds[width];
+                    break;
+                }
+            }
+
+            truncatedText = text.substring(0, maxLength).trim() + '...';
+        }
+
+        element.textContent = truncatedText;
     }
+
+    itemTextElements.forEach(function(element) {
+        truncateText(element, 100); 
+    });
+
+    window.addEventListener('resize', function() {
+        itemTextElements.forEach(function(element) {
+            truncateText(element, 100); 
+        });
+    });
 });

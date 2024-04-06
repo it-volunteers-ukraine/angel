@@ -1,20 +1,8 @@
 @import "../variables.scss";
-.section {
-    margin-bottom: 160px;
-    @media screen and (max-width: $width-l) {
-      margin-bottom: 100px;
-    }
-    @media screen and (max-width: $width-m) {
-      margin-bottom: 60px;
-    }
-}
+
 .project {
     /*About================*/
-    .about {
-        &__body {}
-        &__title {
-            margin: 80px 0 32px 0;
-        }
+    .about {                
         &__content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -33,9 +21,7 @@
                     transform: scale(1.1);
                 }   
             }
-        }
-        &__info {}
-        &__purpose {}
+        }        
         &__task {
             font-size: 20px;            
             line-height: 32px;
