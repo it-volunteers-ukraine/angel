@@ -13,13 +13,6 @@ function images() {
     .pipe(dest("assets/images"));
 }
 
-function fonts() {
-  return src("src/fonts/*.*")
-    .pipe(newer("assets/fonts"))
-    .pipe(imagemin())
-    .pipe(dest("assets/fonts"));
-}
-
 function stylesTemplates() {
   return src("src/styles/template-styles/*.scss")
     .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
@@ -65,7 +58,6 @@ function watching() {
   watch("src/styles/template-styles/*scss", stylesTemplates);
   watch("src/styles/template-parts-styles/*scss", stylesTemplatesParts);
   watch(["src/images"], images);
-  watch(["src/fonts"], fonts);
   watch("src/scripts/*js", scripts);
   watch("src/scripts/template-scripts/*js", scriptsTemplates);
   watch("src/scripts/template-parts-scripts/*js", scriptsTemplatesParts);
@@ -74,7 +66,6 @@ function watching() {
 exports.styles = styles;
 exports.stylesTemplates = stylesTemplates;
 exports.images = images;
-exports.fonts = fonts;
 exports.scripts = scripts;
 exports.scriptsTemplates = scriptsTemplates;
 exports.stylesTemplatesParts = stylesTemplatesParts;
@@ -84,7 +75,6 @@ exports.default = parallel(
   styles,
   stylesTemplates,
   images,
-  fonts,
   scripts,
   scriptsTemplates,
   stylesTemplatesParts,
