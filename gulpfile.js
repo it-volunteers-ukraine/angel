@@ -23,13 +23,26 @@ function fonts() {
 function stylesTemplates() {
   return src("src/styles/template-styles/*.scss")
     .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
+    .pipe(scss().on("error", scss.logError))
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(dest("assets/styles/template-styles"));
+}
+
+function stylesTemplatesParts() {
+  return (
+    src("src/styles/template-parts-styles/*.scss")
+      // .pipe(plumber())
+      .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
+      .pipe(scss().on("error", scss.logError))
+      .pipe(scss({ outputStyle: "compressed" }))
+      .pipe(dest("assets/styles/template-parts-styles"))
+  );
 }
 
 function styles() {
   return src("src/styles/main.scss")
     .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
+    .pipe(scss().on("error", scss.logError))
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(dest("assets/styles"));
 }
@@ -47,14 +60,7 @@ function scriptsTemplates() {
     .pipe(dest("assets/scripts/template-scripts"));
 }
 
-function stylesTemplatesParts() {
-  return src("src/styles/template-parts-styles/*.scss")
-    .pipe(autoprefixer({ overrideBrowserslist: ["last 10 versions"] }))
-    .pipe(scss({ outputStyle: "compressed" }))
-    .pipe(dest("assets/styles/template-parts-styles"));
-}
-
-function scriptsTemplatesParts() {
+function scriptsTemplateParts() {
   return src(["src/scripts/template-parts-scripts/*.js"])
     .pipe(uglify())
     .pipe(dest("assets/scripts/template-parts-scripts"));
@@ -68,26 +74,26 @@ function watching() {
   watch(["src/fonts"], fonts);
   watch("src/scripts/*js", scripts);
   watch("src/scripts/template-scripts/*js", scriptsTemplates);
-  watch("src/scripts/template-parts-scripts/*js", scriptsTemplatesParts);
+  watch("src/scripts/template-parts-scripts/*js", scriptsTemplateParts);
 }
 
 exports.styles = styles;
 exports.stylesTemplates = stylesTemplates;
+exports.stylesTemplatesParts = stylesTemplatesParts;
 exports.images = images;
 exports.fonts = fonts;
 exports.scripts = scripts;
 exports.scriptsTemplates = scriptsTemplates;
-exports.stylesTemplatesParts = stylesTemplatesParts;
-exports.scriptsTemplatesParts = scriptsTemplatesParts;
+exports.scriptsTemplateParts = scriptsTemplateParts;
 exports.watching = watching;
 exports.default = parallel(
   styles,
   stylesTemplates,
+  stylesTemplatesParts,
   images,
   fonts,
   scripts,
   scriptsTemplates,
-  stylesTemplatesParts,
-  scriptsTemplatesParts,
+  scriptsTemplateParts,
   watching
 );
