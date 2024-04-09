@@ -2,21 +2,17 @@
 
 .activity {
     padding-top: 80px;
-    padding-bottom: 160px;
-    @media (max-width: $width-l) {
-        padding-bottom: 134px;
-    }
 
     .work-directions {
-        max-width: 1051px;
         margin-bottom: 56px;
+        margin-right: 549px;
         @media (max-width: $width-l) {
-            max-width: 893px;
             margin-bottom: 44px;
+            margin-right: 307px;
         }
         @media (max-width: $width-m) {
-            max-width: 100%;
             margin-bottom: 24px;
+            margin-right: 0px;
         }
         @media (max-width: $width-m) {
             margin-bottom: 20px;
@@ -43,18 +39,31 @@
     }
 
     .about-fond-name {
-        max-width: 1055px;
+        margin-right: 545px;
         @media (max-width: $width-l) {
-            max-width: 893px;
+            margin-right: 307px;
         }
         @media (max-width: $width-m) {
-            max-width: 100%;
+            margin-right: 0px;
         }
     }
 
     .about-fond-name-text {
         @media (max-width: $width-m) {
             font-weight: 500;
+        }
+    }
+
+    .about-fund-section-continue {
+        margin-top: 56px;
+        @media (max-width: $width-l) {
+            margin-tpo: 44px;
+        }
+        @media (max-width: $width-m) {
+            margin-top: 24px;
+        }
+        @media (max-width: $width-m) {
+            margin-top: 20px;
         }
     }
 }
