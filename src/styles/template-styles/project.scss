@@ -9,17 +9,11 @@
             gap: 32px;
         }
         &__img {
-            border-radius: 32px;
-            overflow: hidden;   
-            transition: opacity 0.8s ease 0s;
+            border-radius: 32px;            
             img {
                 border-radius: 32px;
-                opacity: 0.7;
-                transition: transform 0.8s ease 0s;
-                &:hover {               
-                    transition: ease 0.7s;
-                    transform: scale(1.1);
-                }   
+                opacity: 0.9;
+                object-fit: cover;                
             }
         }        
         &__task {

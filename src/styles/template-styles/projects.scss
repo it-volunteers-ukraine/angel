@@ -1,0 +1,27 @@
+@import "../variables.scss";
+
+.projects {       
+    .pagination {
+        display: flex;
+        gap: 12px;
+        align-items: center; 
+        justify-content: center;             
+        a:hover {
+            color: $color-blue-hover;
+        }
+    }    
+    .link.active {   
+        font-size: 18px;       
+        color: $color-blue;  
+        position: relative;      
+        &::after {
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 120%; 
+            height: 2px; 
+            background-color: $color-blue 
+        }       
+    }    
+}
