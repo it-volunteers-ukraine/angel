@@ -46,6 +46,34 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/assets/styles/template-styles/contacts.css', array('main') );
     wp_enqueue_script( 'contacts-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/contacts.js', array(), false, true );
   }
+  if ( is_page_template('templates/projects.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-all.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-military.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-migrant.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-children.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-art.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
+  if ( is_page_template('templates/projects-animal.php') ) {
+    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
+    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
+  }
   if ( is_page_template('templates/project.php') ) {
     wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
     wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
