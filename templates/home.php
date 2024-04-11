@@ -70,7 +70,6 @@ get_header();
                     $title = $directionsItem['title']; 
                     $text = $directionsItem['text']; 
                     $btnText = $directionsItem['btn_text']; 
-                    $btnLink = $directionsItem['btn_link']; 
                     ?>
                     <li class="directions-card <?php echo $counter === 0 ? "active": ""?>">
                         <div class="decor">
@@ -94,7 +93,8 @@ get_header();
                         </div>
                         <div class="extra-content">
                             <?php echo $text; ?>
-                            <a href="<?php echo $btnlink; ?>" class="secondary-button"><?php echo $btnText; ?></a>
+                            <a href="<?php echo $directionsItem['btn_link']; ?>"
+                                class="secondary-button"><?php echo $btnText; ?></a>
                         </div>
                     </li>
                     <?php
