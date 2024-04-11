@@ -74,7 +74,7 @@ get_header();
                     ?>
                     <li class="directions-card <?php echo $counter === 0 ? "active": ""?>">
                         <div class="decor">
-                            <img src="<?php echo get_template_directory_uri() ?>./src/images/decor.png" alt="">
+                            <img src="<?php echo get_template_directory_uri() ?>/src/images/decor.png" alt="decor">
                         </div>
                         <div class="title-wrapper">
                             <div class="arrow-wrapper">
