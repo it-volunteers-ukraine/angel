@@ -5,8 +5,11 @@ Template Name: Activity
 get_header();
 ?>
 <main>
-    <section class="activity">
-       <div class="container">
+  
+    <section class="about-fund activity section">
+        <div><?php get_template_part('template-parts/about-fund-section'); ?></div>
+       <div class="container about-fund-section-continue">
+
             <div class="work-directions">
                 <h2 class="title-h5 activity-block-title"><?php the_field( 'about_fond_work_directions_title' ); ?></h2>
                 <?php if( have_rows('about_fond_work_directions_list') ): ?>
@@ -35,7 +38,6 @@ get_header();
        </div>
     </section>
    
-
 
 </main>
 
