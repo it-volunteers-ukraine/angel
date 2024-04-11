@@ -23,4 +23,3 @@ function showSwiper() {
 }
 
 window.addEventListener("resize", showSwiper);
-showSwiper();
