@@ -49,6 +49,77 @@ get_header();
         <?php } ?>
 
     </section>
+
+    <section class="directions section">
+        <div class="container">
+            <?php  if (get_field( 'directions_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("directions_title")?>
+            </h2>
+            <?php } ?>
+
+            <div class="directions-container">
+                <?php
+            $directionsList = get_field('derections_list');
+            if ($directionsList) { 
+            ?>
+                <ul class="directions-cards">
+                    <?php 
+                    $counter = 0;
+                    foreach ($directionsList as $directionsItem): 
+                    $title = $directionsItem['title']; 
+                    $text = $directionsItem['text']; 
+                    $btnText = $directionsItem['btn_text']; 
+                    ?>
+                    <li class="directions-card <?php echo $counter === 0 ? "active": ""?>">
+                        <div class="decor">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/decor.png" alt="decor">
+                        </div>
+                        <div class="title-wrapper">
+                            <div class="arrow-wrapper">
+                                <svg width="44" height="44" class="arrow">
+                                    <use
+                                        href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-arrow">
+                                    </use>
+                                </svg>
+                                <svg width="24" height="24" class="arrow-small">
+                                    <use
+                                        href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-arrow-small">
+                                    </use>
+                                </svg>
+                            </div>
+
+                            <p class="title"><?php echo $title; ?></p>
+                        </div>
+                        <div class="extra-content">
+                            <?php echo $text; ?>
+                            <a href="<?php echo $directionsItem['btn_link']; ?>"
+                                class="secondary-button"><?php echo $btnText; ?></a>
+                        </div>
+                    </li>
+                    <?php
+                    $counter ++;
+                    endforeach ?>
+                </ul>
+
+                <ul class="directions-images-wrapper">
+                    <?php
+                    $counter = 0;
+                     foreach ($directionsList as $directionsItem): 
+                    $image = $directionsItem['image']; 
+                    ?>
+                    <li class="image-wrapper <?php echo $counter === 0 ? "active": ""?>">
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                    </li>
+                    <?php
+                    $counter ++;
+                     endforeach ?>
+                </ul>
+                <?php
+            }?>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>
