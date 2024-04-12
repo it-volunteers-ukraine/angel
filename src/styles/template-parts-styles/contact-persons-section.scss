@@ -1,0 +1,148 @@
+@import "../variables.scss";
+
+.contact-persons {
+    .contact-persons-wrapper {
+        margin-top: 32px;
+        @media (max-width: $width-l) {
+            margin-top: 24px;  
+        }
+        @media (max-width: $width-mobile) {
+            margin-top: 20px;
+        }
+    }
+    .contacts-persons-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+        @media (max-width: $width-l) {
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 24px;
+        }
+        @media (max-width: $width-m) {
+            grid-template-columns: 1fr 1fr; 
+        }
+        @media (max-width: $width-mobile) {
+            display: none; 
+        }
+    }
+
+    .contact-person-card {
+        @media (max-width: $width-mobile) {
+           padding: 20px;
+           border: 1px solid $color-gray-200;
+           border-radius: 16px;
+           box-shadow: 0 2px 8px 0 rgba(40, 41, 61, 0.04);
+        }
+    }
+
+    .photo-wrapper {
+        height: 360px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 32px;
+        @media (max-width: $width-l) {
+            height: 280px;
+        }
+        @media (max-width: $width-m) {
+            height: 276px;
+            border-radius: 16px;
+        }
+        @media (max-width: $width-s) {
+            height: 240px;
+        }
+        @media (max-width: $width-xs) {
+            height: 200px;
+        }
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .full-name {
+        margin-bottom: 8px;
+    }
+
+    .position {
+        margin-bottom: 32px;
+        @media(max-width: $width-l) {
+            margin-bottom: 24px;
+        }
+        @media(max-width: $width-l) {
+            margin-bottom: 32px;
+        }
+        @media(max-width: $width-s) {
+            margin-bottom: 16px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+
+    .about-person-text{
+        margin-bottom: 32px;
+        @media(max-width: $width-l) {
+            margin-bottom: 24px;
+        }
+        @media(max-width: $width-l) {
+            margin-bottom: 32px;
+        }
+        @media(max-width: $width-s) {
+            margin-bottom: 16px;
+        }
+    }
+
+    .contacts-title {
+        margin-bottom: 8px;
+    }
+
+    .contacts-item {
+        &:not(:last-child) {
+            margin-bottom: 12px;
+            @media(max-width: $width-s) {
+                margin-bottom: 8px;
+            }
+            @media(max-width: $width-mobile) {
+                margin-bottom: 4px;
+            }
+        }
+        
+    }
+
+    .contacts-link {
+        display: flex;
+        gap: 16px;
+    }
+
+    .contact-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        svg {
+            fill: $color-blue
+        }
+    }
+
+    .swiper-contact-persons-container {
+        display: none;
+        @media (max-width: $width-mobile) {
+            display: block;
+            position: relative;
+            padding-bottom: 56px;
+        }
+        .swiper-pagination-bullet {
+            background-color: $color-gray-400;
+            &-active {
+              background-color: $color-gray-600;
+            }
+        }
+    }
+
+    
+    
+    
+
+}
+
