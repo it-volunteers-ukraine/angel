@@ -1,0 +1,1 @@
+const swiperContactPersons=new Swiper(".swiper-contact-persons-container",{direction:"horizontal",loop:!0,slidesPerView:1,spaceBetween:16,pagination:{el:".swiper-pagination"}});
