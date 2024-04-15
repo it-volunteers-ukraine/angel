@@ -4,7 +4,7 @@ function paginateProjects() {
     
     if (container) {
         const items = container.querySelectorAll('.item');
-        const itemsPerPage = 4;
+        const itemsPerPage = 6;
         const totalPages = Math.ceil(items.length / itemsPerPage);
         
         function displayPage(pageNumber) {
