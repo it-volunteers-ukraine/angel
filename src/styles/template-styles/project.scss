@@ -7,38 +7,109 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 32px;
+            @media screen and (max-width: $width-l) {
+                gap: 24px;                
+            }
+            @media screen and (max-width: $width-m) {
+                grid-template-columns: 1fr;            
+            }
+            @media screen and (max-width: $width-mobile) {               
+                gap: 20px;                
+            }
         }
         &__img {
             border-radius: 32px;            
             img {
                 border-radius: 32px;
                 opacity: 0.9;
-                object-fit: cover;                
+                object-fit: cover;      
+                @media screen and (max-width: $width-m) {
+                    border-radius: 16px;           
+                }          
             }
-        }        
+        } 
+        &__info-tablet {
+            display: none;
+            @media screen and (max-width: $width-m) {
+                display: block;          
+            }
+        }
+        &__task-tablet {
+            font-size: 18px;                       
+            line-height: 28px;  
+            @media screen and (max-width: $width-mobile) {
+                font-size: 14px;                       
+                line-height: 22px; 
+            }            
+        }
+        &__purpose {
+            @media screen and (max-width: $width-m) {
+                display: none;          
+            }
+        }       
         &__task {
             font-size: 20px;            
             line-height: 32px;
             margin-bottom: 32px;
+            @media screen and (max-width: $width-l) {
+                font-size: 18px;            
+                line-height: 28px;
+                margin-bottom: 24px;                          
+            }
+            @media screen and (max-width: $width-m) {
+                display: none;          
+            }
         }
         &__text {
             margin-bottom: 32px;
+            @media screen and (max-width: $width-l) {
+                margin-bottom: 24px;
+            }
+            @media screen and (max-width: $width-mobile) {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22.4px;
+                margin-bottom: 20px;
+            }
         }
         &__social {
             display: flex;
             align-items: center;
+            gap: 32px;
+            @media screen and (max-width: $width-mobile) {
+                flex-direction: column;
+                gap: 20px;
+            } 
             .share {                
                 font-size: 24px;
                 font-weight: 700;
-                line-height: 38.4px;
-                margin-right: 32px;
+                line-height: 38.4px;                
+                @media screen and (max-width: $width-l) {
+                    font-size: 20px;                    
+                    line-height: 32px;                    
+                }
+                @media screen and (max-width: $width-mobile) {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 25.6px;
+                }
             }
-            .link {&:not(:last-child) { margin-right: 20px; } }
+            &-block {
+                display: flex;
+                gap: 20px;
+                @media screen and (max-width: $width-mobile) {
+                    gap: 12px;
+                }
+            }           
             .icon {
                 fill: $color-blue;
                 vertical-align: middle;
                 width: 44px;
-                height: 44px;                
+                height: 44px;  
+                @media screen and (max-width: $width-mobile) {
+                    width: 40px;
+                    height: 40px;  
+                }              
                 &:hover {
                     fill: $color-blue-hover;
                 }
