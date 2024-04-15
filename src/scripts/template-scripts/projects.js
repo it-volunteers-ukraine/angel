@@ -84,10 +84,10 @@ window.addEventListener('DOMContentLoaded', function() {
         if (text.length > maxLength) {
             const screenWidthThresholds = {
                 1920: 90,
-                1440: 50,
-                992: 40,
-                768: 35,
-                375: 20
+                1440: 70,
+                992: 65,
+                768: 60,
+                576: 55,
             };
 
             for (const width in screenWidthThresholds) {
