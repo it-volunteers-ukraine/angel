@@ -4,7 +4,7 @@ Template Name: home
 */
 get_header();
 ?>
-<main>
+<main class="home">
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-image-wrapper">
@@ -44,7 +44,7 @@ get_header();
         <?php get_template_part('template-parts/about-fund-section'); ?>
 
         <?php  if (get_field( 'about_fund_btn_text' )) {?>
-        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button about-funb-btn">
+        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button read-more-btn">
             <?php the_field("about_fund_btn_text")?></a>
         <?php } ?>
 
@@ -119,6 +119,35 @@ get_header();
             }?>
             </div>
         </div>
+    </section>
+
+    <section class="projects section">
+        <div class="container">
+            <?php  if (get_field( 'projects_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("projects_title")?>
+            </h2>
+            <?php } ?>
+
+            <ul class="projects-list">
+                <?php 
+                $category_name = get_field('category-name');
+                $my_posts = get_posts(['category_name' => $category_name, 'posts_per_page' => 6,]);
+                         foreach ($my_posts as $post):
+                        get_template_part('template-parts/projects-card');
+                        ?>
+                <?php wp_reset_postdata(); endforeach ?>
+
+
+            </ul>
+        </div>
+
+
+        <?php  if (get_field( 'projects_btn_text' )) {?>
+        <a href=<?php the_field("projects_btn_link")?> class="tertiary-button read-more-btn">
+            <?php the_field("projects_btn_text")?></a>
+        <?php } ?>
+
     </section>
 </main>
 

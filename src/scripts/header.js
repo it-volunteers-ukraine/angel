@@ -15,6 +15,7 @@ mobileHeaderMenu.querySelectorAll("& > li > a").forEach((item) => {
 
       subMenuList.first().slideToggle(400);
       jQuery(item).parent().toggleClass("toggel-icon");
+      jQuery(item).parent().toggleClass("open-acardion");
     }
   });
 });

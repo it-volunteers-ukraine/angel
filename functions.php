@@ -91,6 +91,9 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'contact-persons-section-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/contact-persons-section.css', array('main') );
     wp_enqueue_script( 'contact-persons-section-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/contact-persons-section.js', array(), false, true );
   }
+  if (is_singular() && locate_template('template-parts/projects-card.php')) {
+    wp_enqueue_style( 'projects-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-card.css', array('main') );
+  }
 }
 /** add fonts */
 function add_google_fonts() {

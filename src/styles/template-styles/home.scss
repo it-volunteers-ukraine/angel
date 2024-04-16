@@ -123,14 +123,19 @@
     margin-top: 84px;
   }
 }
+.read-more-btn {
+  margin: 56px auto 0;
+  @media (max-width: $width-l) {
+    margin: 44px auto 0;
+  }
+  @media (max-width: 376px) {
+    margin: 16px auto 0;
+  }
+}
 
 .directions-container {
   display: flex;
   gap: 24px;
-  margin-top: 32px;
-  @media (max-width: $width-l) {
-    margin-top: 24px;
-  }
   @media (max-width: $width-m) {
     justify-content: center;
   }
@@ -155,6 +160,7 @@
     border-radius: 32px;
     padding: 32px;
     box-shadow: 5px 6px 15px 5px rgba(151, 151, 151, 0.1);
+    transition: background-color $transition-base;
 
     @media (max-width: $width-l) {
       padding: 24px;
@@ -162,6 +168,16 @@
     @media (max-width: 376px) {
       padding: 16px;
     }
+
+    &:hover {
+      background-color: $color-gray-100;
+      .arrow-wrapper {
+        use {
+          fill: $color-blue;
+        }
+      }
+    }
+
     &.active {
       .decor {
         display: flex;
@@ -210,6 +226,9 @@
       .arrow-wrapper {
         width: 44px;
         height: 44px;
+        use {
+          transition: fill $transition-base;
+        }
         @media (max-width: 376px) {
           display: flex;
           align-items: center;
@@ -289,6 +308,43 @@
     }
     .active {
       opacity: 1;
+    }
+  }
+}
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .projects-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    @media screen and (max-width: $width-l) {
+      gap: 24px;
+    }
+    @media screen and (max-width: 1100px) {
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      max-height: 1170px;
+      padding: 15px;
+      margin: -15px;
+    }
+    @media screen and (max-width: $width-mobile) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-height: 1610px;
+    }
+  }
+}
+.home {
+  .title-h2 {
+    margin-bottom: 32px;
+    @media screen and (max-width: $width-l) {
+      margin-bottom: 24px;
+    }
+    @media screen and (max-width: 376px) {
+      margin-bottom: 24px;
     }
   }
 }
