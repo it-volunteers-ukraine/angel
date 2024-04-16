@@ -1,0 +1,1 @@
+const aboutArrowBtn=document.querySelector(".about-heading-icon-wrapper"),conetentEls=document.querySelectorAll(".toggle-open-close-content"),iconEl=document.querySelector(".about-heading-icon");aboutArrowBtn.addEventListener("click",(()=>{conetentEls.forEach((e=>e.classList.toggle("is-open"))),iconEl.classList.toggle("about-icon-rotate")}));
