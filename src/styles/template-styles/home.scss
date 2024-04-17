@@ -1,5 +1,18 @@
 @import "../variables.scss";
 @import "../buttons.scss";
+
+.home {
+  background-color: $color-gray-100;
+  .title-h2 {
+    margin-bottom: 32px;
+    @media screen and (max-width: $width-l) {
+      margin-bottom: 24px;
+    }
+    @media screen and (max-width: 376px) {
+      margin-bottom: 24px;
+    }
+  }
+}
 .hero {
   background: linear-gradient(
     138deg,
@@ -261,22 +274,25 @@
     }
     .extra-content {
       display: none;
-      margin: 12px 76px 0 0;
-      @media (max-width: $width-l) {
-        margin-right: 48px;
-      }
+
       p {
-        margin-bottom: 36px;
         color: $color-text-secondary;
         min-height: 125px;
+        margin: 12px 76px 36px 0;
         @media (max-width: $width-l) {
           margin-bottom: 24px;
+          margin-right: 48px;
         }
         @media (max-width: $width-m) {
           margin-bottom: 32px;
           min-height: auto;
           font-weight: 500;
         }
+      }
+    }
+    .secondary-button {
+      @media (max-width: 376px) {
+        width: 100%;
       }
     }
   }
@@ -339,14 +355,31 @@
     }
   }
 }
-.home {
-  .title-h2 {
-    margin-bottom: 32px;
+
+.help {
+  .help-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0 auto;
+    align-items: center;
     @media screen and (max-width: $width-l) {
-      margin-bottom: 24px;
+      gap: 36px;
+    }
+    @media screen and (max-width: $width-m) {
+      gap: 44px;
+    }
+    @media screen and (max-width: $width-s) {
+      maw-width: 100%;
     }
     @media screen and (max-width: 376px) {
-      margin-bottom: 24px;
+      gap: 16px;
     }
   }
+}
+
+.auction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

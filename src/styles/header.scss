@@ -322,7 +322,7 @@
       left: 160px;
       margin: 0;
       @media screen and (max-width: $width-s) {
-        left: 118px;
+        left: 128px;
       }
       @media screen and (max-width: 480px) {
         position: absolute;
@@ -336,7 +336,7 @@
     .lang-item-first {
       left: 104px;
       @media screen and (max-width: $width-s) {
-        left: 70px;
+        left: 80px;
       }
       @media screen and (max-width: 480px) {
         right: 63px;
