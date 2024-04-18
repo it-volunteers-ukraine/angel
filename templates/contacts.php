@@ -9,6 +9,7 @@ get_header();
     <section class="contact-us section">
         <div class="container">
             <div class="contact-us__content">
+                <!-- Зображення -->
                 <div class="contact-us__img">
                     <?php 
                     $image = get_field('contact_image');
@@ -16,9 +17,13 @@ get_header();
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
                     <?php endif; ?>
                 </div>
-                <div class="contact-us__info">
-                    <h2 class="page-title title-h2 contact-us__info__title"><?php the_field('contact_title'); ?></h2>
+                <!-- Заголовок з текстом -->
+                <div class="contact-us__text">
+                    <h2 class="page-title title-h2 contact-us__title"><?php the_field('contact_title'); ?></h2>
                     <p><?php the_field('contact_text'); ?></p>
+                </div>
+                <!-- Блок з інформацією -->
+                <div class="contact-us__info">
                     <!-- Наша адреса -->
                     <div class="info__block">
                         <h5 class="title-h5"><?php the_field('our_address_title'); ?></h5>
@@ -82,7 +87,7 @@ get_header();
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
             </div>
         </div>
     </section>
