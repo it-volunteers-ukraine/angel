@@ -91,8 +91,8 @@ get_header();
             </div>
         </div>
     </section>
-    <section class="contact__persons section">
-        <?php get_template_part('template-parts/contact-persons-section'); ?>
+    <section class="section contact-persons">
+         <?php get_template_part('template-parts/contact-persons-section'); ?>
     </section>
 </main>
 
