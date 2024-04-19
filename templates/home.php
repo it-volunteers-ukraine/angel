@@ -4,7 +4,7 @@ Template Name: home
 */
 get_header();
 ?>
-<main>
+<main class="home">
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-image-wrapper">
@@ -44,7 +44,7 @@ get_header();
         <?php get_template_part('template-parts/about-fund-section'); ?>
 
         <?php  if (get_field( 'about_fund_btn_text' )) {?>
-        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button about-funb-btn">
+        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button read-more-btn">
             <?php the_field("about_fund_btn_text")?></a>
         <?php } ?>
 
@@ -69,7 +69,7 @@ get_header();
                     foreach ($directionsList as $directionsItem): 
                     $title = $directionsItem['title']; 
                     $text = $directionsItem['text']; 
-                    $btnText = $directionsItem['btn_text']; 
+                    $button = $directionsItem['btn']; 
                     ?>
                     <li class="directions-card <?php echo $counter === 0 ? "active": ""?>">
                         <div class="decor">
@@ -93,8 +93,12 @@ get_header();
                         </div>
                         <div class="extra-content">
                             <?php echo $text; ?>
-                            <a href="<?php echo $directionsItem['btn_link']; ?>"
-                                class="secondary-button"><?php echo $btnText; ?></a>
+
+                            <?php  
+                            if ($button) {?>
+                            <a href=<?php echo $button['link']?> class="secondary-button">
+                                <?php echo $button['text']?></a>
+                            <?php } ?>
                         </div>
                     </li>
                     <?php
@@ -118,6 +122,98 @@ get_header();
                 <?php
             }?>
             </div>
+        </div>
+    </section>
+
+    <section class="projects section">
+        <div class="container">
+            <?php  if (get_field( 'projects_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("projects_title")?>
+            </h2>
+            <?php } ?>
+            <ul class="projects-list">
+                <?php 
+                $category_name = get_field('category-name');
+                $my_posts = get_posts(['category_name' => $category_name, 'posts_per_page' => 6,]);
+                         foreach ($my_posts as $post):
+                        get_template_part('template-parts/projects-card');
+                        ?>
+                <?php wp_reset_postdata(); endforeach ?>
+            </ul>
+        </div>
+
+        <?php  if (get_field( 'projects_btn_text' )) {?>
+        <a href=<?php the_field("projects_btn_link")?> class="tertiary-button read-more-btn">
+            <?php the_field("projects_btn_text")?></a>
+        <?php } ?>
+    </section>
+
+    <section class="help section">
+        <div class="container">
+            <?php  if (get_field( 'help_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("help_title")?>
+            </h2>
+            <?php } ?>
+
+            <ul class="help-list">
+                <?php 
+                $helpList = get_field( 'help_list');
+                if( $helpList ) {
+                    foreach( $helpList as $item ) {
+                    get_template_part('template-parts/help-card', null, array('item' => $item));
+                    }
+                } ?>
+            </ul>
+        </div>
+    </section>
+
+    <section class="auction section">
+        <div class="container">
+            <?php  if (get_field( 'auction_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("auction_title")?>
+            </h2>
+            <?php } ?>
+
+            <p>Аукціоні знаходяться у розробці. Очікуйте...</p>
+
+        </div>
+
+        <?php  
+        $auctionBtn = get_field( 'auction_btn' );
+        if ($auctionBtn) {?>
+        <a href=<?php echo $auctionBtn['link']?> class="tertiary-button read-more-btn">
+            <?php echo $auctionBtn['text']?></a>
+        <?php } ?>
+    </section>
+
+    <section class="partners section">
+        <div class="container">
+            <?php  if (get_field( 'partners_title')) {?>
+            <h2 class="title-h2">
+                <?php the_field("partners_title")?>
+            </h2>
+            <?php } ?>
+            <?php  if (get_field( 'partners_text')) {
+                the_field("partners_text");
+            } ?>
+
+            <div class="swiper partners-swiper">
+                <?php 
+                 $partnersSlider = get_field( 'partners_logo_slider');
+                 if( $partnersSlider ) {
+                echo '<ul class="swiper-wrapper partners-cards">';
+                foreach( $partnersSlider as $slide ) {
+                    get_template_part('template-parts/partners-card', null, array('slide' => $slide));
+                }
+                echo '</ul>';
+            } ?>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
         </div>
     </section>
 </main>

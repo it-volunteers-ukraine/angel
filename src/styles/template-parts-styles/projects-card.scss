@@ -1,0 +1,140 @@
+@import "../variables.scss";
+.projects-list {
+  .card {
+    border-radius: 32px;
+    padding: 32px 32px 40px 32px;
+    border: 1px solid $color-gray-200;
+    box-shadow: $box-shadow-normal;
+    @media screen and (max-width: $width-l) {
+      padding: 20px 20px 32px 20px;
+    }
+    &:hover {
+      box-shadow: $box-shadow-hover;
+      transition: all $transition-base;
+      @media screen and (max-width: $width-m) {
+        box-shadow: $box-shadow-normal;
+      }
+      .card-title {
+        color: $color-blue-hover;
+        @media screen and (max-width: $width-m) {
+          color: $color-text-primary;
+        }
+      }
+    }
+    @media screen and (max-width: 1100px) {
+      &:nth-child(5),
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+    @media screen and (max-width: $width-mobile) {
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+
+  .card-img {
+    margin-bottom: 20px;
+    opacity: 0.9;
+    @media screen and (max-width: $width-m) {
+      margin-bottom: 12px;
+    }
+    @media screen and (max-width: 376px) {
+      max-width: 303px;
+    }
+    img {
+      height: 300px;
+      border-radius: 16px;
+      object-fit: cover;
+      @media screen and (max-width: $width-l) {
+        height: 238px;
+      }
+      @media screen and (max-width: $width-m) {
+        height: 200px;
+        border-radius: 8px;
+      }
+    }
+  }
+  .card-content {
+    @media screen and (max-width: 376px) {
+      max-width: 303px;
+    }
+  }
+  .title-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 64px;
+    margin-bottom: 12px;
+    @media screen and (max-width: $width-l) {
+      height: 48px;
+    }
+  }
+  .card-title {
+    font-size: 20px;
+    display: -webkit-box;
+    text-align: center;
+    align-items: flex-end;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+    }
+  }
+  .card-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .card-choice {
+    margin: 28px 0;
+    @media screen and (max-width: $width-l) {
+      margin: 24px 0;
+    }
+    @media screen and (max-width: $width-m) {
+      margin: 16px 0;
+    }
+  }
+
+  .card-status {
+    display: inline;
+    margin-right: 16px;
+    @media screen and (max-width: $width-m) {
+      margin-right: 12px;
+    }
+  }
+  .card-active {
+    display: inline;
+    &::before {
+      content: "";
+      margin-right: 8px;
+      background: $color-success;
+      border-radius: 50%;
+      padding: 0px 10px;
+    }
+  }
+
+  .card-disabled {
+    display: inline;
+    &::before {
+      content: "";
+      margin-right: 8px;
+      background: $color-error;
+      border-radius: 50%;
+      padding: 0px 10px;
+    }
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .button {
+    @media (max-width: 376px) {
+      width: 100%;
+    }
+  }
+}

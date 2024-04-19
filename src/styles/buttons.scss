@@ -9,6 +9,7 @@
   align-items: center;
   transition: all $transition-base;
   user-select: none;
+  cursor: pointer;
 
   @media (max-width: $width-l) {
     font-size: 18px;
@@ -78,18 +79,17 @@
     border: 1px solid $color-text-primary;
     box-shadow: $box-shadow-normal;
   }
-
-  &--disabled {
-    @extend .primary-button;
-    background-color: $color-gray-300;
-    opacity: 0.4;
-    pointer-events: none;
-  }
   @media (max-width: $width-l) {
     min-width: 240px;
   }
   @media (max-width: $width-xs) {
     width: 100%;
+  }
+  &--disabled {
+    @extend .primary-button;
+    background-color: $color-gray-300;
+    opacity: 0.4;
+    pointer-events: none;
   }
 }
 
