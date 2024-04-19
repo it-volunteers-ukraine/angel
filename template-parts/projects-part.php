@@ -29,17 +29,17 @@
 
                 <?php if( get_field('project-choice') == 'Aктивний' ): ?>
                     <div class="item__choice">     
-                    <p class="item__status"><?php the_field('project-status'); ?></p>                         
-                    <p class="item__active"><?php the_field('project-active'); ?></p> 
+                    <p class="item__status"><?php the_field('projects-status', 'option'); ?></p>                         
+                    <p class="item__active"><?php the_field('projects-active', 'option'); ?></p> 
                     </div>                             
-                    <button class="item__link item__link-active"><?php the_field('project-link-text'); ?></button>
+                    <button class="item__link item__link-active"><?php the_field('projects-btn-support', 'option'); ?></button>
 
                     <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>
                     <div class="item__choice">     
-                        <p class="item__status"><?php the_field('project-status'); ?></p>
-                        <p class="item__disabled"><?php the_field('project-stopped'); ?></p>
+                        <p class="item__status"><?php the_field('projects-status', 'option'); ?></p>
+                        <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
                     </div>  
-                    <a href="#" disabled class="item__link item__link-disabled"><?php the_field('project-link-text'); ?></a>                                
+                    <a href="#" disabled class="item__link item__link-disabled"><?php the_field('projects-btn-support', 'option'); ?></a>                                
                 <?php endif; ?>
 
                 </div> 
