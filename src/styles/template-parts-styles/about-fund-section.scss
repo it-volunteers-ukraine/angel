@@ -83,6 +83,10 @@
         font-size: 16px;
       }
     }
+
+    .about-heading-icon-wrapper {
+      display: none;
+    }
   }
   .advantages-wrapper {
     display: flex;
@@ -241,4 +245,6 @@
       margin: 16px auto 0;
     }
   }
+
+  
 }
