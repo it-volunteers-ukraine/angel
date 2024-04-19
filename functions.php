@@ -97,6 +97,9 @@ function wp_it_volunteers_scripts() {
   if (is_singular() && locate_template('template-parts/help-card.php')) {
     wp_enqueue_style( 'help-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/help-card.css', array('main') );
   }
+  if (is_singular() && locate_template('template-parts/partners-card.php')) {
+    wp_enqueue_style( 'partners-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/partners-card.css', array('main') );
+  }
 }
 /** add fonts */
 function add_google_fonts() {

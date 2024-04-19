@@ -196,6 +196,24 @@ get_header();
                 <?php the_field("partners_title")?>
             </h2>
             <?php } ?>
+            <?php  if (get_field( 'partners_text')) {
+                the_field("partners_text");
+            } ?>
+
+            <div class="swiper partners-swiper">
+                <?php 
+                 $partnersSlider = get_field( 'partners_logo_slider');
+                 if( $partnersSlider ) {
+                echo '<ul class="swiper-wrapper partners-cards">';
+                foreach( $partnersSlider as $slide ) {
+                    get_template_part('template-parts/partners-card', null, array('slide' => $slide));
+                }
+                echo '</ul>';
+            } ?>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
         </div>
     </section>
 </main>

@@ -12,6 +12,12 @@
       margin-bottom: 24px;
     }
   }
+  .swiper-pagination-bullet {
+    background-color: $color-gray-400;
+    &-active {
+      background-color: $color-gray-600;
+    }
+  }
 }
 .hero {
   background: linear-gradient(
@@ -382,4 +388,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.partners {
+  p {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 160%;
+    margin: 32px 0 56px;
+    @media screen and (max-width: $width-l) {
+      font-size: 20px;
+      margin: 24px 0 44px;
+    }
+    @media screen and (max-width: $width-m) {
+      font-size: 18px;
+      margin: 24px 0;
+    }
+    @media screen and (max-width: 376px) {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+  }
+  .partners-swiper {
+    width: 100%;
+    height: 290px;
+    @media screen and (max-width: $width-l) {
+      height: 230px;
+    }
+    @media screen and (max-width: $width-m) {
+      height: 138px;
+    }
+    @media screen and (max-width: 376px) {
+      height: 140px;
+    }
+    .partners-cards {
+      height: 240px;
+      @media screen and (max-width: $width-l) {
+        height: 180px;
+      }
+      @media screen and (max-width: $width-m) {
+        height: 132px;
+      }
+      @media screen and (max-width: $width-s) {
+        height: 100px;
+      }
+    }
+    .swiper-pagination {
+      @media screen and (max-width: 376px) {
+        bottom: -5px;
+      }
+      &-bullet {
+        width: 10px;
+        height: 10px;
+        @media screen and (max-width: $width-s) {
+          width: 8px;
+          height: 8px;
+        }
+        &-active {
+          width: 14px;
+          height: 14px;
+          @media screen and (max-width: $width-s) {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
 }

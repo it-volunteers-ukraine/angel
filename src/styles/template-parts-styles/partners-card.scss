@@ -1,0 +1,60 @@
+@import "../variables.scss";
+
+.partners-card {
+  display: flex;
+  max-width: 240px;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: $width-l) {
+    max-width: 180px;
+  }
+  @media screen and (max-width: $width-m) {
+    max-width: 132px;
+  }
+  @media screen and (max-width: $width-s) {
+    max-width: 100px;
+  }
+  .link {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: $width-l) {
+      height: 180px;
+    }
+    @media screen and (max-width: $width-s) {
+      height: 100px;
+    }
+    &--disable {
+      cursor: none;
+      pointer-events: none;
+    }
+  }
+  .name-wrapper {
+    padding: 16px;
+  }
+  .name {
+    font-weight: 700;
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 120%;
+    margin: 0;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    @media (max-width: $width-l) {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 160%;
+    }
+    @media (max-width: $width-l) {
+      font-size: 8px;
+    }
+  }
+}
