@@ -115,6 +115,9 @@
 
     &.current-menu-item > a {
       color: $color-blue;
+      @media (max-width: $width-m) {
+        color: $color-text-primary;
+      }
       &::after {
         opacity: 1;
       }
@@ -135,6 +138,9 @@
       }
       &:hover {
         color: $color-blue;
+        @media (max-width: $width-m) {
+          color: $color-text-primary;
+        }
         &::after {
           opacity: 1;
         }
@@ -255,6 +261,11 @@
         rotate: 270deg;
       }
     }
+    .open-acardion {
+      & > a {
+        color: $color-blue;
+      }
+    }
   }
 
   .mobile-menu_list {
@@ -270,6 +281,11 @@
         &::after {
           content: none;
         }
+      }
+    }
+    .sub-menu {
+      .current-menu-item > a {
+        color: $color-blue;
       }
     }
 
@@ -306,7 +322,7 @@
       left: 160px;
       margin: 0;
       @media screen and (max-width: $width-s) {
-        left: 118px;
+        left: 128px;
       }
       @media screen and (max-width: 480px) {
         position: absolute;
@@ -320,7 +336,7 @@
     .lang-item-first {
       left: 104px;
       @media screen and (max-width: $width-s) {
-        left: 70px;
+        left: 80px;
       }
       @media screen and (max-width: 480px) {
         right: 63px;

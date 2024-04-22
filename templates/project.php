@@ -18,46 +18,117 @@ $project_alt = get_field('project-name', $post);
             <div class="about__body section">
                 <h2 class="page-title title-h2"><?php echo $project_title ?></h2>
                 <div class="about__content">
+                    <div class="about__info-tablet">                        
+                        <p class="about__purpose-tablet"><?php the_field('projects-purpose', 'option'); ?></p>
+                        <p class="about__task-tablet"><?php the_field('project-purpose-task'); ?></p>
+                    </div>
                     <div class="about__img">
                         <img src="<?php echo $project_img ?>" alt="<?php echo $project_alt; ?>">
                     </div>
                     <div class="about__info">
-                        <p class="about__purpose"><?php the_field('project-purpose'); ?></p>
+                        <p class="about__purpose-tablet"><?php the_field('projects-purpose', 'option'); ?></p>
                         <p class="about__task"><?php the_field('project-purpose-task'); ?></p>
                         <p class="about__text"><?php echo $project_text ?></p>
                         <div class="about__social">
-                           <p class="share"><?php the_field('project-share'); ?></p>                           
-                            <a class="link" href="<?php the_field( 'telegram', 'option' ); ?>" target="_blank">
-                                <svg class="icon">
-                                    <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#telegram" alt="telegram"></use>
-                                </svg>                                                       
-                            </a> 
-                            <a class="link" href="<?php the_field( 'instagram', 'option' ); ?>" target="_blank">
-                                <svg class="icon">
-                                    <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#instagram" alt="instagram"></use>
-                                </svg>                                                       
-                            </a> 
-                            <a class="link" href="<?php the_field( 'youtube', 'option' ); ?>" target="_blank">
-                                <svg class="icon">
-                                    <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#youtube" alt="youtube"></use>
-                                </svg>                                                       
-                            </a>
-                            <a class="link" href="<?php the_field( 'facebook', 'option' ); ?>" target="_blank">
-                                <svg class="icon">
-                                    <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#facebook" alt="facebook"></use>
-                                </svg>                                                       
-                            </a>     
-                            <a class="link" href="<?php the_field( 'twitter', 'option' ); ?>" target="_blank">
-                                <svg class="icon">
-                                    <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#twitter" alt="twitter"></use>
-                                </svg>                                                       
-                            </a>
+                           <p class="share"><?php the_field('projects-share', 'option'); ?></p>    
+                           <div class="about__social-block">                       
+                                <a class="link" href="<?php the_field( 'telegram', 'option' ); ?>" target="_blank">
+                                    <svg class="icon">
+                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#telegram" alt="telegram"></use>
+                                    </svg>                                                       
+                                </a> 
+                                <a class="link" href="<?php the_field( 'instagram', 'option' ); ?>" target="_blank">
+                                    <svg class="icon">
+                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#instagram" alt="instagram"></use>
+                                    </svg>                                                       
+                                </a> 
+                                <a class="link" href="<?php the_field( 'youtube', 'option' ); ?>" target="_blank">
+                                    <svg class="icon">
+                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#youtube" alt="youtube"></use>
+                                    </svg>                                                       
+                                </a>
+                                <a class="link" href="<?php the_field( 'facebook', 'option' ); ?>" target="_blank">
+                                    <svg class="icon">
+                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#facebook" alt="facebook"></use>
+                                    </svg>                                                       
+                                </a>     
+                                <a class="link" href="<?php the_field( 'twitter', 'option' ); ?>" target="_blank">
+                                    <svg class="icon">
+                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#twitter" alt="twitter"></use>
+                                    </svg>                                                       
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>  
         </div>
     </section>
-    <section id="support-project"></secion>
-<main>
+    <section id="support-project" class="support section">
+        <div class="container">
+            <div class="support__body section">
+                <h2 class="section-title title-h2"><?php the_field('projects-support-title', 'option'); ?></h2>
+                <div class="support__content">
+                    <?php if( get_field('project-choice') == 'Aктивний' ): ?>
+                        <div class="support__columns item__choice">    
+                            <div class="support__column">    
+                                <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>                         
+                                <p class="item__active"><?php the_field('projects-active', 'option'); ?></p> 
+                                <div class="support__link"><a href="<?php the_field('projects-link-help', 'option'); ?>" class="primary-button" target="_blank"><?php the_field('projects-btn-help', 'option'); ?></a></div>
+                            </div>    
+                            <div class="support__column">
+                                <p class="support__swift-text swift-margin"><?php the_field('swift-text', 'option'); ?></p>  
+                                <?php 
+                                $rows = get_field('currency', 'option');
+                                if( $rows ) {        
+                                    foreach( $rows as $row ) {                                        
+                                        echo '<div class="support-row">';                                        
+                                            echo '<div class="support-row-block">';
+                                                echo '<p class="support__swift-text swift-size support-row-name">';
+                                                    echo ( $row['currency-name'] );
+                                                echo '</p>'; 
+                                                echo '<p class="support-more closen">';
+                                                    echo ( $row['currency-text'] );
+                                                echo '</p>'; 
+                                            echo '</div>'; 
+                                            echo '<button class="support__btn"></button>';                                           
+                                        echo '</div>';                                        
+                                    }        
+                                }
+                                ?>        
+                            </div>    
+                        </div> 
+                        <div class="transferring">
+                            <h3 class="transferring__title title-h3"><?php the_field('ways-transferring', 'option'); ?></h3>
+                            <div class="transferring__content">                                 
+                                <?php 
+                                    $rows = get_field('transferring-funds', 'option');
+                                    if( $rows ) {        
+                                        foreach( $rows as $row ) {                                        
+                                            $image = $row['transferring-img'];
+                                            $link = $row['transferring-link'];
+                                            echo '<a href="' . esc_url( $link ) . '" class="" target="_blank">'; 
+                                                echo '<div class="transferring__img">'; 
+                                                    echo wp_get_attachment_image( $image, 'full' ); 
+                                                echo '</div>';
+                                            echo '</a>';                                        
+                                        }        
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="back"><a href="<?php the_field('back-link', 'option'); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a></div>                                  
+                        
+
+                        <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>
+                        <div class="support__disabled item__choice">     
+                            <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
+                            <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
+                        </div>                       
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </secion>
+</main>
 <?php get_footer(); ?>

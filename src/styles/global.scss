@@ -72,7 +72,7 @@ body {
   @media (max-width: $width-m) {
     font-size: 32px;
   }
-  @media (max-width: $width-xs) {
+  @media (max-width: 376px) {
     font-size: 24px;
   }
 }
@@ -160,5 +160,15 @@ body {
   }
   @media screen and (max-width: $width-mobile) {
     margin: 40px 0 20px 0;
+  }
+}
+
+.section-title {
+  margin-bottom: 32px;  
+  @media screen and (max-width: $width-m) {
+    margin-bottom: 24px;
+  }
+  @media screen and (max-width: $width-mobile) {
+    margin-bottom: 16px;
   }
 }

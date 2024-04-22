@@ -30,6 +30,13 @@ $advantagesCards = get_field( 'advantages_cards', 'option' )
         <?php  if ($subInfo) {?>
         <div class="sub-info">
             <?php echo $subInfo ?>
+            <div class="about-heading-icon-wrapper">
+                <svg class="about-heading-icon" width="13.82" height="8">
+                    <use
+                        href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-arrow">
+                    </use>
+                </svg>
+            </div>
         </div>
         <?php } ?>
     </div>

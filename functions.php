@@ -49,11 +49,7 @@ function wp_it_volunteers_scripts() {
   if ( is_page_template('templates/projects.php') ) {
     wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
     wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
-  }
-  if ( is_page_template('templates/projects-all.php') ) {
-    wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
-    wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
-  }
+  }  
   if ( is_page_template('templates/projects-military.php') ) {
     wp_enqueue_style( 'projects-style', get_template_directory_uri() . '/assets/styles/template-styles/projects.css', array('main') );
     wp_enqueue_script( 'projects-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/projects.js', array(), false, true );
@@ -90,6 +86,15 @@ function wp_it_volunteers_scripts() {
   if (is_singular() && locate_template('template-parts/contact-persons-section.php')) {
     wp_enqueue_style( 'contact-persons-section-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/contact-persons-section.css', array('main') );
     wp_enqueue_script( 'contact-persons-section-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/contact-persons-section.js', array(), false, true );
+  }
+  if (is_singular() && locate_template('template-parts/projects-card.php')) {
+    wp_enqueue_style( 'projects-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-card.css', array('main') );
+  }
+  if (is_singular() && locate_template('template-parts/help-card.php')) {
+    wp_enqueue_style( 'help-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/help-card.css', array('main') );
+  }
+  if (is_singular() && locate_template('template-parts/partners-card.php')) {
+    wp_enqueue_style( 'partners-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/partners-card.css', array('main') );
   }
 }
 /** add fonts */
