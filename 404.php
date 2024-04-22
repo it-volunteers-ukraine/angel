@@ -1,60 +1,39 @@
 <?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package wp-it-volunteers
- */
 
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-it-volunteers' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'wp-it-volunteers' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
+<main class="error">
+	<section class="decor">
+		<div class="decor-top"></div>
+	</section>
+	<section class="error-404">
+		<div class="container">
+			<div class="error-404__content">
+				<div class="error-404__content__header">
+					<h1 class="header-title title-h2"><?php the_field('error_title', 'option'); ?></h1>
+				</div>
+				<div class="error-404__content__text">
+					<p><?php the_field('error_text', 'option'); ?></p>
+				</div>
+				<?php 
+				$link = get_field('button_link', 'option');
+				if( $link ): 
+					$link_url = $link['url'];
+					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
+					<a 
+						class="primary-button button-text" 
+						href="<?php echo esc_url( $link_url ); ?>" 
+						target="<?php echo esc_attr( $link_target ); ?>">
+						<?php the_field('button_text', 'option'); ?>
+					</a>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'wp-it-volunteers' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$wp_it_volunteers_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'wp-it-volunteers' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$wp_it_volunteers_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+</main> 
 
 <?php
 get_footer();
