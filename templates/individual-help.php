@@ -41,8 +41,56 @@ get_header();
                 <?php } ?>
             </p>
 
-            <div>
-                
+            <div class="form-and-contact-container">
+            
+                <div class="contact-form"></div>
+                <!--  ============= contact person card =============  -->
+                <div class="contact-person-card">
+                    <div class="photo-wrapper">
+                        <img src="<?php echo esc_url( get_field( 'representative_photo' )['url'] ); ?>" alt="<?php echo esc_attr( get_field( 'representative_photo' )['alt'] ); ?>">
+                    </div>
+                    <div class="info-wrapper">
+                       <div class="name-position-container">
+                            <p class="full-name title-h5"><?php the_field("representative_name"); ?></p>
+                            <p class="position title-h6"><?php the_field("position"); ?></p>
+                       </div>
+                        <p class="about-person-text"><?php the_field ("representative_text"); ?></p>
+                        <h3 class="contacts-title"><?php the_field ("representative_contacts_title"); ?></h3>
+                        <div class="contacts-item">
+                            <a class="contacts-link" href="mailto:<?php the_field ("representative_email"); ?>"
+                                                    target="_blank">
+                                <span class="contact-icon"> 
+                                    <svg width="18.78" height="15.09">
+                                        <use class="icon" href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-envelope"></use>
+                                    </svg>
+                                </span>
+                                <p><?php the_field ("representative_email"); ?></p>
+                            </a>
+                        </div>
+                        <div class="contacts-item">
+                            <a class="contacts-link" href="tel:<?php the_field ("representative_phone"); ?>"
+                                                    target="_blank">
+                                <span class="contact-icon"> 
+                                    <svg width="18.5" height="18.5">
+                                        <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-phone"></use>
+                                    </svg>
+                                </span>
+                                <p><?php the_field ("representative_phone"); ?></p>
+                            </a>
+                        </div>
+                        <div class="contacts-item">
+                            <div class="contacts-link">
+                                <span class="contact-icon"> 
+                                    <svg width="18.5" height="18.5">
+                                        <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-clock"></use>
+                                    </svg>
+                                </span>
+                                <p><?php the_field ("representative_work_hours"); ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
         
