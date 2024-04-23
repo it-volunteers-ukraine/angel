@@ -73,14 +73,14 @@ get_header();
                                     </svg>
                                 </span>
                                 <div>
-                                    <a href="tel:<?php the_field( 'phone_number_1' ); ?>" target="_blank">
+                                    <a href="tel:<?php the_field( 'help_phone', 'option' ); ?>" target="_blank">
                                         <p class="info__link-item">
-                                            <span><?php the_field( 'phone_number_1' ); ?></span>
+                                            <span><?php the_field( 'help_phone', 'option'  ); ?></span>
                                         </p>
                                     </a>
-                                    <a href="tel:<?php the_field( 'phone_number_2' ); ?>" target="_blank">
+                                    <a href="tel:<?php the_field( 'hotline_phone', 'option' ); ?>" target="_blank">
                                         <p class="info__link-item">
-                                            <span><?php the_field( 'phone_number_2' ); ?></span>
+                                            <span><?php the_field( 'hotline_phone', 'option' ); ?></span>
                                         </p>
                                     </a>
                                 </div>
