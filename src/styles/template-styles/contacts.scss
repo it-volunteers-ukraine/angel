@@ -35,27 +35,47 @@
                 grid-template-columns: 1fr;
                 margin: 42px 0 80px 0;
             }
+            @media (max-width: $width-mobile) {
+                grid-template-areas: 
+                "text"
+                "img"
+                "info";
+                grid-template-rows: auto;
+                grid-template-columns: 1fr;
+                margin: 42px 0 80px 0;
+            }
         }
         &__img {
             height: 632px;
-            width: 784px;
+            /*width: 784px;*/
+            width: 100%;
             border-radius: 32px;
             grid-area: img;
             @media (max-width: $width-l) {
                 height: 584px;
-                width: 588px;
+                /*width: 588px;*/
+                width: 100%;
             }
             @media (max-width: $width-m) {
                 height: 323px;
-                width: 444px;
+                /*width: 444px;*/
+                width: 100%;
             }
             @media (max-width: $width-s) {
                 height: 323px;
-                width: 330px;
+                /*width: 330px;*/
+                width: 100%;
             }
             @media (max-width: $width-xs) {
                 height: 220px;
-                width: 343px;
+                /*width: 343px;*/
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            @media (max-width: $width-mobile) {
+                height: 220px;
+                /*width: 343px;*/
+                width: 100%;
                 margin-bottom: 20px;
             }
             img {
