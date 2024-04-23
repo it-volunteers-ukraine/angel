@@ -1,0 +1,258 @@
+@import "../variables.scss"; 
+
+
+.individual-help-info {
+    display: flex;
+    gap: 80px;
+
+    @media (max-width: $width-l) {
+        gap: 64px;
+    }
+
+    @media (max-width: $width-m) {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    @media (max-width: $width-mobile) {
+        gap: 20px;
+    }
+
+    .help-image-wrapper {
+        width: 648px;
+        height: 420px;
+     
+        border-radius: 32px;
+        overflow: hidden;
+
+        @media (max-width: $width-l) {
+            width: 486px;
+            height: 386px;
+        }
+
+        @media (max-width: $width-m) {
+           width: 100%;
+           height: auto;
+        }
+        
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    .help-text{
+        width: 54.5%;
+
+        @media (max-width: $width-l) {
+            width: 54.2%;
+            
+        }
+        @media (max-width: $width-m) {
+            width: 100%;
+        }
+
+        :not(:last-child) {
+            margin-bottom: 32px;
+
+            @media (max-width: $width-l) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+.need-help{
+
+    .second-text {
+        text-align: center;
+        margin-bottom: 56px;
+        @media (max-width: $width-l) {
+            margin-bottom: 44px;
+        }
+        @media (max-width: $width-m) {
+            text-align: start;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        @media (max-width: $width-mobile) {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .form-and-contact-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 64px;
+
+        @media (max-width: $width-m) {
+            flex-direction: column;
+            padding: 0 78px;
+        }
+
+        @media (max-width: $width-s) {
+            padding: 0;
+        }
+        
+
+        .contact-form{
+            width: 920px;
+            height: 809px;
+            background-color: $color-white;
+            border: 1px solid $color-gray-300;
+            border-radius: 32px;
+
+            @media (max-width: $width-l) {
+                width: 752px;
+                height: 758px;
+            }
+
+            @media (max-width: $width-m) {
+                width: 100%;
+            }
+        }
+
+        .contact-person-card {
+            width: 512px;
+
+            @media (max-width: $width-l) {
+                width: 384px;
+            }
+            @media (max-width: $width-m) {
+                width: 100%;
+                display: flex;
+                gap: 24px;
+            }
+
+            @media (max-width: $width-mobile) {
+               flex-direction: column;
+               gap: 16px;
+               padding: 20px;
+               border: 1px solid $color-gray-200;
+               border-radius: 16px;
+               box-shadow: 0 2px 8px 0 rgba(40, 41, 61, 0.04);
+            }
+        }
+    
+        .photo-wrapper {
+            height: 360px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            @media (max-width: $width-l) {
+                height: 280px;
+                margin-bottom: 24px;
+            }
+            @media (max-width: $width-m) {
+                height: 240px;
+                border-radius: 16px;
+                margin-bottom: 0;
+            }
+            @media (max-width: $width-s) {
+                height: 280px;
+            }
+            @media (max-width: $width-mobile) {
+                height: 200px;
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+
+        .info-wrapper{
+            @media (max-width: $width-m) {
+                width: 58.7%;
+            }
+            @media (max-width: $width-s) {
+                width: 47.8%;
+            }
+            @media (max-width: $width-mobile) {
+                width: 100%;
+            }
+        }
+
+        .name-position-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 32px;
+            @media(max-width: $width-l) {
+                margin-bottom: 24px;
+            }
+
+            @media (max-width: $width-m) {
+                display: flex;
+                flex-direction: column-reverse;
+                margin-bottom: 16px;
+            }
+            @media (max-width: $width-s) {
+                flex-direction: column;
+            }
+        }
+    
+    
+        .position {
+           
+            @media(max-width: $width-m) {
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+        }
+    
+        .about-person-text{
+            margin-bottom: 32px;
+            @media(max-width: $width-l) {
+                margin-bottom: 24px;
+            }
+            @media(max-width: $width-m) {
+                display: none;
+            }
+            @media(max-width: $width-mobile) {
+                display: block;
+            }
+        }
+    
+        .contacts-title {
+            margin-bottom: 8px;
+        }
+    
+        .contacts-item {
+            &:not(:last-child) {
+                margin-bottom: 12px;
+                @media(max-width: $width-s) {
+                    margin-bottom: 8px;
+                }
+                @media(max-width: $width-mobile) {
+                    margin-bottom: 4px;
+                }
+            }
+            
+        }
+    
+        .contacts-link {
+            display: flex;
+            gap: 16px;
+            @media(max-width: $width-mobile) {
+                gap: 4px;
+            }
+        }
+    
+        .contact-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            svg {
+                fill: $color-blue
+            }
+        }
+    }
+
+}
