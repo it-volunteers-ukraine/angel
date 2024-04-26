@@ -113,7 +113,8 @@
     position: relative;
     padding: 4px 8px;
 
-    &.current-menu-item > a {
+    &.current-menu-item > a,
+    &.current-post-ancestor > a {
       color: $color-blue;
       @media (max-width: $width-m) {
         color: $color-text-primary;
@@ -150,6 +151,9 @@
 
   .current-menu-parent > a {
     color: $color-blue;
+    @media (max-width: $width-m) {
+      color: $color-text-primary;
+    }
     transition: color $transition-base;
     &::after {
       position: absolute;
@@ -287,6 +291,9 @@
       .current-menu-item > a {
         color: $color-blue;
       }
+      .current-menu-parent > a {
+        color: $color-text-primary;
+      }
     }
 
     .menu-item:not(.lang-item) {
@@ -391,7 +398,7 @@
       height: 108px;
       font-weight: 500;
     }
-    @media (max-width: $width-m) {
+    @media (max-width: $width-mobile-menu) {
       background-image: url("../images/bg/crop-sub-menu-bg-tablet.jpg");
       height: 70px;
       gap: 20px;
@@ -404,7 +411,7 @@
     }
     .parent-title {
       display: none;
-      @media (max-width: $width-m) {
+      @media (max-width: $width-mobile-menu) {
         display: flex;
         align-items: center;
       }
@@ -425,23 +432,29 @@
     align-items: center;
     gap: 44px;
 
-    @media (max-width: $width-m) {
+    @media (max-width: $width-mobile-menu) {
       gap: 32px;
       justify-content: start;
     }
-  }
-
-  .sub-menu-item {
-    &:hover {
-      color: $color-blue;
-    }
-    @media (max-width: $width-m) {
-      &:not(.sub-menu-item__current-item) {
-        display: none;
+    .menu-item {
+      &:hover {
+        color: $color-blue;
+      }
+      @media (max-width: $width-mobile-menu) {
+        display: block;
+        &:not(.current-menu-item) {
+          display: none;
+        }
+        &.current-menu-parent {
+          display: block;
+        }
       }
     }
   }
-  .sub-menu-item__current-item {
+
+  .current_page_item,
+  .current-menu-item,
+  .current-post-ancestor.current-menu-parent {
     color: $color-blue;
     @media (max-width: $width-m) {
       cursor: none;

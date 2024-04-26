@@ -1,0 +1,73 @@
+@import "../variables.scss";
+.projects-slider-section {
+  .title-h2 {
+    margin-bottom: 32px;
+    @media screen and (max-width: $width-l) {
+      margin-bottom: 24px;
+    }
+    @media screen and (max-width: 376px) {
+      margin-bottom: 24px;
+    }
+  }
+  .projects-swiper {
+    min-height: 773px;
+    @media screen and (max-width: $width-l) {
+      min-height: 643px;
+    }
+    @media screen and (max-width: $width-m) {
+      min-height: 643px;
+    }
+    @media screen and (max-width: $width-s) {
+      min-height: 600px;
+    }
+    @media screen and (max-width: $width-xs) {
+      min-height: 542px;
+    }
+    .projects-list {
+      display: flex;
+      .card-content {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .swiper-pagination {
+    bottom: -7px;
+
+    @media screen and (max-width: 376px) {
+      bottom: -5px;
+    }
+    &-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: $color-gray-400;
+      @media screen and (max-width: $width-s) {
+        width: 8px;
+        height: 8px;
+      }
+      &-active {
+        width: 14px;
+        height: 14px;
+        background-color: $color-gray-600;
+        @media screen and (max-width: $width-s) {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    .see-more-btn {
+      margin-top: 56px;
+      @media screen and (max-width: $width-l) {
+        margin-top: 44px;
+      }
+      @media screen and (max-width: 376px) {
+        margin-top: 36px;
+      }
+    }
+  }
+}

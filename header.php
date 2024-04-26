@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
     <title>It-volunteers</title>
+
+    <style>
+    .menu_list .sub-menu {
+        display: none;
+    }
+    </style>
 </head>
 
 <body>
@@ -22,7 +28,8 @@
                             }
                             ?>
                         </div>
-                        <a href="<?php echo site_url(''); ?>">
+
+                        <a href="<?php get_locale() === 'uk'? site_url(''): site_url('/en/home/') ?>">
                             <p class="logo-text">
                                 <?php the_field('logo_title','option'); ?>
                             </p>
@@ -37,8 +44,8 @@
                                 'theme_location'       => 'header',                          
                                 'container'            => false,    
                                 'menu_id'              => false,    
-                                'echo'                 => true,   
-                                'depth'                => 1,                         
+                                'echo'                 => true,
+                                'depth'                => 0,       
                                 'items_wrap'           => '<ul id="%1$s" class="menu_list %2$s">%3$s</ul>',  
                                 ] ); 
                             ?>
@@ -73,10 +80,10 @@
                     </button>
 
                     <div class="account">
-                        <a href="/" class="small-button">
+                        <a href="" class="small-button">
                             <?php the_field('sign_in_button','option'); ?>
                         </a>
-                        <a href="/" class="user-icon-button">
+                        <a href="" class="user-icon-button">
                             <svg width="28" height="28" aria-label="Посиланна на реєстрацію">
                                 <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-user">
                                 </use>
@@ -87,32 +94,47 @@
             </div>
         </header>
 
-        <!-- Sub menu section  -->
-        <section class="sub-menu-section">
-            <?php
-            $top_items = get_nav_items_of_parent('header_menu', 0);
-            if ($top_items) {
-                foreach($top_items as $top_item) {
-                    $children = get_nav_items_of_parent('header_menu', $top_item->ID);
-                    
-                    foreach ($children as $child) {
-                        $current_url = esc_url(get_permalink());
-                        if($child->url === $current_url) {
-                            echo render_menu_section($children, "sub-menu", $top_item->title);
-                        }
-                    }
-                }
-            } 
-            $top_items = get_nav_items_of_parent('header_menu_ENG', 0);
-            foreach($top_items as $top_item) {
-                $children = get_nav_items_of_parent('header_menu_ENG', $top_item->ID);
-                
-                foreach ($children as $child) {
-                    $current_url = esc_url(get_permalink());
-                    if($child->url === $current_url) {
-                        echo render_menu_section($children, "sub-menu", $top_item->title);
-                    }
+        <script>
+        jQuery(document).ready(function($) {
+            let currentMenuItemSubmenu = $('.menu_list .current-post-ancestor .sub-menu')
+
+            let listItems = null
+
+            if (currentMenuItemSubmenu.length !== 0) {
+                listItems = $(currentMenuItemSubmenu).find('li')
+            } else {
+                currentMenuItemSubmenu = $('.menu_list .current-menu-parent .sub-menu')
+                listItems = $(currentMenuItemSubmenu).find('li')
+
+                if (listItems.length === 0) {
+                    currentMenuItemSubmenu = $('.menu_list .current_page_item .sub-menu')
+                    listItems = $(currentMenuItemSubmenu).find('li')
                 }
             }
-            ?>
+
+            if (listItems.length !== 0) {
+                $(listItems).appendTo('.sub-menu-section .sub-menu');
+                $('.sub-menu-section').show()
+            }
+
+            const parentMenuItem = $(".menu_list .current-menu-ancestor");
+            const parentPostItem = $(".menu_list .current-post-ancestor");
+
+            if (parentMenuItem.length === 0) {
+                $(".parent-title").text(parentPostItem[0].innerText);
+                return;
+            } else {
+                $(".parent-title").text(parentMenuItem[0].innerText)
+
+            }
+        })
+        </script>
+
+        <section class="sub-menu-section" style="display: none">
+            <div class="sub-menu-wrapper">
+                <span class="parent-title">
+                </span>
+                <ul class="sub-menu">
+                </ul>
+            </div>
         </section>

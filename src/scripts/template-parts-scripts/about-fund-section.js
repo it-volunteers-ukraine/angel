@@ -6,9 +6,6 @@ const swiper = new Swiper(".swiper-container", {
   pagination: {
     el: ".swiper-pagination",
   },
-  breakpoints: {
-    375: { loop: true },
-  },
 });
 
 function showSwiper() {

@@ -1,10 +1,17 @@
 @import "../variables.scss";
+
 .projects-list {
   .card {
     border-radius: 32px;
     padding: 32px 32px 40px 32px;
     border: 1px solid $color-gray-200;
     box-shadow: $box-shadow-normal;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media screen and (max-width: $width-m) {
+      gap: 12px;
+    }
     @media screen and (max-width: $width-l) {
       padding: 20px 20px 32px 20px;
     }
@@ -21,25 +28,10 @@
         }
       }
     }
-    @media screen and (max-width: 1100px) {
-      &:nth-child(5),
-      &:nth-child(6) {
-        display: none;
-      }
-    }
-    @media screen and (max-width: $width-mobile) {
-      &:nth-child(4) {
-        display: none;
-      }
-    }
   }
 
   .card-img {
-    margin-bottom: 20px;
     opacity: 0.9;
-    @media screen and (max-width: $width-m) {
-      margin-bottom: 12px;
-    }
     @media screen and (max-width: 376px) {
       max-width: 303px;
     }
@@ -51,14 +43,30 @@
         height: 238px;
       }
       @media screen and (max-width: $width-m) {
-        height: 200px;
         border-radius: 8px;
+      }
+      @media screen and (max-width: $width-s) {
+        height: 200px;
       }
     }
   }
-  .card-content {
+  .info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
     @media screen and (max-width: 376px) {
       max-width: 303px;
+    }
+
+    .main-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .secondary-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
   }
   .title-wrapper {
@@ -66,7 +74,6 @@
     align-items: flex-end;
     justify-content: center;
     height: 64px;
-    margin-bottom: 12px;
     @media screen and (max-width: $width-l) {
       height: 48px;
     }
@@ -88,14 +95,9 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-  }
-  .card-choice {
-    margin: 28px 0;
+    min-height: 87px;
     @media screen and (max-width: $width-l) {
-      margin: 24px 0;
-    }
-    @media screen and (max-width: $width-m) {
-      margin: 16px 0;
+      min-height: 78px;
     }
   }
 
