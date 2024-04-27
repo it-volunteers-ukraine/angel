@@ -1,4 +1,5 @@
 <?php
+    $isSliderCard = $args['isSliderCard'];
     $project_title = get_field('project-title', $post);   
     $project_post_link = $post->guid;   
     $project_text = get_field('project-purpose-text', $post);                        
@@ -6,7 +7,7 @@
     $project_alt = get_field('project-name', $post); 
 ?>
 
-<li class="swiper-slide card">
+<li class="projects-card <?php echo $isSliderCard? "swiper-slide": ""?>">
     <div class="card-img">
         <img src="<?php echo $project_img ?>" alt="<?php echo $project_alt ?>">
     </div>

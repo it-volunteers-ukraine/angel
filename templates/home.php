@@ -137,7 +137,7 @@ get_header();
                 $category_name = get_field('category-name');
                 $my_posts = get_posts(['category_name' => $category_name, 'posts_per_page' => 6,]);
                          foreach ($my_posts as $post):
-                        get_template_part('template-parts/projects-card');
+                        get_template_part('template-parts/projects-card', null, array("isSliderCard" => false));
                         ?>
                 <?php wp_reset_postdata(); endforeach ?>
             </ul>

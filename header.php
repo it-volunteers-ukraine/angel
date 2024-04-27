@@ -29,7 +29,7 @@
                             ?>
                         </div>
 
-                        <a href="<?php get_locale() === 'uk'? site_url(''): site_url('/en/home/') ?>">
+                        <a href="<?php echo get_locale() === 'uk'? site_url(''): site_url('/en/home/') ?>">
                             <p class="logo-text">
                                 <?php the_field('logo_title','option'); ?>
                             </p>

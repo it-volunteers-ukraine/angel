@@ -17,7 +17,7 @@ $seeMoreBtn = get_field( 'projects_btn', 'option' );
                 <?php 
                 $my_posts = get_posts(['category_name' => 'projects', 'posts_per_page' => -1,]);
                 foreach ($my_posts as $post):
-                    get_template_part('template-parts/projects-card');
+                    get_template_part('template-parts/projects-card', null, array("isSliderCard" => true));
                     ?>
                 <?php wp_reset_postdata(); endforeach ?>
             </ul>

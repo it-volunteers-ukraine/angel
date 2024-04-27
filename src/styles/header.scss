@@ -21,7 +21,7 @@
       padding: 10px 0;
     }
 
-    @media (max-width: 1150px) {
+    @media (max-width: $width-mobile-menu) {
       padding: 8px 0;
       grid-template-areas: "menu  logo login-btn";
       grid-template-columns: min-content auto min-content;
@@ -41,9 +41,12 @@
       gap: 12px;
       margin: 0 auto;
     }
-
-    @media (max-width: $width-xs) {
+    @media (max-width: $width-m) {
+      padding-left: 100px;
+    }
+    @media (max-width: 376px) {
       gap: 8px;
+      padding-left: 0;
     }
   }
 
@@ -116,7 +119,7 @@
     &.current-menu-item > a,
     &.current-post-ancestor > a {
       color: $color-blue;
-      @media (max-width: $width-m) {
+      @media (max-width: $width-mobile-menu) {
         color: $color-text-primary;
       }
       &::after {
@@ -139,7 +142,7 @@
       }
       &:hover {
         color: $color-blue;
-        @media (max-width: $width-m) {
+        @media (max-width: $width-mobile-menu) {
           color: $color-text-primary;
         }
         &::after {
@@ -213,7 +216,7 @@
   .mobile-menu-nav {
     display: none;
     transition: left $transition-base;
-    @media (max-width: 1150px) {
+    @media (max-width: $width-mobile-menu) {
       display: block;
       position: absolute;
       top: 100%;

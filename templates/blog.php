@@ -4,7 +4,7 @@ Template Name: Blog
 */
 get_header();
 ?>
-<h2>Блог</h2>
+<?php get_template_part('template-parts/projects-slider');?>
 
 
 
