@@ -79,10 +79,6 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
     wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
   }
-  if ( is_page_template('templates/artist-information.php') ) {
-    wp_enqueue_style( 'artist-information-style', get_template_directory_uri() . '/assets/styles/template-styles/artist-information.css', array('main') );
-    wp_enqueue_script( 'artist-information-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/artist-information.js', array(), false, true );
-  }
 
   if (is_singular() && locate_template('template-parts/about-fund-section.php')) {
     wp_enqueue_style( 'about-fund-section-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/about-fund-section.css', array('main') );
