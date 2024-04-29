@@ -25,7 +25,7 @@ get_header();
                                 <div class="card__img">
                                     <?php 
                                     if( !empty( $gratitudeImg ) ): ?>
-                                        <a href=""></a>
+                                        <a data-fslightbox="gallery" href="<?php echo esc_url($gratitudeImg['url']); ?>">
                                             <img src="<?php echo esc_url($gratitudeImg['url']); ?>" alt="<?php echo esc_attr($gratitudeImg['alt']); ?>"/>
                                         </a>
                                     <?php endif; ?>
