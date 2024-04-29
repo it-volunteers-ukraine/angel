@@ -1,0 +1,23 @@
+.gratitudes {
+    &__content {
+        &__cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(376px, 1fr));
+            column-gap: 32px;
+            row-gap: 61px;
+            .card {
+                display: flex;
+                flex-direction: column;
+                &__img {
+                    height: 529px;
+                    width: 376px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }   
+    }
+}
