@@ -137,7 +137,7 @@ get_header();
                 $category_name = get_field('category-name');
                 $my_posts = get_posts(['category_name' => $category_name, 'posts_per_page' => 6,]);
                          foreach ($my_posts as $post):
-                        get_template_part('template-parts/projects-card');
+                        get_template_part('template-parts/projects-card', null, array("isSliderCard" => false));
                         ?>
                 <?php wp_reset_postdata(); endforeach ?>
             </ul>
@@ -189,33 +189,10 @@ get_header();
         <?php } ?>
     </section>
 
-    <section class="partners section">
-        <div class="container">
-            <?php  if (get_field( 'partners_title')) {?>
-            <h2 class="title-h2">
-                <?php the_field("partners_title")?>
-            </h2>
-            <?php } ?>
-            <?php  if (get_field( 'partners_text')) {
-                the_field("partners_text");
-            } ?>
-
-            <div class="swiper partners-swiper">
-                <?php 
-                 $partnersSlider = get_field( 'partners_logo_slider');
-                 if( $partnersSlider ) {
-                echo '<ul class="swiper-wrapper partners-cards">';
-                foreach( $partnersSlider as $slide ) {
-                    get_template_part('template-parts/partners-card', null, array('slide' => $slide));
-                }
-                echo '</ul>';
-            } ?>
-                <div class="swiper-pagination"></div>
-            </div>
+    <?php get_template_part('template-parts/partners-slider'); ?>
 
 
-        </div>
-    </section>
+
 </main>
 
 <?php get_footer(); ?>

@@ -3,13 +3,10 @@ $slide = $args['slide'];
 $logo = $slide['logo_img'];
 $link = $slide['link'];
 $name = $slide['name']
-
 ?>
 
 <li class="swiper-slide partners-card">
-
-    <a class="link--<?php echo( $link ? '' : 'disable' ); ?>"  href="<?php echo htmlspecialchars($link); ?>">
-
+    <a class="link--<?php echo( $link ? '' : 'disable' ); ?>" href="<?php echo htmlspecialchars($link); ?>">
         <?php 
         if($logo):
         ?>
