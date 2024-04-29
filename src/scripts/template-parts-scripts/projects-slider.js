@@ -7,6 +7,10 @@ const projectsSwiper = new Swiper(".projects-swiper", {
     loadPrevNext: true,
   },
   lazyPreloadPrevNext: 1,
+  navigation: {
+    nextEl: ".button-next",
+    prevEl: ".button-prev",
+  },
   breakpoints: {
     1440: {
       spaceBetween: 24,
@@ -21,7 +25,7 @@ const projectsSwiper = new Swiper(".projects-swiper", {
       slidesPerGroup: 2,
       spaceBetween: 24,
     },
-    375: {
+    320: {
       slidesPerView: 1,
       slidesPerGroup: 1,
     },

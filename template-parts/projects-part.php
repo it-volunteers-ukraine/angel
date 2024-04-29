@@ -2,14 +2,17 @@
 /**
  * Template part for displaying posts
  */
+$postsPerPage = $args['postsPerPage'];
+$category = $args["category"];
+$isPaginationNeed = $args["pagination"];
+$isSliderCard = $args["isSliderCard"]
 ?>
 <div class="projects">
     <ul class="projects-list">
         <?php
-
         $params = array(
-            'category_name' => $args->slug,
-            'posts_per_page' => 6,
+            'category_name' => $category,
+            'posts_per_page' => $postsPerPage,
             'paged' => get_query_var('page') ? get_query_var('page') : 1,
         );
 
@@ -21,10 +24,13 @@
         if ($query->have_posts()) :
             while ($query->have_posts()) :
                 $query->the_post();
-                get_template_part('template-parts/projects-card', null, array("isSliderCard" => false));
+                get_template_part('template-parts/projects-card', null, array("isSliderCard" => $isSliderCard));
             endwhile;
         endif; ?>
     </ul>
+    <?php if($isPaginationNeed) {
+        get_template_part('template-parts/pagination', null, array("current_page" => $current_page, "total_pages"=> $total_pages));
+        }
+    ?>
 
-    <?php get_template_part('template-parts/pagination', null, array("current_page" => $current_page, "total_pages"=> $total_pages));?>
 </div>

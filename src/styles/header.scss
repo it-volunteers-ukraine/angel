@@ -44,7 +44,8 @@
     @media (max-width: $width-m) {
       padding-left: 100px;
     }
-    @media (max-width: 376px) {
+
+    @media (max-width: 480px) {
       gap: 8px;
       padding-left: 0;
     }

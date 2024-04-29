@@ -11,7 +11,7 @@ const swiper = new Swiper(".swiper-container", {
 function showSwiper() {
   const section = document.querySelector(".about-fund");
   if (section) {
-    if (window.innerWidth <= 375) {
+    if (window.innerWidth <= 425) {
       swiper.init();
     } else {
       swiper.destroy();

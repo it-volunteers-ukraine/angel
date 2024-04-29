@@ -37,10 +37,10 @@
       @media screen and (max-width: $width-mobile) {
         grid-template-columns: 1fr;
         gap: 16px;
-        max-height: 1610px;
+        max-height: 1645px;
       }
 
-      .card {
+      .projects-card {
         @media screen and (max-width: 1100px) {
           &:nth-child(5),
           &:nth-child(6) {
@@ -99,6 +99,9 @@
     top: -70px;
     width: 102%;
     height: auto;
+  }
+  @media (max-width: 426px) {
+    top: 0;
   }
   @media (max-width: 376px) {
     top: -5px;
@@ -184,6 +187,7 @@
   }
 }
 .read-more-btn {
+  width: 240px;
   margin: 56px auto 0;
   @media (max-width: $width-l) {
     margin: 44px auto 0;
