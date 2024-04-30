@@ -109,10 +109,6 @@
     color: $color-white;
     pointer-events: none;
   }
-
-  @media (max-width: $width-xs) {
-    width: 100%;
-  }
 }
 
 .tertiary-button {
@@ -145,5 +141,34 @@
     background-color: $color-blue-hover;
     box-shadow: $box-shadow-normal;
     color: $color-white;
+  }
+}
+.navigation-buttons {
+  z-index: 1;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: -72px;
+  width: calc(100% + 144px);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  @media (max-width: $width-l) {
+    width: calc(100% + 128px);
+    left: -64px;
+  }
+  @media (max-width: $width-mobile-menu) {
+    display: none;
+  }
+
+  .button-arrow {
+    cursor: pointer;
+    fill: $color-gray-600;
+  }
+  .swiper-button-disabled {
+    fill: $color-gray-400;
+  }
+  .button-prev {
+    transform: rotate(180deg);
+    left: 15px;
   }
 }

@@ -33,7 +33,7 @@ get_header();
                 <?php } ?>
 
                 <?php  if (get_field( 'hero_btn_text' )) {?>
-                <a href=<?php the_field("hero_btn_link")?>
+                <a href="<?php the_field("hero_btn_link")?>"
                     class="primary-button hero-btn"><?php the_field("hero_btn_text")?></a>
                 <?php } ?>
             </div>
@@ -44,7 +44,7 @@ get_header();
         <?php get_template_part('template-parts/about-fund-section'); ?>
 
         <?php  if (get_field( 'about_fund_btn_text' )) {?>
-        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button read-more-btn">
+        <a href="<?php the_field("about_fund_btn_link")?>" class="tertiary-button read-more-btn">
             <?php the_field("about_fund_btn_text")?></a>
         <?php } ?>
 
@@ -96,7 +96,7 @@ get_header();
 
                             <?php  
                             if ($button) {?>
-                            <a href=<?php echo $button['link']?> class="secondary-button">
+                            <a href="<?php echo $button['link']?>" class="secondary-button">
                                 <?php echo $button['text']?></a>
                             <?php } ?>
                         </div>
@@ -137,14 +137,14 @@ get_header();
                 $category_name = get_field('category-name');
                 $my_posts = get_posts(['category_name' => $category_name, 'posts_per_page' => 6,]);
                          foreach ($my_posts as $post):
-                        get_template_part('template-parts/projects-card');
+                        get_template_part('template-parts/projects-card', null, array("isSliderCard" => false));
                         ?>
                 <?php wp_reset_postdata(); endforeach ?>
             </ul>
         </div>
 
         <?php  if (get_field( 'projects_btn_text' )) {?>
-        <a href=<?php the_field("projects_btn_link")?> class="tertiary-button read-more-btn">
+        <a href="<?php the_field("projects_btn_link")?>" class="tertiary-button read-more-btn">
             <?php the_field("projects_btn_text")?></a>
         <?php } ?>
     </section>
@@ -184,38 +184,15 @@ get_header();
         <?php  
         $auctionBtn = get_field( 'auction_btn' );
         if ($auctionBtn) {?>
-        <a href=<?php echo $auctionBtn['link']?> class="tertiary-button read-more-btn">
+        <a href="<?php echo $auctionBtn['link']?>" class="tertiary-button read-more-btn">
             <?php echo $auctionBtn['text']?></a>
         <?php } ?>
     </section>
 
-    <section class="partners section">
-        <div class="container">
-            <?php  if (get_field( 'partners_title')) {?>
-            <h2 class="title-h2">
-                <?php the_field("partners_title")?>
-            </h2>
-            <?php } ?>
-            <?php  if (get_field( 'partners_text')) {
-                the_field("partners_text");
-            } ?>
-
-            <div class="swiper partners-swiper">
-                <?php 
-                 $partnersSlider = get_field( 'partners_logo_slider');
-                 if( $partnersSlider ) {
-                echo '<ul class="swiper-wrapper partners-cards">';
-                foreach( $partnersSlider as $slide ) {
-                    get_template_part('template-parts/partners-card', null, array('slide' => $slide));
-                }
-                echo '</ul>';
-            } ?>
-                <div class="swiper-pagination"></div>
-            </div>
+    <?php get_template_part('template-parts/partners-slider'); ?>
 
 
-        </div>
-    </section>
+
 </main>
 
 <?php get_footer(); ?>

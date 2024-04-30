@@ -43,7 +43,14 @@ get_header();
 
             <div class="form-and-contact-container">
             
-                <div class="contact-form"></div>
+                <div class="contact-form">
+                    <h3 class="title-h3 form-title">
+                        <?php  if (get_field( 'form_titile' )) {?>
+                            <?php the_field('form_titile')?>
+                        <?php } ?>
+                    </h3>
+                    <?php echo do_shortcode( '[contact-form-7 id="12c64c8" title="Форма Отримати допомогу"]') ?>
+                </div>
                 <!--  ============= contact person card =============  -->
                 <div class="contact-person-card">
                     <div class="photo-wrapper">
