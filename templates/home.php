@@ -144,7 +144,7 @@ get_header();
         </div>
 
         <?php  if (get_field( 'projects_btn_text' )) {?>
-        <a href=<?php the_field("projects_btn_link")?> class="tertiary-button read-more-btn">
+        <a href="<?php the_field("projects_btn_link")?>" class="tertiary-button read-more-btn">
             <?php the_field("projects_btn_text")?></a>
         <?php } ?>
     </section>

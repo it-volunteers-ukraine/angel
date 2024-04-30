@@ -121,11 +121,12 @@
             const parentPostItem = $(".menu_list .current-post-ancestor");
 
             if (parentMenuItem.length === 0) {
-                $(".parent-title").text(parentPostItem[0].innerText);
-                return;
+                if (parentPostItem.length !== 0) {
+                    $(".parent-title").text(parentPostItem[0].innerText);
+                    return;
+                }
             } else {
                 $(".parent-title").text(parentMenuItem[0].innerText)
-
             }
         })
         </script>
