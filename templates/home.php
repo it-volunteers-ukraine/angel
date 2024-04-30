@@ -33,7 +33,7 @@ get_header();
                 <?php } ?>
 
                 <?php  if (get_field( 'hero_btn_text' )) {?>
-                <a href=<?php the_field("hero_btn_link")?>
+                <a href="<?php the_field("hero_btn_link")?>"
                     class="primary-button hero-btn"><?php the_field("hero_btn_text")?></a>
                 <?php } ?>
             </div>
@@ -44,7 +44,7 @@ get_header();
         <?php get_template_part('template-parts/about-fund-section'); ?>
 
         <?php  if (get_field( 'about_fund_btn_text' )) {?>
-        <a href=<?php the_field("about_fund_btn_link")?> class="tertiary-button read-more-btn">
+        <a href="<?php the_field("about_fund_btn_link")?>" class="tertiary-button read-more-btn">
             <?php the_field("about_fund_btn_text")?></a>
         <?php } ?>
 
@@ -96,7 +96,7 @@ get_header();
 
                             <?php  
                             if ($button) {?>
-                            <a href=<?php echo $button['link']?> class="secondary-button">
+                            <a href="<?php echo $button['link']?>" class="secondary-button">
                                 <?php echo $button['text']?></a>
                             <?php } ?>
                         </div>
@@ -184,7 +184,7 @@ get_header();
         <?php  
         $auctionBtn = get_field( 'auction_btn' );
         if ($auctionBtn) {?>
-        <a href=<?php echo $auctionBtn['link']?> class="tertiary-button read-more-btn">
+        <a href="<?php echo $auctionBtn['link']?>" class="tertiary-button read-more-btn">
             <?php echo $auctionBtn['text']?></a>
         <?php } ?>
     </section>
