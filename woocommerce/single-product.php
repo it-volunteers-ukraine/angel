@@ -14,7 +14,7 @@ get_header(); ?>
             <div class="lot__container section">                            
                 <div class="lot__body">
 				<?php					
-					do_action( 'woocommerce_before_main_content' );
+					//do_action( 'woocommerce_before_main_content' );
 					do_action( 'woocommerce_shop_loop_item_title' );
 					 			
 					while ( have_posts() ) : the_post();

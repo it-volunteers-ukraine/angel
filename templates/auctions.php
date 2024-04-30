@@ -13,10 +13,12 @@ global $product;
                 <h2 class="page-title title-h2"><?php the_field('auctions-title'); ?></h2>
                 <p class="auctions__description"><?php the_field('auctions-description'); ?></p>
                 <div class="auctions__body">
-                    <?php $args = array(
+                    <?php 
+                    $category = $args["category"];
+                    $args = array(
                         'post_type'      => 'product',
                         'posts_per_page' => 6, 
-                        'product_cat'    => 'auction', 
+                        'category_name' => $category, 
                         'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
                     );
                     
