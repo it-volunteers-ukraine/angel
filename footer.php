@@ -10,7 +10,7 @@
                                     }
                                 ?>
                             
-                            <a class="footer-logo-link" href="<?php echo site_url(''); ?>">
+                            <a class="footer-logo-link" href="<?php echo get_locale(  ) ==='uk'? site_url(''): site_url('/en/home/'); ?>">
                                 <p class="footer-logo-name title-h3">
                                     <?php the_field('logo_title','option'); ?>
                                 </p>
