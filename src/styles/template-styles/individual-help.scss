@@ -228,19 +228,18 @@
                     pointer-events: none;
                 }
             }
+             
+            .wpcf7-list-item {
+                margin: 0;
+            }
+
 
             .checkbox-consent {
-                .wpcf7-list-item {
-                    margin: 0;
-                }
-
-
-                input[type="checkbox"] {
-                width: 20px;
-                border: solid 1px $color-gray-300;
-                border-radius: 12px;
-               }
+            width: 20px;
+            border: solid 1px $color-gray-300;
+            border-radius: 12px;
             }
+            
         }
 
         .contact-person-card {
