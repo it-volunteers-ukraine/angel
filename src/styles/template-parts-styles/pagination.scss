@@ -1,0 +1,13 @@
+@import "../variables.scss";
+
+.pagination {
+  .page-numbers {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4px 8px;
+  }
+  .current {
+    color: $color-blue;
+    border-bottom: 2px solid $color-blue;
+  }
+}

@@ -23,35 +23,3 @@ directionsCards.querySelectorAll("& > li").forEach((card, index) => {
     }
   });
 });
-
-const partnersSwiper = new Swiper(".partners-swiper", {
-  slidesPerView: 6,
-  spaceBetween: 32,
-  loop: true,
-  lazy: {
-    loadOnTransitionStart: true,
-    loadPrevNext: true,
-  },
-  lazyPreloadPrevNext: 1,
-  // autoplay: {
-  //   delay: 2500,
-  //   disableOnInteraction: false,
-  // },
-  breakpoints: {
-    992: {
-      slidesPerView: 6,
-      spaceBetween: 24,
-    },
-    768: {
-      slidesPerView: 5,
-      spaceBetween: 40,
-    },
-    375: {
-      slidesPerView: 3,
-      spaceBetween: 32,
-    },
-  },
-  pagination: {
-    el: ".swiper-pagination",
-  },
-});
