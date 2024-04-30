@@ -1,0 +1,130 @@
+@import "../variables.scss";
+
+.artist-information {
+    margin-top: 100px; 
+    @media (max-width: $width-l) {
+        margin-top: 80px; 
+    }
+    @media (max-width: $width-m) {
+        margin-top: 56px; 
+    }
+    @media (max-width: $width-xs) {
+        margin-top: 40px; 
+    }
+
+    .content {
+        display: grid;
+        grid-auto-rows: auto auto;
+        column-gap: 80px;
+        row-gap: 32px;
+        @media (max-width: $width-l) {
+            column-gap: 64px;
+            row-gap: 24px;
+        }
+        @media (max-width: $width-xs) {
+            row-gap: 20px;
+        }
+        .first-text {
+            grid-area: first-text;
+            .title {
+                text-align: left;
+                @media (max-width: $width-m) {
+                    text-align: center;
+                }
+                @media (max-width: $width-l) {
+                    margin-bottom: 24px;
+                }
+                @media (max-width: $width-mobile) {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+        .second-text {
+            grid-area: second-text;
+            .secondary {
+                color: $color-text-secondary;
+            }
+        }
+        .text {
+            margin-bottom: 32px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @media (max-width: $width-l) {
+                margin-bottom: 24px;
+            }
+            @media (max-width: $width-xs) {
+                margin-bottom: 20px;
+            }
+        }
+        .img {
+            grid-area: img;
+            height: 500px;
+            width: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            @media (max-width: $width-l) {
+                height: 400px;
+            }
+            @media (max-width: $width-m) {
+                height: 536px;
+            }
+            @media (max-width: $width-s) {
+                height: 448px;
+            }
+            @media (max-width: $width-mobile) {
+                max-height: 300px;
+            }
+            @media (max-width: $width-xs) {
+                height: 220px;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: 32px;
+                object-fit: cover; 
+            }
+            .shifted-img {
+                object-fit: none;
+                object-position: left 24%;
+                @media (max-width: $width-l) {
+                    object-fit: cover; 
+                } 
+            }
+            .scaled-img {
+                transform: scale(1.01);
+            }
+        }
+    }
+    .artist, .prayer {
+        &__content {
+            grid-template-areas: 
+            "first-text img"
+            "second-text img";
+            grid-template-columns: 46% 1fr;
+            @media (max-width: $width-l) {
+                grid-template-columns: 45.66% 1fr; 
+            }
+        }
+    }
+    .apostle {
+        &__content {
+            grid-template-areas: 
+            "img first-text "
+            "img second-text "; 
+            grid-template-columns: 1fr 45.66%;  
+        }
+    }
+    .artist, .apostle, .prayer {
+        &__content {
+            @media (max-width: $width-m){
+                grid-template-areas: 
+                "first-text"
+                "img"
+                "second-text";
+                grid-template-rows: auto;
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

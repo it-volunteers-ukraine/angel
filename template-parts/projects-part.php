@@ -1,49 +1,36 @@
 <?php
 /**
  * Template part for displaying posts
-*/
+ */
+$postsPerPage = $args['postsPerPage'];
+$category = $args["category"];
+$isPaginationNeed = $args["pagination"];
+$isSliderCard = $args["isSliderCard"]
+?>
+<div class="projects">
+    <ul class="projects-list">
+        <?php
+        $params = array(
+            'category_name' => $category,
+            'posts_per_page' => $postsPerPage,
+            'paged' => get_query_var('page') ? get_query_var('page') : 1,
+        );
 
-?>	
-<div class="block" id="cardsContainer">
-    <?php     
-    $category_name = get_field('category-name');   
-    $number_of_posts = (int) get_field('number-of-posts');            
-    $params = array(        
-        'category_name' => $category_name,                          
-        'numberposts' => $number_of_posts,                          
-    );
-    $my_posts = get_posts($params);
-    foreach ($my_posts as $post) :                 
-        $project_title = get_field('project-title', $post);   
-        $project_post_link = $post->guid;   
-        $project_text = get_field('project-purpose-text', $post);
-        $project_img = get_field('project-image', $post);
-        $project_alt = get_field('project-name', $post);                        
-        ?>
-        <div class="item" >
-            <a href="<?php echo $project_post_link ?>">                  
-                <div class="item__img"><img src="<?php echo $project_img ?>" alt="<?php echo $project_alt ?>"></div> 
-                <div class="item__content">
-                <h3 class="item__title"><?php echo $project_title ?></h3>    
-                <p class="item__text"><?php echo $project_text ?></p>
+        $query = new WP_Query($params);
 
-                <?php if( get_field('project-choice') == 'Aктивний' ): ?>
-                    <div class="item__choice">     
-                    <p class="item__status"><?php the_field('projects-status', 'option'); ?></p>                         
-                    <p class="item__active"><?php the_field('projects-active', 'option'); ?></p> 
-                    </div>                             
-                    <button class="item__link item__link-active"><?php the_field('projects-btn-support', 'option'); ?></button>
+        $total_pages = $query->max_num_pages;
+        $current_page = max(1, get_query_var('page'));
 
-                    <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>
-                    <div class="item__choice">     
-                        <p class="item__status"><?php the_field('projects-status', 'option'); ?></p>
-                        <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
-                    </div>  
-                    <a href="#" disabled class="item__link item__link-disabled"><?php the_field('projects-btn-support', 'option'); ?></a>                                
-                <?php endif; ?>
+        if ($query->have_posts()) :
+            while ($query->have_posts()) :
+                $query->the_post();
+                get_template_part('template-parts/projects-card', null, array("isSliderCard" => $isSliderCard));
+            endwhile;
+        endif; ?>
+    </ul>
+    <?php if($isPaginationNeed) {
+        get_template_part('template-parts/pagination', null, array("current_page" => $current_page, "total_pages"=> $total_pages));
+        }
+    ?>
 
-                </div> 
-            </a> 
-        </div>        
-    <?php wp_reset_postdata(); endforeach ?>  
 </div>

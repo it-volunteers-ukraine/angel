@@ -79,6 +79,10 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
     wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
   }
+  if ( is_page_template('templates/artist-information.php') ) {
+    wp_enqueue_style( 'artist-information-style', get_template_directory_uri() . '/assets/styles/template-styles/artist-information.css', array('main') );
+    wp_enqueue_script( 'artist-information-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/artist-information.js', array(), false, true );
+  }
 
   if (is_singular() && locate_template('template-parts/about-fund-section.php')) {
     wp_enqueue_style( 'about-fund-section-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/about-fund-section.css', array('main') );
@@ -95,11 +99,22 @@ function wp_it_volunteers_scripts() {
   if (is_singular() && locate_template('template-parts/projects-card.php')) {
     wp_enqueue_style( 'projects-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-card.css', array('main') );
   }
+  if (is_singular() && locate_template('template-parts/pagination.php')) {
+    wp_enqueue_style( 'pagination-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/pagination.css', array('main') );
+  }
   if (is_singular() && locate_template('template-parts/help-card.php')) {
     wp_enqueue_style( 'help-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/help-card.css', array('main') );
   }
+  if (is_singular() && locate_template('template-parts/partners-slider.php')) {
+    wp_enqueue_style( 'partners-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/partners-slider.css', array('main') );
+    wp_enqueue_script( 'partners-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/partners-slider.js', array(), false, true );
+  }
   if (is_singular() && locate_template('template-parts/partners-card.php')) {
     wp_enqueue_style( 'partners-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/partners-card.css', array('main') );
+  }
+  if (is_singular() && locate_template('template-parts/projects-slider.php')) {
+    wp_enqueue_style( 'projects-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-slider.css', array('main') );
+    wp_enqueue_script( 'projects-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/projects-slider.js', array(), false, true );
   }
 }
 /** add fonts */
