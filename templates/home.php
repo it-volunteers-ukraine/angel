@@ -72,8 +72,9 @@ get_header();
                     foreach ($directionsList as $directionsItem): 
                     $title = $directionsItem['title']; 
                     $text = $directionsItem['text']; 
-                    $button = $directionsItem['btn']; 
-                    ?>
+                    $link = $directionsItem['btn_link'];   
+                    $btnText = $directionsItem['btn_text'];                
+                     ?>
                     <li class="directions-card <?php echo $counter === 0 ? "active": ""?>">
                         <div class="decor">
                             <img src="<?php echo get_template_directory_uri() ?>/assets/images/decor.png" alt="decor">
@@ -97,11 +98,11 @@ get_header();
                         <div class="extra-content">
                             <?php echo $text; ?>
 
-                            <?php  
-                            if ($button) {?>
-                            <a href="<?php echo $button['link']?>" class="secondary-button">
-                                <?php echo $button['text']?></a>
-                            <?php } ?>
+                            <?php 
+                            if( $link ): ?>
+                            <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
+                                class="secondary-button"><?php echo $btnText?></a>
+                            <?php endif; ?>
                         </div>
                     </li>
                     <?php
