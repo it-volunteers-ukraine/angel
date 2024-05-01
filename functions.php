@@ -55,9 +55,9 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
     wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
   }
-  if ( is_page_template('templates/thanks.php') ) {
-    wp_enqueue_style( 'thanks-style', get_template_directory_uri() . '/assets/styles/template-styles/thanks.css', array('main') );
-    wp_enqueue_script( 'thanks-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/thanks.js', array(), false, true );
+  if ( is_page_template('templates/acknowledgements.php') ) {
+    wp_enqueue_style( 'acknowledgements-style', get_template_directory_uri() . '/assets/styles/template-styles/acknowledgements.css', array('main') );
+    wp_enqueue_script( 'acknowledgements-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/acknowledgements.js', array(), false, true );
     wp_enqueue_script( 'fslightbox-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/fslightbox.js', array(), false, true );
   }
   if ( is_page_template('templates/auctions.php') ) {
