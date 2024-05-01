@@ -32,10 +32,13 @@ get_header();
                 </div>
                 <?php } ?>
 
-                <?php  if (get_field( 'hero_btn_text' )) {?>
-                <a href="<?php the_field("hero_btn_link")?>"
-                    class="primary-button hero-btn"><?php the_field("hero_btn_text")?></a>
-                <?php } ?>
+                <?php 
+                $link = get_field('hero_link');
+                if( $link ): ?>
+                <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
+                    class="primary-button hero-btn"><?php echo get_field("hero_btn")?></a>
+
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -143,10 +146,13 @@ get_header();
             </ul>
         </div>
 
-        <?php  if (get_field( 'projects_btn_text' )) {?>
-        <a href="<?php the_field("projects_btn_link")?>" class="tertiary-button read-more-btn">
-            <?php the_field("projects_btn_text")?></a>
-        <?php } ?>
+        <?php 
+            $link = get_field('project_link');
+            if( $link ): ?>
+        <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
+            class="tertiary-button read-more-btn"><?php echo get_field("project_btn")?></a>
+        <?php endif; ?>
+
     </section>
 
     <section class="help section">
@@ -181,12 +187,10 @@ get_header();
 
         </div>
 
-        <?php  
-        $auctionBtn = get_field( 'auction_btn' );
-        if ($auctionBtn) {?>
-        <a href="<?php echo $auctionBtn['link']?>" class="tertiary-button read-more-btn">
-            <?php echo $auctionBtn['text']?></a>
-        <?php } ?>
+
+        <!-- <a href="" class="tertiary-button read-more-btn">
+            <?php echo $auctionBtn['text']?></a> -->
+
     </section>
 
     <?php get_template_part('template-parts/partners-slider'); ?>
