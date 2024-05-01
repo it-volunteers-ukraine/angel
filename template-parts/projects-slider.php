@@ -35,10 +35,12 @@ $seeMoreBtn = get_field( 'projects_btn', 'option' );
             </div>
         </div>
         <div class="btn-wrapper">
-            <?php  if ($seeMoreBtn) {?>
-            <a href=<?php echo $seeMoreBtn['link']?> class="tertiary-button see-more-btn">
-                <?php echo $seeMoreBtn['text']?></a>
-            <?php } ?>
+            <?php 
+            $link = get_field('project_link');
+            if( $link ): ?>
+            <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
+                class="tertiary-button see-more-btn"><?php echo get_field("project_btn")?></a>
+            <?php endif; ?>
         </div>
     </div>
 
