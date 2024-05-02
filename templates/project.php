@@ -124,11 +124,12 @@ $project_alt = get_field('project-name', $post);
                                 </a>
                             </div>
                         </div>
-                        <div class="back"><a href="<?php the_field('back-link', 'option'); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a></div>                                  
-                        
+                        <div class="back">           
+                            <?php $link = get_field('back-link', 'option'); ?>
+                            <a href="<?php echo esc_url( get_term_link( $link ) ); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a>    
+                        </div>  
 
-                        <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>
-                            
+                        <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>                            
                         <div class="support__disabled item__choice">     
                             <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
                             <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
