@@ -5,6 +5,8 @@ Template Name: Benefactors
 get_header();
 ?>
 <h2>Благодійникам</h2>
+<?php get_template_part('template-parts/depositing-funds'); ?>
+<?php get_template_part('template-parts/partners-slider'); ?>
 <?php get_template_part('template-parts/projects-slider',); ?>
 
 
