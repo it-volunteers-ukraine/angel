@@ -5,122 +5,82 @@ Template Name: Acknowledgements
 get_header();
 ?>
 
-<!-- <main class="gratitudes">
-    <section class="gratitudes__section section">
+<main class="acknowledgements">
+    <section class="acknowledgements__section section">
         <div class="container">
-            <div class="gratitudes__content">
-                <h2 class="page-title title-h2"><?php the_field('gratitudes_title'); ?></h2>
-                <p><?php the_field('gratitudes_text'); ?></p>
-                <div class="gratitudes__content__cards">
+            <div class="acknowledgements__content">
+                <h2 class="page-title title-h2"><?php the_field('acknowledgements_title'); ?></h2>
+                <p><?php the_field('acknowledgements_text'); ?></p>
+                <div class="acknowledgements__content__cards">
                     <?php
-                    if( have_rows('gratitudes') ):
-                        while( have_rows('gratitudes') ) : the_row();
+                        $screenWidth = wp_is_mobile() ? 576 : 1441; 
 
-                            $gratitudeImg = get_sub_field('gratitude_img');
-                            $gratitudeDate = get_sub_field('gratitude_date');
-                            $gratitudeInfo = get_sub_field('gratitude_info');
-                            
-                            ?>
-                            <div class="card">
-                                <div class="card__img">
-                                    <?php 
-                                    if( !empty( $gratitudeImg ) ): ?>
-                                        <a data-fslightbox="gallery" href="<?php echo esc_url($gratitudeImg['url']); ?>">
-                                            <img src="<?php echo esc_url($gratitudeImg['url']); ?>" alt="<?php echo esc_attr($gratitudeImg['alt']); ?>"/>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
-                                <p><?php echo($gratitudeDate); ?></p>
-                                <p><?php echo($gratitudeInfo); ?></p>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                </div>
+                        if ($screenWidth >= 1441) {
+                            $postsPerPage = 8;
+                        } elseif ($screenWidth >= 576) {
+                            $postsPerPage = 6;
+                        } else {
+                            $postsPerPage = 3;
+                        }
+                   
+                        $args = array(
+                            'post_type' => 'acknowledgements',
+                            'posts_per_page' => $postsPerPage,
+                            'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+                            'order' => 'ASC'
+                        );
 
-                
-                
-            </div>
-        </div>
-    </section>
-</main> -->
+                        $custom_posts = new WP_Query($args);
+                        $total_pages  = $custom_posts->max_num_pages; 
+                        $current_page = max( 1, get_query_var( 'paged' ) );
 
-<main class="gratitudes">
-    <section class="gratitudes__section section">
-        <div class="container">
-            <div class="gratitudes__content">
-                <h2 class="page-title title-h2"><?php the_field('gratitudes_title'); ?></h2>
-                <p><?php the_field('gratitudes_text'); ?></p>
-                <div class="gratitudes__content__cards">
-                
-                    <?php
+                        if ($custom_posts->have_posts()) :
+                            while ($custom_posts->have_posts()) :
+                                $custom_posts->the_post();
+                                
+                                $acknowledgementImg = get_field('acknowledgement_img');
+                                $acknowledgementDate = get_field('acknowledgement_date');
+                                $acknowledgementInfo = get_field('acknowledgement_info');
+
+                                ?>
+                                    <div class="card">
+                                        <div class="card__img">
+                                            <?php if (!empty($acknowledgementImg)) : ?>
+                                                <a data-fslightbox="gallery" href="<?php echo esc_url($acknowledgementImg['url']); ?>">
+                                                    <img src="<?php echo esc_url($acknowledgementImg['url']); ?>" alt="<?php echo esc_attr($acknowledgementImg['alt']); ?>"/>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <p class="card__date"><?php echo($acknowledgementDate); ?></p>
+                                        <p class="card__info"><?php echo($acknowledgementInfo); ?></p>
+                                    </div>
+                                <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo 'No acknowledgements';
+                        endif;
+                    ?>
                     
-                    // Визначаємо кількість постів на сторінці залежно від ширини екрану
-                    if (wp_is_mobile()) {
-                        $posts_per_page = 3; // на мобільних пристроях відображається 3 карточки
-                    } elseif (wp_is_mobile() || $_SERVER['HTTP_USER_AGENT'] && strpos($_SERVER['HTTP_USER_AGENT'],'Tablet')!==false) {
-                        $posts_per_page = 6; // на планшетах відображається 6 карточок
-                    } elseif (wp_is_mobile() || $_SERVER['HTTP_USER_AGENT'] && strpos($_SERVER['HTTP_USER_AGENT'],'Mobile')!==false) {
-                        $posts_per_page = 6; // на мобільних пристроях відображається 6 карточок
-                    } else {
-                        $posts_per_page = 8; // на екранах більше 1440 відображається 8 карточок
-                    }
-
-                    // Визначаємо поточну сторінку
-                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-
-                    // Визначаємо аргументи для запиту
-                    $args = array(
-                        'post_type'      => 'post', // замініть на ваш тип запису
-                        'posts_per_page' => $posts_per_page,
-                        'paged'          => $paged
-                    );
-
-                    // Виконуємо запит
-                    $gratitudes_query = new WP_Query( $args );
-
-                    if ( $gratitudes_query-> have_rows('acknowledgements') ) :
-                        while ( $gratitudes_query->have_rows('acknowledgements') ) : $gratitudes_query->the_row();
-
-                            $gratitudeImg = get_sub_field('acknowledgement_img');
-                            $gratitudeDate = get_sub_field('acknowledgement_date');
-                            $gratitudeInfo = get_sub_field('acknowledgement_info');
-
-                            ?>
-                            <div class="card">
-                                <div class="card__img">
-                                <?php 
-                                    if( !empty( $gratitudeImg ) ): ?>
-                                        <a data-fslightbox="gallery" href="<?php echo esc_url($gratitudeImg['url']); ?>">
-                                            <img src="<?php echo esc_url($gratitudeImg['url']); ?>" alt="<?php echo esc_attr($gratitudeImg['alt']); ?>"/>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
-                                <p><?php echo($gratitudeDate); ?></p>
-                                <p><?php echo($gratitudeInfo); ?></p>
-                            </div>
-                        <?php endwhile; ?>
-
-                        <!-- Додамо пагінацію  -->
-                        <div class="pagination">
-                            <?php echo paginate_links( array(
-                                'total' => $gratitudes_query->max_num_pages
-                            ) ); ?>
-                        </div>
-                        <!-- /Додамо пагінацію -->
-
-                        <?php wp_reset_postdata(); ?>
-                    <?php endif; ?>
                 </div>
+            </div>
+            <div class="pagination">     
+                <?php
+                    echo paginate_links( [
+                        'base'      => get_pagenum_link( 1 ) . '%_%',
+                        'format'    => '/page/%#%',
+                        'current'   => $current_page,
+                        'total'     => $total_pages,
+                        'prev_next' => false,
+                        'show_all'  => $total_pages <= 5,
+                        'end_size'  => 1,
+                        'mid_size'  => ( $current_page === 1 ) || ( $current_page == $total_pages ) ? 3 : 1,
+                    ] );
+                ?>
             </div>
         </div>
     </section>
 </main>  
-
-
-
-
-
-
 
 <?php get_footer(); ?>
 
