@@ -51,13 +51,18 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/assets/styles/template-styles/contacts.css', array('main') );
     wp_enqueue_script( 'contacts-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/contacts.js', array(), false, true );
   } 
+  if ( is_page_template('templates/artist-information.php') ) {
+    wp_enqueue_style( 'artist-information-style', get_template_directory_uri() . '/assets/styles/template-styles/artist-information.css', array('main') );
+    wp_enqueue_script( 'artist-information-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/artist-information.js', array(), false, true );
+  }
   if ( is_page_template('templates/project.php') ) {
     wp_enqueue_style( 'project-style', get_template_directory_uri() . '/assets/styles/template-styles/project.css', array('main') );
     wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/project.js', array(), false, true );
   }
-  if ( is_page_template('templates/artist-information.php') ) {
-    wp_enqueue_style( 'artist-information-style', get_template_directory_uri() . '/assets/styles/template-styles/artist-information.css', array('main') );
-    wp_enqueue_script( 'artist-information-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/artist-information.js', array(), false, true );
+  if ( is_page_template('templates/acknowledgements.php') ) {
+    wp_enqueue_style( 'acknowledgements-style', get_template_directory_uri() . '/assets/styles/template-styles/acknowledgements.css', array('main') );
+    wp_enqueue_script( 'acknowledgements-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/acknowledgements.js', array(), false, true );
+    wp_enqueue_script( 'fslightbox-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/fslightbox.js', array(), false, true );
   }
   if ( is_page_template('templates/auctions.php') ) {
     wp_enqueue_style( 'auctions-style', get_template_directory_uri() . '/assets/styles/template-styles/auctions.css', array('main') );
