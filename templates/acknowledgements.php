@@ -12,21 +12,23 @@ get_header();
                 <h2 class="page-title title-h2"><?php the_field('acknowledgements_title'); ?></h2>
                 <p><?php the_field('acknowledgements_text'); ?></p>
                 <div class="acknowledgements__content__cards">
-                    <?php
-                        $screenWidth = wp_is_mobile() ? 576 : 1441; 
+                     <?php
+                    
+                    // $screenWidth = isset($_POST['screenWidth']) ? $_POST['screenWidth'] : null;
 
-                        if ($screenWidth >= 1441) {
-                            $postsPerPage = 8;
-                        } elseif ($screenWidth >= 576) {
-                            $postsPerPage = 6;
-                        } else {
-                            $postsPerPage = 3;
-                        }
-                   
+                    
+                    // if ( $screenWidth >= 1441 ) {
+                    //     $posts_per_page = 8;
+                    // } elseif ( $screenWidth >= 576 ) {
+                    //     $posts_per_page = 6;
+                    // } else {
+                    //     $posts_per_page = 3;
+                    // } 
+
                         $args = array(
                             'post_type' => 'acknowledgements',
-                            'posts_per_page' => $postsPerPage,
-                            'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+                            'posts_per_page' => $posts_per_page,
+                            'paged' => get_query_var('paged') ? get_query_var('paged') : 1, 
                             'order' => 'ASC'
                         );
 
@@ -66,6 +68,8 @@ get_header();
             </div>
             <div class="pagination">     
                 <?php
+                
+                echo "Total pages: " . $total_pages;
                     echo paginate_links( [
                         'base'      => get_pagenum_link( 1 ) . '%_%',
                         'format'    => '/page/%#%',
@@ -83,4 +87,5 @@ get_header();
 </main>  
 
 <?php get_footer(); ?>
+
 

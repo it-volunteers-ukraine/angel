@@ -1,0 +1,1 @@
+var screenWidth=window.innerWidth,xhr=new XMLHttpRequest;xhr.open("POST","handle-screen-width.php",!0),xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),xhr.onreadystatechange=function(){4===xhr.readyState&&200===xhr.status&&console.log("Width sent successfully.")},xhr.send("screenWidth="+screenWidth);
