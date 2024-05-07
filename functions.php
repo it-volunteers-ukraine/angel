@@ -110,6 +110,9 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'projects-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-slider.css', array('main') );
     wp_enqueue_script( 'projects-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/projects-slider.js', array(), false, true );
   }
+  if (is_singular() && locate_template('template-parts/depositing-funds.php')) {
+    wp_enqueue_style( 'depositing-funds-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/depositing-funds.css', array('main') );    
+  }
 }
 /** add fonts */
 function add_google_fonts() {
@@ -181,5 +184,8 @@ function render_menu_section($menu_items, $classes = "menu-item", $parent_title)
 
 function mytheme_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
+  add_theme_support( 'wc-product-gallery-zoom' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
