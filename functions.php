@@ -153,30 +153,6 @@ if( function_exists('acf_add_options_page') ) {
   ));
 }
 
-function get_nav_items_of_parent($menu_location, $parent_id) {
-  $menu_obj = get_term_by('name', $menu_location, 'nav_menu');
-  $menu_id = $menu_obj->term_id;
-  $menu_items = wp_get_nav_menu_items($menu_id);
-  return array_filter($menu_items, function($item) use ($parent_id) {
-    return (int)$item->menu_item_parent === (int)$parent_id;
-  });
-}
-
-function render_menu_section($menu_items, $classes = "menu-item", $parent_title) {
-  $current_url = esc_url(get_permalink());
-  $html = "<div class='sub-menu-wrapper'><span class='parent-title'>" . $parent_title . "</span>";
-  $html .= "<ul class='".$classes."'>";
-  foreach ($menu_items as $item) {
-    $item_cls = 'sub-menu-item';
-    if ($current_url === $item->url) {
-      $item_cls .= '__current-item';
-    }
-    $html .= "<li class=" . $item_cls . "><a href='" . esc_url($item->url) . "'>" . esc_html($item->title) . "</a></li>";
-  }
-  $html .= "</ul></div>";
-  return $html;
-}
-
 function mytheme_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
   add_theme_support( 'wc-product-gallery-zoom' );
