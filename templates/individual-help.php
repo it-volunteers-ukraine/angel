@@ -49,7 +49,12 @@ get_header();
                             <?php the_field('form_titile')?>
                         <?php } ?>
                     </h3>
-                    <?php echo do_shortcode( '[contact-form-7 id="12c64c8" title="Форма Отримати допомогу"]') ?>
+                    <?php
+                        $formShortcode = get_field('form_shortcode');
+                        if ($formShortcode): ?>
+
+                        <?php echo do_shortcode($formShortcode); ?>
+                    <?php endif; ?>
                 </div>
                 <!--  ============= contact person card =============  -->
                 <div class="contact-person-card">
