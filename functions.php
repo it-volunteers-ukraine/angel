@@ -184,3 +184,8 @@ function mytheme_add_woocommerce_support() {
   add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+if ( class_exists( 'WooCommerce' ) ) {	
+	require get_template_directory() . '/woocommerce/wc-functions.php';	
+  require get_template_directory() . '/woocommerce/wc-functions-remove.php';
+}
