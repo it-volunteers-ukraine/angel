@@ -16,8 +16,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-echo '<section class="cart__section section">'; 
-echo '<div class="container">';
+
 do_action( 'woocommerce_before_cart' ); ?>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
@@ -192,6 +191,5 @@ do_action( 'woocommerce_before_cart' ); ?>
 		do_action( 'woocommerce_cart_collaterals' );
 	?>
 </div>
-</div>
-</section>
+
 <?php do_action( 'woocommerce_after_cart' ); ?>
