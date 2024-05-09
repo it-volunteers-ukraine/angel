@@ -16,6 +16,3 @@ function estore_wrapper_product_end() {
   </div">
   <?php
 }
-
-
-

@@ -10,13 +10,16 @@
       position: relative;
     }
     .woocommerce-product-gallery__trigger {
+      z-index: 1;
       position: absolute;
       top: 12px;
-      left: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
     }
-    .woocommerce-product-gallery__wrapper {       
+    .woocommerce-product-gallery__wrapper {  
       img {
           border-radius: 32px;
-      }
+        }
     }    
 }
