@@ -1,5 +1,5 @@
 function openCloseDetails(event) { 
-  if (event.target.classList.contains('support__btn')) {  
+  if (event.target.classList.contains('support-row')) {  
       let supportRow = event.target.closest('.support-row');
       let answers = supportRow.querySelectorAll('.support-more');
       answers.forEach(answer => {
