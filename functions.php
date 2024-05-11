@@ -72,10 +72,13 @@ function wp_it_volunteers_scripts() {
   if ( is_page_template('templates/auctions.php') ) {
     wp_enqueue_style( 'auctions-style', get_template_directory_uri() . '/assets/styles/template-styles/auctions.css', array('main') );
     wp_enqueue_script( 'auctions-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/auctions.js', array(), false, true );
-  }
+  }  
   if (is_product()) {
     wp_enqueue_style('theme-product-page-style', get_template_directory_uri() . '/assets/styles/template-styles/single-product.css');
     wp_enqueue_script('theme-product-page-script', get_template_directory_uri() . '/assets/scripts/template-scripts/single-product.js');        
+  }
+  if ( is_post_type_archive('product') ) {
+    wp_enqueue_style( 'archive-product-style', get_template_directory_uri() . '/assets/styles/template-styles/archive-product.css', array('main') );    
   }
 
   if (is_singular() && locate_template('template-parts/about-fund-section.php')) {
@@ -189,3 +192,8 @@ function mytheme_add_woocommerce_support() {
   add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+if ( class_exists( 'WooCommerce' ) ) {	
+	require get_template_directory() . '/woocommerce/wc-functions.php';	
+  require get_template_directory() . '/woocommerce/wc-functions-remove.php';
+}
