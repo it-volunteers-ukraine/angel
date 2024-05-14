@@ -197,7 +197,11 @@ function mytheme_add_woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
-acknowledgements
+if ( class_exists( 'WooCommerce' ) ) {	
+	require get_template_directory() . '/woocommerce/wc-functions.php';	
+  require get_template_directory() . '/woocommerce/wc-functions-remove.php';
+}
+
 
 
 /*** AJAX acknowledgements */
@@ -331,9 +335,5 @@ function get_acknowledgements_per_page($width) {
 
 
 
-=====
-if ( class_exists( 'WooCommerce' ) ) {	
-	require get_template_directory() . '/woocommerce/wc-functions.php';	
-  require get_template_directory() . '/woocommerce/wc-functions-remove.php';
-}
+
 
