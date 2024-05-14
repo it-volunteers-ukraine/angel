@@ -1,6 +1,35 @@
 @import "../variables.scss";
 
-.lot {    
+.lot {   
+  position: relative;
+  .shop-cart {
+    position: fixed;
+    top: 23%;
+    right: 10%;
+    z-index: 10;
+    .fa-cart {  
+      background-image: url(../../../assets/images/shopping-cart.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-origin: border-box;
+      border: none;
+      width: 32px;
+      height: 32px;
+      padding: 15px;
+      pointer-events: none;
+    }
+    .count {
+      position: absolute;
+      top: -25px;
+      right: -7px;
+      padding: 1px 4px;
+      color: $color-white;
+      background-color: $color-blue;
+      border-radius: 50%;
+      vertical-align: middle;      
+    }
+  }
+     
     &__info {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -21,5 +50,11 @@
       img {
           border-radius: 32px;
         }
-    }    
+    }  
+    .flex-control-nav {
+      display: flex;
+      gap: 4px;
+      list-style-type: none;
+      padding: 0px;
+    }  
 }

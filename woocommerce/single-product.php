@@ -32,9 +32,12 @@ get_header( 'shop' ); ?>
 		echo '<div class="page-title title-h2">';
 		do_action( 'woocommerce_shop_loop_item_title' );
 		echo '</div>';
-	?>
+	?>	
     <section class="lot section">
 		<div class="container">
+			<div class="shop-cart">
+				<?php estore_woocommerce_cart_link();?>	
+			</div>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 
