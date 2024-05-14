@@ -39,6 +39,9 @@
         }
     }
     .product__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         .woocommerce-loop-product__title {
             overflow: hidden;
             font-size: 20px;

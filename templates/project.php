@@ -75,24 +75,8 @@ $project_alt = get_field('project-name', $post);
 
                             </div>    
                         </div> 
-                        <div class="transferring">
-                            <h3 class="transferring__title title-h6"><?php the_field('ways-transferring', 'option'); ?></h3>
-                            <div class="transferring__content">                                 
-                                <?php 
-                                    $rows = get_field('transferring-funds', 'option');
-                                    if( $rows ) {        
-                                        foreach( $rows as $row ) {                                        
-                                            $image = $row['transferring-img'];
-                                            $link = $row['transferring-link'];
-                                            echo '<a href="' . esc_url( $link ) . '" class="" target="_blank">'; 
-                                                echo '<div class="transferring__img">'; 
-                                                    echo wp_get_attachment_image( $image, 'full' ); 
-                                                echo '</div>';
-                                            echo '</a>';                                        
-                                        }        
-                                    }
-                                ?>
-                            </div>
+                        <div class="transferring__funds">
+                            <?php get_template_part('template-parts/depositing-funds'); ?>
                         </div>
                         <div class="about__social">
                            <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
@@ -124,11 +108,12 @@ $project_alt = get_field('project-name', $post);
                                 </a>
                             </div>
                         </div>
-                        <div class="back"><a href="<?php the_field('back-link', 'option'); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a></div>                                  
-                        
+                        <div class="back">           
+                            <?php $link = get_field('back-link', 'option'); ?>
+                            <a href="<?php echo esc_url( get_term_link( $link ) ); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a>    
+                        </div>  
 
-                        <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>
-                            
+                        <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>                            
                         <div class="support__disabled item__choice">     
                             <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
                             <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
