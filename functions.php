@@ -109,9 +109,11 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'projects-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-slider.css', array('main') );
     wp_enqueue_script( 'projects-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/projects-slider.js', array(), false, true );
   }
-
   if (is_singular() && locate_template('template-parts/one-acknowledgement.php')) {
     wp_enqueue_style('one-acknowledgement', get_template_directory_uri() . '/assets/styles/template-parts-styles/one-acknowledgement.css', array('main'));
+  }
+  if (is_singular() && locate_template('template-parts/loader.php')) {
+    wp_enqueue_style('loader-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/loader.css', array('main'));
   }
 }
 /** add fonts */
@@ -188,7 +190,6 @@ function mytheme_add_woocommerce_support() {
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
-
 /** AJAX acknowledgements */
 
 // Функція для обробки AJAX запитів на виведення постів і пагінації
@@ -208,7 +209,7 @@ function load_acknowledgements() {
   // Визначення кількості постів на сторінку залежно від ширини
   $number = get_acknowledgements_per_page($width);
 
-  // Отримання загальної кількості постів та кількості сторінок
+  // Отримання загальної кількості постів
   $total_posts = wp_count_posts('acknowledgements')->publish;
   
   // Побудова запиту для отримання постів
@@ -252,7 +253,6 @@ function load_acknowledgements() {
       wp_send_json(array(
         'posts' => $posts_markup, 
         'pagination' => $pagination_markup,
-        'totalPages' => $total_pages,
       ));
     else :
       echo 'No acknowledgements';
