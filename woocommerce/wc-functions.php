@@ -78,7 +78,7 @@ if ( ! function_exists( 'estore_woocommerce_header_cart' ) ) {
 	}
 }
 
-
+//Pagination
 function custom_woocommerce_loop_shop_per_page($cols) {
     $cols = 6;
     return $cols;

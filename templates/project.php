@@ -51,11 +51,11 @@ $project_alt = get_field('project-name', $post);
                                 $rows = get_field('currency', 'option');
                                 if ($rows) {        
                                     foreach ($rows as $row) {                                        
-                                        echo '<div class="support-row">';         
-                                        echo '<div class="support-row-block">';
+                                        echo '<div class="support-row">';  
                                         echo '<p class="support-row-name">';
                                         echo $row['currency-name'];
-                                        echo '</p>'; 
+                                        echo '</p>';        
+                                        echo '<div class="support-row-block">';                                        
 
                                         $details = $row['bank-details']; 
                                         if ($details) {  
