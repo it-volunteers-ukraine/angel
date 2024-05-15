@@ -77,3 +77,17 @@ if ( ! function_exists( 'estore_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+
+function custom_woocommerce_loop_shop_per_page($cols) {
+    $cols = 6;
+    return $cols;
+}
+add_filter('loop_shop_per_page', 'custom_woocommerce_loop_shop_per_page', 20);
+
+function custom_woocommerce_pagination_args($args) {
+    $args['prev_text'] = '';
+    $args['next_text'] = '';
+    return $args;
+}
+add_filter('woocommerce_pagination_args', 'custom_woocommerce_pagination_args');

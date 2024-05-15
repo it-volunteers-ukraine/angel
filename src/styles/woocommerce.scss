@@ -97,3 +97,19 @@
   padding-top: 32px;
 }	
 .woocommerce-info {border-top: 0px;}
+
+
+/*PAGINATION===========================*/
+.woocommerce-pagination {  
+  .page-numbers {
+    display: flex;  
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4px 8px;
+  }
+  .current {
+    color: $color-blue;
+    border-bottom: 2px solid $color-blue;
+  }
+}
