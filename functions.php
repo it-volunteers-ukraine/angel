@@ -46,6 +46,11 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'individual-help-style', get_template_directory_uri() . '/assets/styles/template-styles/individual-help.css', array('main') );
     wp_enqueue_script( 'individual-help-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/individual-help.js', array(), false, true );
   }
+  
+  if ( is_page_template('templates/volunteers.php') ) {
+    wp_enqueue_style( 'volunteers-style', get_template_directory_uri() . '/assets/styles/template-styles/volunteers.css', array('main') );
+    wp_enqueue_script( 'volunteers-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/volunteers.js', array(), false, true );
+  }
 
   if ( is_page_template('templates/contacts.php') ) {
     wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/assets/styles/template-styles/contacts.css', array('main') );
@@ -71,10 +76,13 @@ function wp_it_volunteers_scripts() {
   if ( is_page_template('templates/auctions.php') ) {
     wp_enqueue_style( 'auctions-style', get_template_directory_uri() . '/assets/styles/template-styles/auctions.css', array('main') );
     wp_enqueue_script( 'auctions-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/auctions.js', array(), false, true );
-  }
+  }  
   if (is_product()) {
     wp_enqueue_style('theme-product-page-style', get_template_directory_uri() . '/assets/styles/template-styles/single-product.css');
     wp_enqueue_script('theme-product-page-script', get_template_directory_uri() . '/assets/scripts/template-scripts/single-product.js');        
+  }
+  if ( is_post_type_archive('product') ) {
+    wp_enqueue_style( 'archive-product-style', get_template_directory_uri() . '/assets/styles/template-styles/archive-product.css', array('main') );    
   }
 
   if (is_singular() && locate_template('template-parts/about-fund-section.php')) {
@@ -114,6 +122,9 @@ function wp_it_volunteers_scripts() {
   }
   if (is_singular() && locate_template('template-parts/loader.php')) {
     wp_enqueue_style('loader-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/loader.css', array('main'));
+  }
+  if (is_singular() && locate_template('template-parts/depositing-funds.php')) {
+    wp_enqueue_style( 'depositing-funds-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/depositing-funds.css', array('main') );    
   }
 }
 /** add fonts */
@@ -186,9 +197,16 @@ function render_menu_section($menu_items, $classes = "menu-item", $parent_title)
 
 function mytheme_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
+  add_theme_support( 'wc-product-gallery-zoom' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
+if ( class_exists( 'WooCommerce' ) ) {	
+	require get_template_directory() . '/woocommerce/wc-functions.php';	
+  require get_template_directory() . '/woocommerce/wc-functions-remove.php';
+}
 
 /** AJAX acknowledgements */
 
