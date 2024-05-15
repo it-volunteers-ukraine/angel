@@ -122,6 +122,12 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'projects-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-slider.css', array('main') );
     wp_enqueue_script( 'projects-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/projects-slider.js', array(), false, true );
   }
+  if (is_singular() && locate_template('template-parts/one-acknowledgement.php')) {
+    wp_enqueue_style('one-acknowledgement', get_template_directory_uri() . '/assets/styles/template-parts-styles/one-acknowledgement.css', array('main'));
+  }
+  if (is_singular() && locate_template('template-parts/loader.php')) {
+    wp_enqueue_style('loader-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/loader.css', array('main'));
+  }
   if (is_singular() && locate_template('template-parts/depositing-funds.php')) {
     wp_enqueue_style( 'depositing-funds-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/depositing-funds.css', array('main') );    
   }
@@ -207,11 +213,9 @@ if ( class_exists( 'WooCommerce' ) ) {
   require get_template_directory() . '/woocommerce/wc-functions-remove.php';
 }
 
+/** AJAX acknowledgements */
 
-
-/*** AJAX acknowledgements */
-
-// Функція для обробки AJAX запитів на виведення постів
+// Функція для обробки AJAX запитів на виведення постів і пагінації
 add_action('wp_ajax_load_acknowledgements', 'load_acknowledgements');
 add_action('wp_ajax_nopriv_load_acknowledgements', 'load_acknowledgements');
 
@@ -228,12 +232,9 @@ function load_acknowledgements() {
   // Визначення кількості постів на сторінку залежно від ширини
   $number = get_acknowledgements_per_page($width);
 
-  // Отримання загальної кількості постів та кількості сторінок
+  // Отримання загальної кількості постів
   $total_posts = wp_count_posts('acknowledgements')->publish;
-  $total_pages = ceil($total_posts / $number);
   
-
-
   // Побудова запиту для отримання постів
   $args = array(
     'post_type' => 'acknowledgements',
@@ -244,86 +245,41 @@ function load_acknowledgements() {
   );
 
   $custom_posts = new WP_Query($args);
-  // $total_pages  = $custom_posts->max_num_pages; 
+  $total_pages  = $custom_posts->max_num_pages; 
   $current_page = max( 1, $paged );
 
-  // Верстка постів
+  // Виведення постів
   ob_start();
     $posts_markup = '';
       if ($custom_posts->have_posts()) :
         while ($custom_posts->have_posts()) :
           $custom_posts->the_post();
-            
-            $acknowledgementImg = get_field('acknowledgement_img');
-            $acknowledgementDate = get_field('acknowledgement_date');
-            $acknowledgementInfo = get_field('acknowledgement_info');
-
-            ?>
-                <div class="card">
-                    <div class="card__img">
-                        <?php if (!empty($acknowledgementImg)) : ?>
-                            <a data-fslightbox="gallery" href="<?php echo esc_url($acknowledgementImg['url']); ?>">
-                                <img src="<?php echo esc_url($acknowledgementImg['url']); ?>" alt="<?php echo esc_attr($acknowledgementImg['alt']); ?>"/>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                    <p class="card__date"><?php echo($acknowledgementDate); ?></p>
-                    <p class="card__info"><?php echo($acknowledgementInfo); ?></p>
-                </div>
-            <?php
+        ?>
+          <?php get_template_part('template-parts/one-acknowledgement'); ?>
+        <?php
         endwhile;
       $posts_markup = ob_get_clean();
       wp_reset_postdata();
+      // Виведення пагінації
+      if ( $total_pages > 1 ) {
+        $pagination_markup = paginate_links( array(
+          'base'    => '?paged=%#%',
+          'format'    => '%#%',
+          'current' => $paged,
+          'total'   => $total_pages,
+          'prev_next' => false,
+          'show_all'  => $total_pages <= 5,
+          'end_size'  => 1,
+          'mid_size'  => ($paged === 1) || ($paged == $total_pages) ? 3 : 1,
+        ));  
+      }  
       wp_send_json(array(
         'posts' => $posts_markup, 
-        'totalPages' => $total_pages,
+        'pagination' => $pagination_markup,
       ));
     else :
       echo 'No acknowledgements';
     endif;
-  wp_die();
-}
-
-// Функція для обробки AJAX запитів на виведення пагінації
-add_action('wp_ajax_load_pagination', 'load_pagination');
-add_action('wp_ajax_nopriv_load_pagination', 'load_pagination');
-
-function load_pagination() {
-  if (!isset($_POST["nonce"]) || !wp_verify_nonce($_POST["nonce"], "acknowledgements_nonce")) {
-    exit;
-  }
-  
-  // Отримання параметрів з AJAX-запиту
-  global $wp_query;
-  $paged = $_POST['page'];
-  $width = $_POST['width'];
-  
-  // Визначення кількості постів на сторінку залежно від ширини
-  $number = get_acknowledgements_per_page($width);
-
-  // Отримання загальної кількості постів та кількості сторінок
-  $total_posts = wp_count_posts('acknowledgements')->publish;
-  $total_pages = ceil($total_posts / $number);
-  // $custom_posts = new WP_Query($args);
-  // $current_page = max( 1, $paged );
-
-  // Верстка пагінації
-  if ( $total_pages > 1 ) {
-    $pagination_markup = paginate_links( array(
-      'base'    => '?paged=%#%',
-      'format'    => '%#%',
-      'current' => $paged,
-      'total'   => $total_pages,
-      'prev_next' => false,
-      'show_all'  => $total_pages <= 5,
-      'end_size'  => 1,
-      'mid_size'  => ($paged === 1) || ($paged == $total_pages) ? 3 : 1,
-    ));  
-  }  
- 
-  wp_send_json(array(
-    'pagination' => $pagination_markup
-  )); 
   wp_die();
 }
 
@@ -337,8 +293,3 @@ function get_acknowledgements_per_page($width) {
     return 3;
   }
 }
-
-
-
-
-
