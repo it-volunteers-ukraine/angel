@@ -6,7 +6,8 @@ $name = $slide['name']
 ?>
 
 <li class="swiper-slide partners-card">
-    <a class="link--<?php echo( $link ? '' : 'disable' ); ?>" href="<?php echo htmlspecialchars($link); ?>">
+    <a class="link--<?php echo( $link ? '' : 'disable' ); ?>" href="<?php echo htmlspecialchars($link); ?>"
+        target="_blank">
         <?php 
         if($logo):
         ?>

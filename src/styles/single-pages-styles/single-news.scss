@@ -1,0 +1,97 @@
+@import "../variables.scss";
+
+.news-content {
+  .main-content {
+    display: grid;
+    grid: auto-flow / 1fr 1fr;
+    gap: 64px;
+  }
+  .image {
+    opacity: 0.9;
+    @media screen and (max-width: 376px) {
+      max-width: 303px;
+    }
+    img {
+      height: 500px;
+      border-radius: 16px;
+      object-fit: cover;
+      @media screen and (max-width: $width-l) {
+        height: 238px;
+      }
+      @media screen and (max-width: $width-m) {
+        border-radius: 8px;
+      }
+      @media screen and (max-width: $width-s) {
+        height: 200px;
+      }
+    }
+  }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .news-gallery {
+    margin-top: 56px;
+    min-height: 370px;
+    @media screen and (max-width: $width-l) {
+      min-height: 643px;
+    }
+    @media screen and (max-width: $width-m) {
+      min-height: 643px;
+    }
+    @media screen and (max-width: $width-s) {
+      min-height: 600px;
+    }
+    @media screen and (max-width: $width-xs) {
+      min-height: 542px;
+    }
+    .swiper-slide {
+      img {
+        height: 300px;
+        border-radius: 32px;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+  .swiper-pagination {
+    bottom: -7px;
+
+    @media screen and (max-width: 376px) {
+      bottom: -5px;
+    }
+    &-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: $color-gray-400;
+      @media screen and (max-width: $width-s) {
+        width: 8px;
+        height: 8px;
+      }
+      &-active {
+        width: 14px;
+        height: 14px;
+        background-color: $color-gray-600;
+        @media screen and (max-width: $width-s) {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+  .back-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid $color-gray-400;
+    @media screen and (max-width: $width-m) {
+      display: none;
+    }
+    .back-button {
+      margin: 56px 0 64px;
+      @media screen and (max-width: $width-l) {
+        margin: 44px 0 56px;
+      }
+    }
+  }
+}
