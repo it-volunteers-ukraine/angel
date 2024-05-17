@@ -35,8 +35,9 @@ get_header( 'shop' ); ?>
 	?>	
     <section class="lot section">
 		<div class="container">
-			<div class="shop-cart">
-				<?php estore_woocommerce_cart_link();?>	
+			<div class="shop-cart shop-wishlist">
+				<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
+				<?php estore_woocommerce_cart_link();?>					
 			</div>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
