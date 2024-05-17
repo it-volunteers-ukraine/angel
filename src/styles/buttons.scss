@@ -82,7 +82,7 @@
   @media (max-width: $width-l) {
     min-width: 240px;
   }
-  @media (max-width: $width-xs) {
+  @media (max-width: 425px) {
     width: 100%;
   }
   &--disabled {

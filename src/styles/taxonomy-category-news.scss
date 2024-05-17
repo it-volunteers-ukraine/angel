@@ -1,0 +1,143 @@
+@import "variables.scss";
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.news-list {
+  display: grid;
+  grid: auto-flow / 1fr 1fr 1fr;
+  gap: 32px;
+  @media screen and (max-width: $width-l) {
+    gap: 24px;
+  }
+  @media screen and (max-width: 1100px) {
+    grid: auto-flow / 1fr 1fr;
+  }
+
+  @media screen and (max-width: $width-mobile) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .news-card {
+    border-radius: 32px;
+    padding: 32px 32px 40px 32px;
+    border: 1px solid $color-gray-200;
+    box-shadow: $box-shadow-normal;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media screen and (max-width: $width-m) {
+      gap: 12px;
+    }
+    @media screen and (max-width: $width-l) {
+      padding: 20px 20px 32px 20px;
+    }
+    &:hover {
+      box-shadow: $box-shadow-hover;
+      transition: all $transition-base;
+      @media screen and (max-width: $width-m) {
+        box-shadow: $box-shadow-normal;
+      }
+      .card-title {
+        color: $color-blue-hover;
+        @media screen and (max-width: $width-m) {
+          color: $color-text-primary;
+        }
+      }
+    }
+    .card-img {
+      opacity: 0.9;
+      @media screen and (max-width: 376px) {
+        max-width: 303px;
+      }
+      img {
+        height: 300px;
+        border-radius: 16px;
+        object-fit: cover;
+        @media screen and (max-width: $width-l) {
+          height: 238px;
+        }
+        @media screen and (max-width: $width-m) {
+          border-radius: 8px;
+        }
+        @media screen and (max-width: $width-s) {
+          height: 200px;
+        }
+      }
+    }
+    .info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      @media screen and (max-width: 376px) {
+        max-width: 303px;
+      }
+      .date-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        height: 22px;
+        .date {
+          line-height: 160%;
+          font-weight: 400;
+          font-size: 14px;
+          color: $color-gray-600;
+        }
+      }
+      .main-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+    .title-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: 64px;
+      @media screen and (max-width: $width-l) {
+        height: 48px;
+      }
+      &--media-about-us {
+        justify-content: flex-start;
+      }
+    }
+    .card-title {
+      font-size: 20px;
+      display: -webkit-box;
+      text-align: center;
+      align-items: flex-end;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      @media screen and (max-width: $width-l) {
+        font-size: 18px;
+      }
+      &--media-about-us {
+        text-align: left;
+      }
+    }
+    .card-text {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      min-height: 78px;
+    }
+    .text--media-about-us {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 100%;
+      @media screen and (max-width: $width-l) {
+        font-size: 18px;
+      }
+      @media screen and (max-width: $width-mobile) {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 160%;
+      }
+    }
+  }
+}

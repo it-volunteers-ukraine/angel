@@ -3,8 +3,8 @@ const headerMenuToggel = document.querySelector("#headerMenuToggle");
 const mobileHeaderMenu = document.querySelector(".mobile-menu_list");
 
 headerMenuToggel.addEventListener("click", () => {
-  headerMenu.classList.toggle("menu--mobile");
-  headerMenuToggel.classList.toggle("is-open");
+  jQuery(headerMenu).toggleClass("menu--mobile");
+  jQuery(headerMenuToggel).toggleClass("is-open");
 });
 
 mobileHeaderMenu.querySelectorAll("& > li > a").forEach((item) => {

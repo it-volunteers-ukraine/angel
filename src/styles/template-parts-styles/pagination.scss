@@ -1,6 +1,13 @@
 @import "../variables.scss";
 
 .pagination {
+  margin-top: 56px;
+  @media screen and (max-width: $width-l) {
+    margin-top: 44px;
+  }
+  @media screen and (max-width: 376px) {
+    margin-top: 36px;
+  }
   .page-numbers {
     font-size: 18px;
     font-weight: 500;
