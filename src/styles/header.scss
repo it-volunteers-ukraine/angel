@@ -458,7 +458,7 @@
 
   .current_page_item,
   .current-menu-item,
-  .current-post-ancestor.current-menu-parent {
+  .menu-item-type-taxonomy.current-menu-parent {
     color: $color-blue;
     @media (max-width: $width-m) {
       cursor: none;

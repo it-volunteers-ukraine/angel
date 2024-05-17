@@ -4,7 +4,7 @@ $seeMoreBtn = get_field( 'projects_btn', 'option' );
 
 ?>
 
-<section class="projects-slider-section">
+<section class="projects-slider-section section">
     <div class="container">
         <?php  if ($title) {?>
         <h2 class="title-h2">
@@ -36,11 +36,11 @@ $seeMoreBtn = get_field( 'projects_btn', 'option' );
         </div>
         <div class="btn-wrapper">
             <?php 
-            $link = get_field('project_link');
-            if( $link ): ?>
-            <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
-                class="tertiary-button see-more-btn"><?php echo get_field("project_btn")?></a>
-            <?php endif; ?>
+            $link = get_field('project_link', 'options');
+            ?>
+            <a href="<?php  echo esc_url( get_term_link( $link ) );?>"
+                class="tertiary-button see-more-btn"><?php echo the_field('project_btn', 'options');?></a>
+            <?php  ?>
         </div>
     </div>
 
