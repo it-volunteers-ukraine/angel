@@ -52,9 +52,8 @@ global $product;
                                         echo '</div>';
                                        
                                         echo '<div class="auction-time">';
-                                        woocommerce_auction_countdown( array( 'show_labels' => false ) );
-                                        echo '</div>';
-
+                                        woocommerce_auction_countdown();
+                                        echo '</div>'; 
 
                                         echo '<button class="product__button primary-button">' . esc_html( get_field('projects-btn-support', 'option') ) . '</button>';
                                     echo '</div>';                                
