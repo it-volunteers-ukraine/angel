@@ -1,5 +1,4 @@
 <?php
-// echo var_export($post, true);
     $title = get_field('title', $post);   
     $postLink = $post->guid;   
     $date = $post->post_date;
@@ -8,7 +7,6 @@
     $post_type = $args['post_type'];
     $website_name = get_field('post_author_website', $post);
     $website_link = get_field('link_to_post_author_website', $post);
-
 ?>
 
 <?php if($post_type === "blog"): ?>
@@ -34,7 +32,7 @@
 
 
         <div class="btn-wrapper">
-            <a href="<?php the_permalink(); ?>"
+            <a href="<?php echo $postLink ?>"
                 class="secondary-button"><?php the_field('read_more_btn', 'option'); ?></a>
         </div>
     </div>

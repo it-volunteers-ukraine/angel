@@ -4,25 +4,31 @@
   .main-content {
     display: grid;
     grid: auto-flow / 1fr 1fr;
-    gap: 64px;
+    gap: 80px;
+    @media screen and (max-width: $width-l) {
+      gap: 64px;
+    }
+    @media screen and (max-width: $width-mobile-menu) {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    @media screen and (max-width: 376px) {
+      gap: 20px;
+    }
   }
   .image {
     opacity: 0.9;
-    @media screen and (max-width: 376px) {
-      max-width: 303px;
-    }
+
     img {
       height: 500px;
-      border-radius: 16px;
+      border-radius: 32px;
       object-fit: cover;
       @media screen and (max-width: $width-l) {
-        height: 238px;
+        height: 400px;
       }
       @media screen and (max-width: $width-m) {
-        border-radius: 8px;
-      }
-      @media screen and (max-width: $width-s) {
-        height: 200px;
+        height: auto;
       }
     }
   }
@@ -35,16 +41,16 @@
     margin-top: 56px;
     min-height: 370px;
     @media screen and (max-width: $width-l) {
-      min-height: 643px;
+      min-height: 308px;
     }
     @media screen and (max-width: $width-m) {
-      min-height: 643px;
+      min-height: 334px;
     }
     @media screen and (max-width: $width-s) {
-      min-height: 600px;
+      min-height: 304px;
     }
     @media screen and (max-width: $width-xs) {
-      min-height: 542px;
+      min-height: 256px;
     }
     .swiper-slide {
       img {
@@ -52,6 +58,18 @@
         border-radius: 32px;
         object-fit: cover;
         object-position: top;
+        @media screen and (max-width: $width-l) {
+          height: 250px;
+        }
+        @media screen and (max-width: $width-m) {
+          height: 280px;
+        }
+        @media screen and (max-width: $width-s) {
+          height: 250px;
+        }
+        @media screen and (max-width: 376px) {
+          height: 220px;
+        }
       }
     }
   }
@@ -79,6 +97,9 @@
         }
       }
     }
+  }
+  .navigation-buttons {
+    top: calc(50% - 140px);
   }
   .back-btn-wrapper {
     display: flex;

@@ -8,7 +8,6 @@ get_header();
 		$post = get_post();
 		$text = get_field('text', $post);                        
     	$image = get_field('main_img', $post);
-		// echo var_export($post, true);
 	?>
         <h2 class="page-title title-h2"><?php the_title()?></h2>
         <div class="main-content">

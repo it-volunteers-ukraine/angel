@@ -1,7 +1,6 @@
 <?php
 $title = get_field('title-all-projects', 'option');
 $seeMoreBtn = get_field( 'projects_btn', 'option' );
-
 ?>
 
 <section class="projects-slider-section section">

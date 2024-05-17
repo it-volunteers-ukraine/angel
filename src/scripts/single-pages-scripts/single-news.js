@@ -15,7 +15,7 @@ const newsGallery = new Swiper(".news-gallery", {
     1440: {
       spaceBetween: 24,
     },
-    1150: {
+    992: {
       slidesPerView: 2,
       slidesPerGroup: 2,
       spaceBetween: 24,

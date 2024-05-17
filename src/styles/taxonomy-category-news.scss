@@ -3,13 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
-  @media screen and (max-width: $width-l) {
-    gap: 44px;
-  }
-  @media screen and (max-width: 376px) {
-    gap: 36px;
-  }
 }
 .news-list {
   display: grid;
