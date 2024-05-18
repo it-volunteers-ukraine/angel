@@ -33,9 +33,7 @@ global $product;
                         while ( $products->have_posts() ) {
                             $products->the_post();
                             ?>
-
                                 <?php get_template_part('template-parts/auction-card'); ?>
-
                             <?php
                         }
                         ?>
@@ -65,7 +63,7 @@ global $product;
                     ?>
                 </div>
             </div>    
-        </div>
+        </div>                        
     </section>    
 </main>
 <?php get_footer(); ?>

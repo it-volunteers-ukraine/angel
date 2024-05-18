@@ -125,8 +125,41 @@ $project_alt = get_field('project-name', $post);
             </div>
         </div>
     </secion>
-    <section class="auction section">
-
-    </section>
+    <section class="auctions__section section"> 
+        <div class="container">
+            <h2 class="section-title title-h2"><?php the_field('auctions-title'); ?></h2>
+            <div class="auctions__body">
+                    <?php 
+                    $category = $args["category"];
+                    $args = array(
+                        'post_type'      => 'product',
+                        'posts_per_page' => 6, 
+                        'category_name' => $category, 
+                        'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
+                    );
+                    
+                    $products = new WP_Query( $args );
+                    $total_pages  = $products->max_num_pages;
+                    $current_page = max( 1, get_query_var( 'paged' ) ); 
+                
+                if ( $products->have_posts() ) {
+                    ?>
+                    <ul class="auctions__products">
+                    <?php 
+                    while ( $products->have_posts() ) {
+                        $products->the_post();
+                        global $product;
+                        set_query_var('product', $product);
+                        get_template_part('template-parts/auction-card');
+                    }
+                    ?>
+                    </ul>
+                    <?php 
+                    wp_reset_postdata();
+                } 
+                ?>
+            </ul>
+        </div>
+    </section>            
 </main>
 <?php get_footer(); ?>
