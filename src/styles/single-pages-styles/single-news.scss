@@ -1,0 +1,118 @@
+@import "../variables.scss";
+
+.news-content {
+  .main-content {
+    display: grid;
+    grid: auto-flow / 1fr 1fr;
+    gap: 80px;
+    @media screen and (max-width: $width-l) {
+      gap: 64px;
+    }
+    @media screen and (max-width: $width-mobile-menu) {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    @media screen and (max-width: 376px) {
+      gap: 20px;
+    }
+  }
+  .image {
+    opacity: 0.9;
+
+    img {
+      height: 500px;
+      border-radius: 32px;
+      object-fit: cover;
+      @media screen and (max-width: $width-l) {
+        height: 400px;
+      }
+      @media screen and (max-width: $width-m) {
+        height: auto;
+      }
+    }
+  }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .news-gallery {
+    margin-top: 56px;
+    min-height: 370px;
+    @media screen and (max-width: $width-l) {
+      min-height: 308px;
+    }
+    @media screen and (max-width: $width-m) {
+      min-height: 334px;
+    }
+    @media screen and (max-width: $width-s) {
+      min-height: 304px;
+    }
+    @media screen and (max-width: $width-xs) {
+      min-height: 256px;
+    }
+    .swiper-slide {
+      img {
+        height: 300px;
+        border-radius: 32px;
+        object-fit: cover;
+        object-position: top;
+        @media screen and (max-width: $width-l) {
+          height: 250px;
+        }
+        @media screen and (max-width: $width-m) {
+          height: 280px;
+        }
+        @media screen and (max-width: $width-s) {
+          height: 250px;
+        }
+        @media screen and (max-width: 376px) {
+          height: 220px;
+        }
+      }
+    }
+  }
+  .swiper-pagination {
+    bottom: -7px;
+
+    @media screen and (max-width: 376px) {
+      bottom: -5px;
+    }
+    &-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: $color-gray-400;
+      @media screen and (max-width: $width-s) {
+        width: 8px;
+        height: 8px;
+      }
+      &-active {
+        width: 14px;
+        height: 14px;
+        background-color: $color-gray-600;
+        @media screen and (max-width: $width-s) {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+  .navigation-buttons {
+    top: calc(50% - 140px);
+  }
+  .back-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid $color-gray-400;
+    @media screen and (max-width: $width-m) {
+      display: none;
+    }
+    .back-button {
+      margin: 56px 0 64px;
+      @media screen and (max-width: $width-l) {
+        margin: 44px 0 56px;
+      }
+    }
+  }
+}
