@@ -1,1 +1,1 @@
-.pagination .page-numbers{font-size:18px;font-weight:500;padding:4px 8px}.pagination .current{color:#0087d2;border-bottom:2px solid #0087d2}
+.pagination{margin-top:56px}@media screen and (max-width: 1440px){.pagination{margin-top:44px}}@media screen and (max-width: 376px){.pagination{margin-top:36px}}.pagination .page-numbers{font-size:18px;font-weight:500;padding:4px 8px}.pagination .current{color:#0087d2;border-bottom:2px solid #0087d2}

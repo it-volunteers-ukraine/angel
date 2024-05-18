@@ -6,14 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
-  @media screen and (max-width: $width-l) {
-    gap: 44px;
-  }
-  @media screen and (max-width: 376px) {
-    gap: 36px;
-  }
-
   .projects-list {
     display: grid;
     grid: auto-flow / 1fr 1fr 1fr;
