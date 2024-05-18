@@ -1,6 +1,7 @@
 @import "../variables.scss";
 
-.lot {    
+.lot {   
+  position: relative;     
     &__info {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -21,5 +22,11 @@
       img {
           border-radius: 32px;
         }
-    }    
+    }  
+    .flex-control-nav {
+      display: flex;
+      gap: 4px;
+      list-style-type: none;
+      padding: 0px;
+    }  
 }
