@@ -125,5 +125,8 @@ $project_alt = get_field('project-name', $post);
             </div>
         </div>
     </secion>
+    <section class="auction section">
+
+    </section>
 </main>
 <?php get_footer(); ?>
