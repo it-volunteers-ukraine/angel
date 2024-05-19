@@ -12,7 +12,7 @@ $project_alt = get_field('project-name', $post);
 
 ?>
 
-<main class="project">   
+<main class="project">  
     <section class="about section"> 
         <div class="container">
             <div class="about__body section">
@@ -46,41 +46,40 @@ $project_alt = get_field('project-name', $post);
                         <div class="support__columns">   
                             <div class="support__column">
                                 <p class="support__swift-text"><?php the_field('swift-text', 'option'); ?></p> 
-                                                                
+                                
                                 <?php 
-                                $rows = get_field('currency', 'option');
-                                if ($rows) {        
-                                    foreach ($rows as $row) {                                        
-                                        echo '<div class="support-row">';         
-                                        echo '<div class="support-row-block">';
-                                        echo '<p class="support-row-name">';
-                                        echo $row['currency-name'];
-                                        echo '</p>'; 
-
-                                        $details = $row['bank-details']; 
-                                        if ($details) {  
-                                            foreach ($details as $detail) { 
-                                                echo '<p class="support-more closen">';
-                                                echo $detail['bank-details-text'];
-                                                echo '</p>';
-                                            }
-                                        }                                               
-
-                                        echo '</div>'; 
-                                        echo '<button class="support__btn"></button>';                                           
-                                        echo '</div>';                                        
-                                    }        
-                                }
+                                    $rows = get_field('currency', 'option');
+                                    if ($rows) {        
+                                        foreach ($rows as $row) {                                        
+                                            echo '<div class="support-row">';         
+                                            echo '<div class="support-row-block">';
+                                            echo '<p class="support-row-name">';
+                                            echo $row['currency-name'];
+                                            echo '</p>'; 
+                                            
+                                            $details = $row['bank-details']; 
+                                            if ($details) {  
+                                                foreach ($details as $detail) { 
+                                                    echo '<p class="support-more closen">';
+                                                    echo $detail['bank-details-text'];
+                                                    echo '</p>';
+                                                }
+                                            }                                               
+                                            
+                                            echo '</div>'; 
+                                            echo '<button class="support__btn"></button>';                                           
+                                            echo '</div>';                                        
+                                        }        
+                                    }
                                 ?>
-
                             </div>    
                         </div> 
                         <div class="transferring__funds">
                             <?php get_template_part('template-parts/depositing-funds'); ?>
                         </div>
                         <div class="about__social">
-                           <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
-                           <div class="about__social-block">                       
+                            <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
+                            <div class="about__social-block">                       
                                 <a class="link" href="<?php the_field( 'telegram', 'option' ); ?>" target="_blank">
                                     <svg class="icon">
                                         <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#telegram" alt="telegram"></use>
@@ -114,52 +113,30 @@ $project_alt = get_field('project-name', $post);
                         </div>  
 
                         <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>                            
-                        <div class="support__disabled item__choice">     
-                            <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
-                            <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
-                        </div>        
-
-                    <?php endif; ?>
-
+                            <div class="support__disabled item__choice">     
+                                <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
+                                <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
+                            </div>        
+                    
+                        <?php endif; ?>
                 </div>
             </div>
         </div>
-    </secion>
+    </section>
     <section class="auctions__section section"> 
-        <div class="container">
-            <h2 class="section-title title-h2"><?php the_field('auctions-title'); ?></h2>
-            <div class="auctions__body">
+        <!-- <div class="container">
+            <div class="auctions__container section">
+                <h2 class="page-title title-h2"><?php the_field('charity_auction_title', 'option'); ?></h2>
+                <div class="auctions__body"> -->
                     <?php 
-                    $category = $args["category"];
-                    $args = array(
-                        'post_type'      => 'product',
-                        'posts_per_page' => 6, 
-                        'category_name' => $category, 
-                        'paged'          => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
-                    );
-                    
-                    $products = new WP_Query( $args );
-                    $total_pages  = $products->max_num_pages;
-                    $current_page = max( 1, get_query_var( 'paged' ) ); 
-                
-                if ( $products->have_posts() ) {
+                    // Передача категорії до шаблону
+                    get_template_part('template-parts/auction-slider', null, array('category' => $args['category']));
                     ?>
-                    <ul class="auctions__products">
-                    <?php 
-                    while ( $products->have_posts() ) {
-                        $products->the_post();
-                        global $product;
-                        set_query_var('product', $product);
-                        get_template_part('template-parts/auction-card');
-                    }
-                    ?>
-                    </ul>
-                    <?php 
-                    wp_reset_postdata();
-                } 
-                ?>
-            </ul>
-        </div>
-    </section>            
+                <!-- </div>
+            </div>
+        </div> -->
+    </section>
+  
 </main>
 <?php get_footer(); ?>
+ 
