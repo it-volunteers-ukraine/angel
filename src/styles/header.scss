@@ -524,6 +524,25 @@
     height: 44px;
     fill: $color-blue;
     cursor: pointer;
+    &--login {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      fill: $color-blue;
+      &:hover {
+        fill: $color-blue-hover;
+      }
+      svg {
+        width: 28px;
+        height: 30px;
+        @media screen and (max-width: $width-mobile) {
+          width: 18px;
+          height: 19px;
+        }
+      }
+    }
     &:hover {
       fill: $color-blue-hover;
     }
