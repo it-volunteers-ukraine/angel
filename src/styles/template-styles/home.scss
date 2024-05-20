@@ -342,7 +342,7 @@
       }
     }
     .secondary-button {
-      @media (max-width: 376px) {
+      @media (max-width: $width-mobile) {
         width: 100%;
       }
     }
