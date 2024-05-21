@@ -82,6 +82,9 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'auctions-style', get_template_directory_uri() . '/assets/styles/template-styles/auctions.css', array('main') );
     wp_enqueue_script( 'auctions-scripts', get_template_directory_uri() . '/assets/scripts/template-scripts/auctions.js', array(), false, true );
   }  
+  if ( is_page_template('templates/wishlist.php') ) {
+    wp_enqueue_style( 'wishlist-style', get_template_directory_uri() . '/assets/styles/template-styles/wishlist.css', array('main') );
+  } 
   if (is_product()) {
     wp_enqueue_style('theme-product-page-style', get_template_directory_uri() . '/assets/styles/template-styles/single-product.css');
     wp_enqueue_script('theme-product-page-script', get_template_directory_uri() . '/assets/scripts/template-scripts/single-product.js');        
@@ -122,9 +125,23 @@ function wp_it_volunteers_scripts() {
     wp_enqueue_style( 'projects-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/projects-slider.css', array('main') );
     wp_enqueue_script( 'projects-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/projects-slider.js', array(), false, true );
   }
+  if (is_singular() && locate_template('template-parts/one-acknowledgement.php')) {
+    wp_enqueue_style('one-acknowledgement', get_template_directory_uri() . '/assets/styles/template-parts-styles/one-acknowledgement.css', array('main'));
+  }
+  if (is_singular() && locate_template('template-parts/loader.php')) {
+    wp_enqueue_style('loader-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/loader.css', array('main'));
+  }
   if (is_singular() && locate_template('template-parts/depositing-funds.php')) {
     wp_enqueue_style( 'depositing-funds-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/depositing-funds.css', array('main') );    
   }
+  if (is_singular() && locate_template('template-parts/auction-slider.php')) {
+    wp_enqueue_style( 'auction-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/auction-slider.css', array('main') );  
+    wp_enqueue_script( 'auction-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/auction-slider.js', array(), false, true );  
+  }
+  if (get_post_type() === 'news' ) {
+    wp_enqueue_style('single-news-style', get_template_directory_uri() . '/assets/styles/single-pages-styles/single-news.css', array('main') );
+    wp_enqueue_script('single-news-scripts', get_template_directory_uri() . '/assets/scripts/single-pages-scripts/single-news.js', array(), false, true);
+    }
 }
 /** add fonts */
 function add_google_fonts() {
@@ -170,30 +187,6 @@ if( function_exists('acf_add_options_page') ) {
   ));
 }
 
-function get_nav_items_of_parent($menu_location, $parent_id) {
-  $menu_obj = get_term_by('name', $menu_location, 'nav_menu');
-  $menu_id = $menu_obj->term_id;
-  $menu_items = wp_get_nav_menu_items($menu_id);
-  return array_filter($menu_items, function($item) use ($parent_id) {
-    return (int)$item->menu_item_parent === (int)$parent_id;
-  });
-}
-
-function render_menu_section($menu_items, $classes = "menu-item", $parent_title) {
-  $current_url = esc_url(get_permalink());
-  $html = "<div class='sub-menu-wrapper'><span class='parent-title'>" . $parent_title . "</span>";
-  $html .= "<ul class='".$classes."'>";
-  foreach ($menu_items as $item) {
-    $item_cls = 'sub-menu-item';
-    if ($current_url === $item->url) {
-      $item_cls .= '__current-item';
-    }
-    $html .= "<li class=" . $item_cls . "><a href='" . esc_url($item->url) . "'>" . esc_html($item->title) . "</a></li>";
-  }
-  $html .= "</ul></div>";
-  return $html;
-}
-
 function mytheme_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
   add_theme_support( 'wc-product-gallery-zoom' );
@@ -207,11 +200,9 @@ if ( class_exists( 'WooCommerce' ) ) {
   require get_template_directory() . '/woocommerce/wc-functions-remove.php';
 }
 
+/** AJAX acknowledgements */
 
-
-/*** AJAX acknowledgements */
-
-// Функція для обробки AJAX запитів на виведення постів
+// Функція для обробки AJAX запитів на виведення постів і пагінації
 add_action('wp_ajax_load_acknowledgements', 'load_acknowledgements');
 add_action('wp_ajax_nopriv_load_acknowledgements', 'load_acknowledgements');
 
@@ -228,12 +219,9 @@ function load_acknowledgements() {
   // Визначення кількості постів на сторінку залежно від ширини
   $number = get_acknowledgements_per_page($width);
 
-  // Отримання загальної кількості постів та кількості сторінок
+  // Отримання загальної кількості постів
   $total_posts = wp_count_posts('acknowledgements')->publish;
-  $total_pages = ceil($total_posts / $number);
   
-
-
   // Побудова запиту для отримання постів
   $args = array(
     'post_type' => 'acknowledgements',
@@ -244,86 +232,41 @@ function load_acknowledgements() {
   );
 
   $custom_posts = new WP_Query($args);
-  // $total_pages  = $custom_posts->max_num_pages; 
+  $total_pages  = $custom_posts->max_num_pages; 
   $current_page = max( 1, $paged );
 
-  // Верстка постів
+  // Виведення постів
   ob_start();
     $posts_markup = '';
       if ($custom_posts->have_posts()) :
         while ($custom_posts->have_posts()) :
           $custom_posts->the_post();
-            
-            $acknowledgementImg = get_field('acknowledgement_img');
-            $acknowledgementDate = get_field('acknowledgement_date');
-            $acknowledgementInfo = get_field('acknowledgement_info');
-
-            ?>
-                <div class="card">
-                    <div class="card__img">
-                        <?php if (!empty($acknowledgementImg)) : ?>
-                            <a data-fslightbox="gallery" href="<?php echo esc_url($acknowledgementImg['url']); ?>">
-                                <img src="<?php echo esc_url($acknowledgementImg['url']); ?>" alt="<?php echo esc_attr($acknowledgementImg['alt']); ?>"/>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                    <p class="card__date"><?php echo($acknowledgementDate); ?></p>
-                    <p class="card__info"><?php echo($acknowledgementInfo); ?></p>
-                </div>
-            <?php
+        ?>
+<?php get_template_part('template-parts/one-acknowledgement'); ?>
+<?php
         endwhile;
       $posts_markup = ob_get_clean();
       wp_reset_postdata();
+      // Виведення пагінації
+      if ( $total_pages > 1 ) {
+        $pagination_markup = paginate_links( array(
+          'base'    => '?paged=%#%',
+          'format'    => '%#%',
+          'current' => $paged,
+          'total'   => $total_pages,
+          'prev_next' => false,
+          'show_all'  => $total_pages <= 5,
+          'end_size'  => 1,
+          'mid_size'  => ($paged === 1) || ($paged == $total_pages) ? 3 : 1,
+        ));  
+      }  
       wp_send_json(array(
         'posts' => $posts_markup, 
-        'totalPages' => $total_pages,
+        'pagination' => $pagination_markup,
       ));
     else :
       echo 'No acknowledgements';
     endif;
-  wp_die();
-}
-
-// Функція для обробки AJAX запитів на виведення пагінації
-add_action('wp_ajax_load_pagination', 'load_pagination');
-add_action('wp_ajax_nopriv_load_pagination', 'load_pagination');
-
-function load_pagination() {
-  if (!isset($_POST["nonce"]) || !wp_verify_nonce($_POST["nonce"], "acknowledgements_nonce")) {
-    exit;
-  }
-  
-  // Отримання параметрів з AJAX-запиту
-  global $wp_query;
-  $paged = $_POST['page'];
-  $width = $_POST['width'];
-  
-  // Визначення кількості постів на сторінку залежно від ширини
-  $number = get_acknowledgements_per_page($width);
-
-  // Отримання загальної кількості постів та кількості сторінок
-  $total_posts = wp_count_posts('acknowledgements')->publish;
-  $total_pages = ceil($total_posts / $number);
-  // $custom_posts = new WP_Query($args);
-  // $current_page = max( 1, $paged );
-
-  // Верстка пагінації
-  if ( $total_pages > 1 ) {
-    $pagination_markup = paginate_links( array(
-      'base'    => '?paged=%#%',
-      'format'    => '%#%',
-      'current' => $paged,
-      'total'   => $total_pages,
-      'prev_next' => false,
-      'show_all'  => $total_pages <= 5,
-      'end_size'  => 1,
-      'mid_size'  => ($paged === 1) || ($paged == $total_pages) ? 3 : 1,
-    ));  
-  }  
- 
-  wp_send_json(array(
-    'pagination' => $pagination_markup
-  )); 
   wp_die();
 }
 
@@ -337,8 +280,7 @@ function get_acknowledgements_per_page($width) {
     return 3;
   }
 }
-
-
-
-
-
+function enqueue_custom_scripts() {
+    wp_enqueue_script('format-date', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/news-card.js' , array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');

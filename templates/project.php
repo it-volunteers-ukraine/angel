@@ -12,7 +12,7 @@ $project_alt = get_field('project-name', $post);
 
 ?>
 
-<main class="project">   
+<main class="project">  
     <section class="about section"> 
         <div class="container">
             <div class="about__body section">
@@ -46,16 +46,16 @@ $project_alt = get_field('project-name', $post);
                         <div class="support__columns">   
                             <div class="support__column">
                                 <p class="support__swift-text"><?php the_field('swift-text', 'option'); ?></p> 
-                                                                
+                                
                                 <?php 
                                 $rows = get_field('currency', 'option');
                                 if ($rows) {        
                                     foreach ($rows as $row) {                                        
-                                        echo '<div class="support-row">';         
-                                        echo '<div class="support-row-block">';
+                                        echo '<div class="support-row">';  
                                         echo '<p class="support-row-name">';
                                         echo $row['currency-name'];
-                                        echo '</p>'; 
+                                        echo '</p>';        
+                                        echo '<div class="support-row-block">';                                        
 
                                         $details = $row['bank-details']; 
                                         if ($details) {  
@@ -72,15 +72,14 @@ $project_alt = get_field('project-name', $post);
                                     }        
                                 }
                                 ?>
-
                             </div>    
                         </div> 
                         <div class="transferring__funds">
                             <?php get_template_part('template-parts/depositing-funds'); ?>
                         </div>
                         <div class="about__social">
-                           <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
-                           <div class="about__social-block">                       
+                            <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
+                            <div class="about__social-block">                       
                                 <a class="link" href="<?php the_field( 'telegram', 'option' ); ?>" target="_blank">
                                     <svg class="icon">
                                         <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#telegram" alt="telegram"></use>
@@ -114,16 +113,20 @@ $project_alt = get_field('project-name', $post);
                         </div>  
 
                         <?php elseif( get_field('project-choice') == 'Призупинено' ): ?>                            
-                        <div class="support__disabled item__choice">     
-                            <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
-                            <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
-                        </div>        
-
-                    <?php endif; ?>
-
+                            <div class="support__disabled item__choice">     
+                                <p class="support__status item__status"><?php the_field('projects-status', 'option'); ?></p>
+                                <p class="item__disabled"><?php the_field('projects-stopped', 'option'); ?></p>
+                            </div>        
+                    
+                        <?php endif; ?>
                 </div>
             </div>
         </div>
-    </secion>
+    </section>
+    <section class="section"> 
+        <?php get_template_part('template-parts/auction-slider') ?>            
+    </section>
+  
 </main>
 <?php get_footer(); ?>
+ 

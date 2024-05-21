@@ -62,7 +62,7 @@ echo '<div class="product-content">';
     	echo apply_filters( 'the_content', $product->get_description() );
     echo '</div>';
 	wc_get_template( 'global/auction-countdown.php', array( 'hide_time' => $hide_time ) ); 
-	
+	wc_get_template( 'single-product/watchlist-link.php' ); 
 	
 	/**
 	 * Hook: woocommerce_after_shop_loop_item.

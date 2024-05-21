@@ -11,8 +11,9 @@ get_header();
             <div class="acknowledgements__content">
                 <h2 class="page-title title-h2"><?php the_field('acknowledgements_title'); ?></h2>
                 <p><?php the_field('acknowledgements_text'); ?></p>
+                <?php get_template_part( 'template-parts/loader' ); ?>
                 <div class="acknowledgements__content__cards">
-
+                
                 </div>
                 <div class="pagination">
                     
