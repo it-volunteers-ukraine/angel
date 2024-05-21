@@ -140,17 +140,6 @@ get_header();
 
     <section class="section benefactors_projects">
         <?php get_template_part('template-parts/projects-slider',); ?>
-       <div class="container">
-            <div class="button_wrapper">           
-                <?php 
-                    $link = get_field('button_link');
-                    if( $link ): ?>
-                    <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
-                        class="tertiary-button"><?php echo get_field("button_name")?>
-                    </a>
-                <?php endif; ?>   
-            </div>  
-       </div>
     </section>
 
 </main>
