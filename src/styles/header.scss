@@ -116,6 +116,7 @@
       padding: 4px 8px;
 
       &.current-menu-item > a,
+      &.current_page_parent > a,
       &.current-post-ancestor > a {
         color: $color-blue;
         @media (max-width: $width-mobile-menu) {
@@ -151,7 +152,8 @@
       }
     }
 
-    .current-menu-parent > a {
+    .current-menu-parent > a,
+    .current_page_parent > a {
       color: $color-blue;
       @media (max-width: $width-m) {
         color: $color-text-primary;
@@ -281,7 +283,8 @@
     flex-direction: column;
     gap: 12px;
     padding: 50px 40px 64px 40px;
-    .current-menu-parent a {
+    .current-menu-parent a,
+    current-menu-parent a {
       &::after {
         opacity: 0;
       }
@@ -398,9 +401,11 @@
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
+    padding-left: 40px;
     width: 100vw;
-    padding: 0px 40px;
     color: $color-gray-600;
+    overflow: hidden;
+    white-space: nowrap;
     @media (max-width: $width-l) {
       height: 108px;
       font-weight: 500;
@@ -408,7 +413,6 @@
     @media (max-width: $width-mobile-menu) {
       background-image: url("../images/bg/crop-sub-menu-bg-tablet.jpg");
       height: 70px;
-      gap: 20px;
       justify-content: start;
     }
     @media (max-width: $width-xs) {
@@ -421,6 +425,7 @@
       @media (max-width: $width-mobile-menu) {
         display: flex;
         align-items: center;
+        margin-right: 20px;
       }
       &::after {
         content: "";
@@ -430,6 +435,26 @@
         width: 20px;
         height: 20px;
         margin-left: 4px;
+      }
+    }
+    .post-title {
+      display: none;
+      min-width: fit-content;
+      @media (max-width: $width-mobile-menu) {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        color: $color-blue;
+      }
+      &::before {
+        content: "";
+        background-image: url("../images/icon-btn-arrow.svg");
+        background-size: contain;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        margin-left: 4px;
+        margin-right: 20px;
       }
     }
   }

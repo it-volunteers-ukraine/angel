@@ -284,3 +284,12 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('format-date', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/news-card.js' , array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+function my_enqueue_scripts() {
+    wp_enqueue_script('my-script', get_template_directory_uri() . '/js/my-script.js', array('jquery'), '1.0', true);
+    $is_single = is_single();
+    wp_localize_script('my-script', 'myScriptData', array(
+        'isSingle' => $is_single
+    ));
+}
+add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
