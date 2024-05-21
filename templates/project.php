@@ -123,18 +123,8 @@ $project_alt = get_field('project-name', $post);
             </div>
         </div>
     </section>
-    <section class="auctions__section section"> 
-        <!-- <div class="container">
-            <div class="auctions__container section">
-                <h2 class="page-title title-h2"><?php the_field('charity_auction_title', 'option'); ?></h2>
-                <div class="auctions__body"> -->
-                    <?php 
-                    // Передача категорії до шаблону
-                    get_template_part('template-parts/auction-slider', null, array('category' => $args['category']));
-                    ?>
-                <!-- </div>
-            </div>
-        </div> -->
+    <section class="section"> 
+        <?php get_template_part('template-parts/auction-slider') ?>            
     </section>
   
 </main>
