@@ -1,0 +1,12 @@
+@import "../variables.scss";
+
+.wishlist {
+    .product-content > :last-child {
+        display: none;
+    }
+    .product-thumbnail {
+        img {
+            border-radius: 16px;
+        }
+    }
+}

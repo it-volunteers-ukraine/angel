@@ -139,5 +139,10 @@
         line-height: 160%;
       }
     }
+    .secondary-button {
+      @media (max-width: $width-mobile) {
+        width: 100%;
+      }
+    }
   }
 }

@@ -80,15 +80,29 @@
                     </button>
 
                     <div class="account">
-                        <a href="<?php the_field( 'login-link', 'option' ); ?>" class="small-button">
-                            <?php the_field('sign_in_button','option'); ?>
+                        <?php 
+                        $isLogin = is_user_logged_in();
+                        if ($isLogin):?>
+                        <a href="<?php the_field( 'login-link', 'option' ); ?>" class="user-icon-button--login">
+                            <svg>
+                                <use
+                                    href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-login-user">
+                                </use>
+                            </svg>
                         </a>
+
+
+                        <?php else:?>
                         <a href="<?php the_field( 'login-link', 'option' ); ?>" class="user-icon-button">
                             <svg width="28" height="28" aria-label="Посиланна на реєстрацію">
                                 <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-user">
                                 </use>
                             </svg>
                         </a>
+                        <a href="<?php the_field( 'login-link', 'option' ); ?>" class="small-button">
+                            <?php the_field('sign_in_button','option'); ?>
+                        </a>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>

@@ -48,29 +48,29 @@ $project_alt = get_field('project-name', $post);
                                 <p class="support__swift-text"><?php the_field('swift-text', 'option'); ?></p> 
                                 
                                 <?php 
-                                    $rows = get_field('currency', 'option');
-                                    if ($rows) {        
-                                        foreach ($rows as $row) {                                        
-                                            echo '<div class="support-row">';         
-                                            echo '<div class="support-row-block">';
-                                            echo '<p class="support-row-name">';
-                                            echo $row['currency-name'];
-                                            echo '</p>'; 
-                                            
-                                            $details = $row['bank-details']; 
-                                            if ($details) {  
-                                                foreach ($details as $detail) { 
-                                                    echo '<p class="support-more closen">';
-                                                    echo $detail['bank-details-text'];
-                                                    echo '</p>';
-                                                }
-                                            }                                               
-                                            
-                                            echo '</div>'; 
-                                            echo '<button class="support__btn"></button>';                                           
-                                            echo '</div>';                                        
-                                        }        
-                                    }
+                                $rows = get_field('currency', 'option');
+                                if ($rows) {        
+                                    foreach ($rows as $row) {                                        
+                                        echo '<div class="support-row">';  
+                                        echo '<p class="support-row-name">';
+                                        echo $row['currency-name'];
+                                        echo '</p>';        
+                                        echo '<div class="support-row-block">';                                        
+
+                                        $details = $row['bank-details']; 
+                                        if ($details) {  
+                                            foreach ($details as $detail) { 
+                                                echo '<p class="support-more closen">';
+                                                echo $detail['bank-details-text'];
+                                                echo '</p>';
+                                            }
+                                        }                                               
+
+                                        echo '</div>'; 
+                                        echo '<button class="support__btn"></button>';                                           
+                                        echo '</div>';                                        
+                                    }        
+                                }
                                 ?>
                             </div>    
                         </div> 
