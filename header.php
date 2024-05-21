@@ -131,24 +131,34 @@
                 $('.sub-menu-section').show()
             }
 
-            const parentMenuItem = $(".menu_list .current-menu-ancestor");
-            const parentPostItem = $(".menu_list .current-post-ancestor");
+        })
+        </script>
+        <script>
+        jQuery(document).ready(function($) {
+            const parentMenu = document.querySelector(
+                ".menu_list .current-menu-ancestor, .menu_list .current-post-ancestor, .menu_list .current-news-ancestor"
+            );
+            const pageTitle = document.querySelector(".page-title");
+            const subMenu = document.querySelector(".sub-menu-wrapper");
 
-            if (parentMenuItem.length === 0) {
-                if (parentPostItem.length !== 0) {
-                    $(".parent-title").text(parentPostItem[0].innerText);
-                    return;
-                }
-            } else {
-                $(".parent-title").text(parentMenuItem[0].innerText)
+
+            if (parentMenu) {
+                $(".parent-title").text(parentMenu.textContent);
+                $(".parent-title").attr("href", parentMenu.firstChild.href);
+            }
+
+            if (typeof myScriptData !== 'undefined' && myScriptData.isSingle) {
+                const pageTitleContent = `<span class="post-title">${pageTitle.textContent}</span>`;
+                $(pageTitleContent).appendTo(subMenu);
+                jQuery(subMenu).find('.current-menu-parent').css("color", "#5f697c")
             }
         })
         </script>
 
         <section class="sub-menu-section" style="display: none">
             <div class="sub-menu-wrapper">
-                <span class="parent-title">
-                </span>
+                <a class="parent-title">
+                </a>
                 <ul class="sub-menu">
                 </ul>
             </div>
