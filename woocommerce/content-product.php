@@ -59,9 +59,9 @@ echo '<div class="product-content">';
 	 */
 	do_action( 'woocommerce_after_shop_loop_item_title' );
 	echo '<div class="product__description">';
-    	echo apply_filters( 'the_content', $product->get_description() );
+    	echo apply_filters( 'the_content', $product->get_short_description() );
     echo '</div>';
-	wc_get_template( 'global/auction-countdown.php', array( 'hide_time' => $hide_time ) ); 
+	wc_get_template( 'global/auction-countdown.php' ); 
 	wc_get_template( 'single-product/watchlist-link.php' ); 
 	
 	/**
