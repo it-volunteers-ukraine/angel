@@ -45,7 +45,7 @@
 			} else{
 				var etext = '<div class="over">'+data.checking+'</div>';
 			}
-			console.log ('Olga');
+			
 			//if ( ! $(' body' ).hasClass('logged-in') ) {
 			//time = $.SAcountdown.UTCDate(-(new Date().getTimezoneOffset()),new Date(time*1000));
 			//}
