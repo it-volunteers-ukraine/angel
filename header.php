@@ -151,7 +151,6 @@
                 $(".second-level").text(subMenuItem.firstChild.textContent);
                 $(".second-level").attr("href", subMenuItem.firstChild.href);
             }
-            console.log(subMenuItem.firstChild);
 
             const isSingle = <?php echo json_encode(is_single()); ?>;
             if (isSingle) {
