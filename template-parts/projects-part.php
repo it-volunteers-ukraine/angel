@@ -4,6 +4,7 @@
  */
 $postsPerPage = $args['postsPerPage'];
 $category = $args["category"];
+$slug = $category ? $category->slug : '';
 $isPaginationNeed = $args["pagination"];
 $isSliderCard = $args["isSliderCard"]
 ?>
@@ -11,11 +12,14 @@ $isSliderCard = $args["isSliderCard"]
     <ul class="projects-list">
         <?php
         $params = array(
-            'category_name' => $category,
+            'post_type' => 'post',
             'posts_per_page' => $postsPerPage,
             'paged' => get_query_var('page') ? get_query_var('page') : 1,
         );
-
+        
+        if ($slug) {
+            $params['category_name'] = $slug;
+        }
         $query = new WP_Query($params);
 
         $total_pages = $query->max_num_pages;
