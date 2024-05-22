@@ -420,7 +420,7 @@
       height: 66px;
       padding: 0px 16px;
     }
-    .parent-title {
+    .first-level {
       display: none;
       @media (max-width: $width-mobile-menu) {
         display: flex;
@@ -436,6 +436,10 @@
         height: 20px;
         margin-left: 4px;
       }
+    }
+    .second-level {
+      display: flex;
+      align-items: center;
     }
     .post-title {
       display: none;
@@ -473,13 +477,7 @@
         color: $color-blue;
       }
       @media (max-width: $width-mobile-menu) {
-        display: block;
-        &:not(.current-menu-item) {
-          display: none;
-        }
-        &.current-menu-parent {
-          display: block;
-        }
+        display: none;
       }
     }
   }
