@@ -1,107 +1,64 @@
 @import "../variables.scss";
 
 .auction {
-  .page-title {
-    margin: 0 0 56px 0;
-    @media (max-width: $width-l) {
-      margin: 0 0 44px 0;
-    }
-    @media (max-width: $width-m) {
-      margin: 0 0 20px 0;
-    }
-  }
-  .auction-slider {
-    position: relative;
-    &__wrapper {
-      .product {
-        &__link {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 32px;
-          padding: 32px;
-          background-color: #FFFFFF;
-          border-radius: 32px;
-          transition: all 1s ease;
-          @media (max-width: $width-mobile) {
-            display: flex;
-            flex-direction: column; 
-          }
-          &:hover {
-              box-shadow: 0px 4px 19px 0px #22222212;
-              transition: all 1s ease;
-              .product__button {
-                  border: 1px solid #262626;
-                  transition: all 1s ease;
-              }
-          }
-        }
-        &__img {
-          img {
-            object-fit: cover;
-            height: 463px;
-            border-radius: 12px;
-            @media (max-width: $width-l) {
-              height: 372px;
-            }
-            @media (max-width: $width-m) {
-              height: 421px;
-            }
-            @media (max-width: $width-mobile) {
-              height: 399px;
-            }
-        }
-        }
-        &__info {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          .woocommerce-loop-product__title {
-              overflow: hidden;
-              font-size: 20px;
-              line-height: 32px;
-              height: 64px;
-              margin-bottom: 8px;     
-          }
-        }
-        &__description {
-              margin-bottom: 20px;
-              p:not(:last-child) { margin-bottom: 8px; } 
-        }
-        &__button {
-          pointer-events: none; 
-        }
+  .container {
+    min-width: 0;
+    overflow: hidden;
+    .page-title {
+      margin: 0 0 56px 0;
+      @media (max-width: $width-l) {
+        margin: 0 0 44px 0;
+      }
+      @media (max-width: $width-m) {
+        margin: 0 0 20px 0;
       }
     }
-    .swiper-pagination {
-        position: absolute;
-        z-index: 10;
-        bottom: -56px;
+    .auction-slider {
+      position: relative;
+      /*width: 100%;*/
+      /*&.swiper-container{
+        width: 100%;*/
+        /*overflow: hidden;
+      }*/
+      &__wrapper {
+        min-width: 0;
+        width: 100%;
+        display: flex;
+        
+      }
+      .swiper-pagination {
+          position: absolute;
+          z-index: 10;
+          bottom: -56px;
+          width: 100%;
 
-        @media screen and (max-width: 376px) {
-          bottom: -5px;
-        }
-        &-bullet {
-          width: 10px;
-          height: 10px;
-          background-color: $color-gray-400;
-          @media screen and (max-width: $width-s) {
-            width: 8px;
-            height: 8px;
+          @media screen and (max-width: 376px) {
+            bottom: -5px;
           }
-          &-active {
-            width: 14px;
-            height: 14px;
-            background-color: $color-gray-600;
+          &-bullet {
+            width: 10px;
+            height: 10px;
+            background-color: $color-gray-400;
             @media screen and (max-width: $width-s) {
-              width: 10px;
-              height: 10px;
+              width: 8px;
+              height: 8px;
+            }
+            &-active {
+              width: 14px;
+              height: 14px;
+              background-color: $color-gray-600;
+              @media screen and (max-width: $width-s) {
+                width: 10px;
+                height: 10px;
+              }
             }
           }
-        }
+      }
     }
-  }
-  /*.btn-seemore {
+    /*.btn-seemore {
 
-  }*/
+    }*/
+  }
 }
+
     
