@@ -9,7 +9,7 @@
     $website_link = get_field('link_to_post_author_website', $post);
 ?>
 
-<?php if($post_type === "blog"): ?>
+<?php if(strpos($post_type, "blog") !== false): ?>
 <li class="news-card">
     <div class="card-img">
         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
@@ -40,7 +40,7 @@
 </li>
 <?php endif ?>
 
-<?php if($post_type === "media-about-us"): ?>
+<?php if(strpos($post_type, "media-about-us") !== false): ?>
 <li>
     <a href="<?php echo esc_attr($website_link['url']);?>" class="news-card" target="__blank">
         <div class="card-img">
