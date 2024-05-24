@@ -14,19 +14,15 @@ const auctionSwiper = new Swiper('.auction-slider', {
   },
   lazyPreloadPrevNext: 1,
   slidesPerView: 1,
-  slidesPerGroup: 1,
+  slidesPerGroup: 1, 
+  spaceBetween: 20,
   breakpoints: {
-    // 991: {
-    //   slidesPerView: 1.33,
-    //   slidesPerGroup: 1.33,
-    //   spaceBetween: 24,
-    // },
     991: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerView: 1.33,
+      slidesPerGroup: 1,
       spaceBetween: 24,
     },
-    1439: {
+    1200: {
       slidesPerView: 2,
       slidesPerGroup: 2,
       spaceBetween: 24,
