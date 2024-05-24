@@ -17,11 +17,9 @@
                     while ($products->have_posts()) {
                         $products->the_post();
                         $product = wc_get_product(get_the_ID()); 
-
                         if (!$product) {
                             continue; 
                         }
-                        
                         get_template_part('template-parts/auction-card', null, array('product' => $product, 'isSliderCard' => true));
                     }
                     wp_reset_postdata();
@@ -40,6 +38,20 @@
                 </svg>
             </div>
         </div> 
-        <div class="btn-seemore"></div>  
+        <div class="btn-wrapper">
+            <?php 
+            $link = get_field('see_more_link', 'option');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a 
+                    class="tertiary-button see-more-btn" 
+                    href="<?php echo esc_url( $link_url ); ?>" 
+                    target="<?php echo esc_attr( $link_target ); ?>">
+                    <?php the_field('see_more_title', 'option'); ?>
+                </a>
+            <?php endif; ?>  
+        </div>  
     </div>
 </section>
