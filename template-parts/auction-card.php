@@ -22,7 +22,7 @@ if ($product) : ?>
                 echo '<div class="auction-time">';
                 woocommerce_auction_countdown();
                 echo '</div>'; 
-                echo '<button class="product__button primary-button">' . esc_html( get_field('projects-btn-support', 'option') ) . '</button>';
+                echo '<button class="product__button primary-button">' . esc_html( get_field('auction-details', 'option') ) . '</button>';
             echo '</div>';                                
         echo '</a>';
         ?>

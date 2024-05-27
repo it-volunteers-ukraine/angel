@@ -50,6 +50,7 @@ do_action( 'woocommerce_before_main_content' );
 <div class="container">
 	<div class="shop-cart shop-wishlist">
 		<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
+		<?php echo do_shortcode('[auction_watchlist_count]'); ?>
 		<?php estore_woocommerce_cart_link();?>					
 	</div>
 <div class="auctions__container section">
