@@ -110,7 +110,8 @@
 
         <script>
         jQuery(document).ready(function($) {
-            let currentMenuItemSubmenu = $('.menu_list .current-post-ancestor .sub-menu')
+            let currentMenuItemSubmenu = $(
+                '.menu_list .current-post-ancestor .sub-menu, .menu_list .current_page_parent  .sub-menu')
 
             let listItems = null
 
@@ -137,10 +138,13 @@
         jQuery(document).ready(function($) {
             const subMenuWrapper = document.querySelector(".sub-menu-wrapper");
             const parentMenu = document.querySelector(
-                ".menu_list .current-menu-ancestor, .menu_list .current-post-ancestor, .menu_list .current-news-ancestor"
+                ".menu_list .current-menu-item, .menu_list .current_page_parent, .menu_list .current-menu-parent, .menu_list .current-post-ancestor"
             );
             const pageTitle = document.querySelector(".page-title");
-            const subMenuItem = document.querySelector(".sub-menu-wrapper .sub-menu .current-menu-parent")
+            const subMenuItem = document.querySelector(
+                ".sub-menu-wrapper .sub-menu .current-menu-parent, .sub-menu-wrapper .sub-menu .current_page_parent, .sub-menu-wrapper .sub-menu .current-menu-item"
+            )
+            const isSingle = <?php echo json_encode(is_single()); ?>;
 
 
             if (parentMenu) {
@@ -150,9 +154,11 @@
             if (subMenuItem) {
                 $(".second-level").text(subMenuItem.firstChild.textContent);
                 $(".second-level").attr("href", subMenuItem.firstChild.href);
+                if (!isSingle) {
+                    $(".second-level").css("color", "#0087d2")
+                }
             }
 
-            const isSingle = <?php echo json_encode(is_single()); ?>;
             if (isSingle) {
                 const pageTitleContent = `<span class="post-title">${pageTitle.textContent}</span>`;
                 $(pageTitleContent).appendTo(subMenuWrapper);
