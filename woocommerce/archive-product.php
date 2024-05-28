@@ -47,15 +47,10 @@ do_action( 'woocommerce_before_main_content' );
 
 <main class="wc-auction">   
 <section class="auctions__section section"> 
-<div class="container">
-	<div class="shop-cart shop-wishlist">
-		<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
-		<?php echo do_shortcode('[auction_watchlist_count]'); ?>
-		<?php estore_woocommerce_cart_link();?>					
-	</div>
+<div class="container">	
 <div class="auctions__container section">
 <div class="auctions__body">
-			
+<p class="auctions__description"><?php the_field('auctions-description', 'option')?></p>
 <?php
 if ( woocommerce_product_loop() ) {
 
