@@ -39,7 +39,7 @@
       @media screen and (max-width: $width-m) {
         box-shadow: $box-shadow-normal;
       }
-      .card-title {
+      .card-titleL:not(.card-title--media-about-us) {
         color: $color-blue-hover;
         @media screen and (max-width: $width-m) {
           color: $color-text-primary;
@@ -143,6 +143,8 @@
       @media (max-width: $width-mobile) {
         width: 100%;
       }
+    }
+    .media-card {
     }
   }
 }
