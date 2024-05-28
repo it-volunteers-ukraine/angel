@@ -176,23 +176,7 @@ get_header();
         </div>
     </section>
 
-    <section class="auction section">
-        <div class="container">
-            <?php  if (get_field( 'auction_title')) {?>
-            <h2 class="title-h2">
-                <?php the_field("auction_title")?>
-            </h2>
-            <?php } ?>
-
-            <p>Аукціоні знаходяться у розробці. Очікуйте...</p>
-
-        </div>
-
-
-        <!-- <a href="" class="tertiary-button read-more-btn">
-            <?php echo $auctionBtn['text']?></a> -->
-
-    </section>
+    <?php get_template_part('template-parts/auction-slider') ?>
 
     <?php get_template_part('template-parts/partners-slider'); ?>
 

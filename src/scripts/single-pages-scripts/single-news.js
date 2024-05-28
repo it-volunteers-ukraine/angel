@@ -8,8 +8,8 @@ const newsGallery = new Swiper(".news-gallery", {
   },
   lazyPreloadPrevNext: 1,
   navigation: {
-    nextEl: ".button-next",
-    prevEl: ".button-prev",
+    nextEl: ".btn-next",
+    prevEl: ".btn-prev",
   },
   breakpoints: {
     1440: {
