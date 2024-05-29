@@ -35,10 +35,9 @@ get_header( 'shop' ); ?>
 	?>	
     <section class="lot section">
 		<div class="container">
-			<div class="shop-cart shop-wishlist">				
+			<div class="shop-wishlist">				
 				<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
-				<?php echo do_shortcode('[auction_watchlist_count]'); ?>				
-				<?php estore_woocommerce_cart_link();?>					
+				<?php echo do_shortcode('[auction_watchlist_count]'); ?>
 			</div>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>

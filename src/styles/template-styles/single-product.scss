@@ -113,4 +113,34 @@
       list-style-type: none;
       padding: 0px;
     }  
+
+    /*ICON WISHLIST LINC COUNT=================*/
+    .shop-wishlist {
+      position: fixed;
+      top: 23%;
+      right: 10%;
+      z-index: 10;  
+      .wishlist {
+        background-image: url(../../../assets/images/wishlist.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        border: none;
+        width: 32px;
+        height: 32px;
+        padding: 15px;
+        margin-right: 20px;
+      }
+      .wishlist-count {
+        position: absolute;
+        position: absolute;
+        top: -25px;
+        right: 8px;
+        padding: 1px 4px;
+        color: $color-white;
+        background-color: $color-blue;
+        border-radius: 50%;
+        vertical-align: middle;   
+      }
+    }  
 }
