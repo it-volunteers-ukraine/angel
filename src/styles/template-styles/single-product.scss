@@ -1,11 +1,11 @@
 @import "../variables.scss";
+@import "../buttons.scss";
 
 .lot {   
   position: relative;     
     &__info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
+      display: flex;
+      gap: 100px;
     }
     .woocommerce-product-gallery {
       position: relative;
@@ -18,11 +18,95 @@
       width: 50px;
       height: 50px;
     }
-    .woocommerce-product-gallery__wrapper {  
+    .woocommerce-product-gallery__image {        
       img {
-          border-radius: 32px;
-        }
+        border-radius: 32px;
+        object-fit: cover;
+        width: 647px;
+        height: 100%;
+      }
     }  
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 38px;
+      margin-bottom: 16px;
+      .amount {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 51px;
+        color: $color-blue;
+      }
+    }
+    .woocommerce-product-details__short-description {
+      line-height: 47px;      
+    }
+    .auction-condition {
+      margin-bottom: 16px;
+    }
+    .auction-time {
+      font-size: 20px;
+    }
+    .auction-end {
+      height: 32px;      
+      overflow: hidden;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .reserve {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .single_add_to_cart_button {display: none;}
+    .product_meta {display: none;}
+    .quantity {
+      margin-bottom: 16px;
+      .plus, .minus {
+        width: 32px;
+        height: 32px;
+        padding: 2px 8px;
+        border-radius: 2px;
+        background-color: $color-white;
+        border: 0.5px solid $color-gray-400;
+      }
+      .input-text {
+        border: none;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 38px;
+        text-align: center;
+      }
+    }
+    .bid_button {
+      @extend .big-button;
+      border-radius: 0 50px 50px 50px;
+      min-width: 260px;
+      background-color: $color-yellow;
+      margin-bottom: 16px;          
+      &:hover {
+        border: 1px solid $color-text-primary;
+        box-shadow: $box-shadow-normal;
+      }
+      @media (max-width: $width-l) {
+        min-width: 240px;
+      }
+      @media (max-width: $width-mobile) {
+        width: 100%;
+      }
+    }
+    .add-wsawl.sa-watchlist-action:before,
+    .remove-wsawl.sa-watchlist-action:before {
+      content: '';
+      background-image: url(../../../assets/images/heart-red.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-origin: border-box;
+      border: none;
+      width: 19px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+    }
     .flex-control-nav {
       display: flex;
       gap: 4px;
