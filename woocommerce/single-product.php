@@ -20,7 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-
+    <section class="lot section">
+		<div class="container">
 	<?php 
 		/**
 		 * woocommerce_before_main_content hook.
@@ -33,12 +34,10 @@ get_header( 'shop' ); ?>
 		do_action( 'woocommerce_shop_loop_item_title' );
 		echo '</div>';
 	?>	
-    <section class="lot section">
-		<div class="container">
-			<div class="shop-wishlist">				
-				<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
-				<?php echo do_shortcode('[auction_watchlist_count]'); ?>
-			</div>
+    	<div class="shop-wishlist">				
+			<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
+			<?php echo do_shortcode('[auction_watchlist_count]'); ?>
+		</div>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 
