@@ -9,7 +9,7 @@ $slug = $queried_object->slug;
     <section class="container section">
         <h2 class="page-title title-h2"><?php echo $queried_object->description ?></h2>
 
-        <div class="news">
+        <div class="news <?php echo $slug?>-page">
             <ul class="news-list">
                 <?php
             $args = array (
