@@ -20,30 +20,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+<main>
     <section class="lot section">
 		<div class="container">
-	<?php 
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-		echo '<div class="page-title title-h2">';
-		do_action( 'woocommerce_shop_loop_item_title' );
-		echo '</div>';
-	?>	
-    	<div class="shop-wishlist">				
-			<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
-			<?php echo do_shortcode('[auction_watchlist_count]'); ?>
-		</div>
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+			<div class="lot__container">
+				<?php 				
+				/**
+				 * woocommerce_before_main_content hook.
+				 *
+				 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+				 * @hooked woocommerce_breadcrumb - 20
+				 */
+				do_action( 'woocommerce_before_main_content' );
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+				echo '<div class="page-title title-h2">';
+				do_action( 'woocommerce_shop_loop_item_title' );
+				echo '</div>';
+			    ?>	
 
-		<?php endwhile; // end of the loop. ?>
+				<div class="shop-wishlist">				
+					<a href="<?php the_field( 'wishlist-link', 'option' ); ?>" class="wishlist"></a>
+					<?php echo do_shortcode('[auction_watchlist_count]'); ?>
+				</div>
+
+				<?php while ( have_posts() ) : ?>
+					<?php the_post(); ?>
+
+					<?php wc_get_template_part( 'content', 'single-product' ); ?>
+
+				<?php endwhile; // end of the loop. ?>
+
+				<div class="back"> 
+					<a href="<?php the_field( 'back-auctions', 'option' ); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a>    
+			    </div> 
+		    </div>
 		</div>
 	</section>
 	<section class="section">
@@ -66,7 +76,7 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
-	
+</main>	
 <?php
 get_footer( 'shop' );
 

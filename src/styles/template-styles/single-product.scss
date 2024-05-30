@@ -1,11 +1,51 @@
 @import "../variables.scss";
 @import "../buttons.scss";
 
-.lot {   
-  position: relative;     
+.lot {  
+    &__container {
+      position: relative;
+      border-bottom: 1px solid $color-gray-400;
+    }  
+    .shop-wishlist {
+      position: fixed;
+      top: 23%;
+      right: 10%;
+      z-index: 10;  
+      .wishlist {
+        background-image: url(../../../assets/images/wishlist.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        border: none;
+        width: 32px;
+        height: 32px;
+        padding: 15px;
+        margin-right: 20px;
+      }
+      .wishlist-count {
+        position: absolute;
+        position: absolute;
+        top: -25px;
+        right: 8px;
+        padding: 1px 4px;
+        color: $color-white;
+        background-color: $color-blue;
+        border-radius: 50%;
+        vertical-align: middle;   
+      }
+    }  
+    .woocommerce-message {
+      border-top-color: $color-blue;
+      border-radius: 8px;
+    }  
+    .woocommerce-message::before {
+      content: "\e015";
+      color: $color-blue;
+    } 
     &__info {
       display: flex;
       gap: 100px;
+      margin-bottom: 56px;
     }
     .woocommerce-product-gallery {
       position: relative;
@@ -112,36 +152,11 @@
       height: 18px;
       display: inline-block;
       vertical-align: middle;
+    }    
+    .back {
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      margin-bottom: 56px;
     }
-     
-
-    /*ICON WISHLIST LINC COUNT=================*/
-    .shop-wishlist {
-      position: fixed;
-      top: 23%;
-      right: 10%;
-      z-index: 10;  
-      .wishlist {
-        background-image: url(../../../assets/images/wishlist.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-origin: border-box;
-        border: none;
-        width: 32px;
-        height: 32px;
-        padding: 15px;
-        margin-right: 20px;
-      }
-      .wishlist-count {
-        position: absolute;
-        position: absolute;
-        top: -25px;
-        right: 8px;
-        padding: 1px 4px;
-        color: $color-white;
-        background-color: $color-blue;
-        border-radius: 50%;
-        vertical-align: middle;   
-      }
-    }  
 }

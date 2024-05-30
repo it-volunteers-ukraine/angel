@@ -13,11 +13,13 @@ if ($product) : ?>
             echo '<div class="product__info">';                                    
                 do_action( 'woocommerce_shop_loop_item_title' );
                 echo '<div class="product__description">';
-                    echo apply_filters( 'the_content', $product->get_description() );
+                    //echo apply_filters( 'the_content', $product->get_description() );
+                    echo '<p>'; the_field('lot-description'); echo '</p>';
                 echo '</div>';  
                 echo '<div class="auction__price">';
-                $auction_start_price = get_post_meta( get_the_ID(), '_auction_start_price', true );                                       
-                echo '<p>Поточна ставка: ' . $auction_start_price . '</p>';                                       
+                $auction_start_price = get_post_meta( get_the_ID(), '_auction_start_price', true );
+                $currency = get_woocommerce_currency_symbol();                                       
+                echo '<p>' . get_field('сurrent-bid', 'option') . '</p><p class="color">' . $auction_start_price . '</p><p class="color">' . $currency . '</p>';
                 echo '</div>';
                 echo '<div class="auction-time">';
                 woocommerce_auction_countdown();
