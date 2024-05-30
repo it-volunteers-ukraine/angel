@@ -2,12 +2,14 @@
 get_header();
 
 $queried_object = get_queried_object();
+$slug = $queried_object->slug;
+
 ?>
 <main>
     <section class="container section">
         <h2 class="page-title title-h2"><?php echo $queried_object->description ?></h2>
 
-        <div class="news">
+        <div class="news <?php echo $slug?>-page">
             <ul class="news-list">
                 <?php
             $args = array (
@@ -37,7 +39,10 @@ $queried_object = get_queried_object();
             </ul>
             <?php get_template_part('template-parts/pagination', null, array("current_page" => $current_page, "total_pages"=> $total_pages));?>
         </div>
-
     </section>
+
+    <?php if($slug === "media-about-us" || $slug === "media-about-us-en"):
+        get_template_part('template-parts/auction-slider');
+    endif; ?>
 </main>
 <?php get_footer(); ?>

@@ -167,7 +167,8 @@
   .swiper-button-disabled {
     fill: $color-gray-400;
   }
-  .button-prev {
+  .button-prev,
+  .btn-prev {
     transform: rotate(180deg);
     left: 15px;
   }

@@ -35,11 +35,11 @@ get_header();
                 <div class="swiper-pagination"></div>
             </div>
             <div class="navigation-buttons">
-                <svg class="button-arrow button-next" width="40" height="40">
+                <svg class="button-arrow btn-next" width="40" height="40">
                     <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-slider-arrow">
                     </use>
                 </svg>
-                <svg class="button-arrow button-prev" width="40" height="40">
+                <svg class="button-arrow btn-prev" width="40" height="40">
                     <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-slider-arrow">
                     </use>
                 </svg>
