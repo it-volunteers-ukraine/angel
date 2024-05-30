@@ -33,7 +33,7 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_main_content' );
 
-				echo '<div class="page-title title-h2">';
+				echo '<div class="page-title">';
 				do_action( 'woocommerce_shop_loop_item_title' );
 				echo '</div>';
 			    ?>	
