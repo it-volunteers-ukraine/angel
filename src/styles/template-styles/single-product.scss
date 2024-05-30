@@ -2,11 +2,13 @@
 @import "../buttons.scss";
 
 .lot {  
-    &__container {
+  /*DELETED ELEMENTS==========================*/
+  .single_add_to_cart_button, .buy-now, .product_meta {display: none;}  
+  &__container {
       position: relative;
       border-bottom: 1px solid $color-gray-400;
-    }  
-    .shop-wishlist {
+  }  
+  .shop-wishlist {
       position: fixed;
       top: 23%;
       right: 10%;
@@ -33,8 +35,8 @@
         border-radius: 50%;
         vertical-align: middle;   
       }
-    }  
-    .woocommerce-loop-product__title {      
+  }  
+  .woocommerce-loop-product__title {      
       font-family: $font-family-accent;
       font-weight: 700;
       font-size: 48px;
@@ -51,146 +53,160 @@
       @media (max-width: 376px) {
         font-size: 24px;
       }
-    }
-    .woocommerce-message {
+  }
+  .woocommerce-message {
       border-top-color: $color-blue;
       border-radius: 8px;
-    }  
-    .woocommerce-message::before {
+  }  
+  .woocommerce-message::before {
       content: "\e015";
       color: $color-blue;
-    } 
-    &__info {
-      display: flex;
-      gap: 100px;
-      margin-bottom: 56px;        
-      @media screen and (max-width: $width-l) {
-        gap: 80px;
-        margin-bottom: 44px;
-      }
+  } 
+  &__info {
+    /*display: flex;*/
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    gap: 100px;
+    margin-bottom: 56px;        
+    @media screen and (max-width: $width-l) {
+      gap: 80px;
+      margin-bottom: 44px;
     }
-    .woocommerce-product-gallery {       
-      position: relative;
-      width: 647px;      
-      @media screen and (max-width: $width-l) {
-        width: 525px;
-      }  
-      .wp-post-image {
-        border-radius: 32px;
-        object-fit: cover;
-      }
-      .flex-control-nav {
+  }
+  .woocommerce-product-gallery {       
+    position: relative;
+    /*width: 647px; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .woocommerce-product-gallery__wrapper {flex: 1 1 auto; display: flex;}   
+    .woocommerce-product-gallery__image { flex: 1 1 auto; display: flex; a {flex: 1 1 auto; display: flex;}}
+    /*@media screen and (max-width: $width-l) {
+      width: 525px;
+    }  */
+    .wp-post-image {
+      border-radius: 32px;
+      object-fit: cover;
+    }
+    .flex-control-nav {
         display: flex;
         gap: 4px;
         list-style-type: none;
         padding: 0px;
         img {border-radius: 8px;}
-      } 
-    }
-    .woocommerce-product-gallery__trigger {
+    } 
+  }
+  .woocommerce-product-gallery__trigger {
       z-index: 1;
       position: absolute;
       top: 12px;
       right: 15px;
       width: 50px;
       height: 50px;
+  }
+  
+  /*SUMMARY has 3 blocks===============*/  
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  /*1.BLOCK price=================*/
+  .price {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 20px;
+      line-height: 32px;      
     }
-    .summary {    }
-    .price {
+    .amount {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 51px;
+      color: $color-blue;
+      @media screen and (max-width: $width-l) {
+        font-size: 24px;
+        line-height: 36px;      
+      }
+    }
+  }
+  /*2.BLOCK short-description=================*/
+  .woocommerce-product-details__short-description {
+    line-height: 47px;      
+  }
+  /*3.BLOCK auction=================*/
+  .auction-condition {
+    margin-bottom: 16px;
+  }
+  .auction-time {
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+    }
+  }
+  .auction-end {
+    height: 32px;      
+    overflow: hidden;
+    font-size: 20px;
+    line-height: 29px;      
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      height: 29px;      
+      font-size: 18px;
+    }
+  }
+  .reserve {
+    font-size: 20px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+    }
+  }   
+  .quantity {
+    margin-bottom: 16px;
+    .plus, .minus {
+      width: 32px;
+      height: 32px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      background-color: $color-white;
+      border: 0.5px solid $color-gray-400;
+    }
+    .input-text {
+      border: none;
       font-size: 24px;
       font-weight: 700;
       line-height: 38px;
-      margin-bottom: 16px;
+      text-align: center;
       @media screen and (max-width: $width-l) {
         font-size: 20px;
-        line-height: 32px;      
-      }
-      .amount {
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 51px;
-        color: $color-blue;
-        @media screen and (max-width: $width-l) {
-          font-size: 24px;
-          line-height: 36px;      
-        }
+        line-height: 32px;
       }
     }
-    .woocommerce-product-details__short-description {
-      line-height: 47px;      
+  }
+  .bid_button {
+    @extend .big-button;
+    border-radius: 0 50px 50px 50px;
+    min-width: 260px;
+    background-color: $color-yellow;
+    margin-bottom: 16px;          
+    &:hover {
+      border: 1px solid $color-text-primary;
+      box-shadow: $box-shadow-normal;
     }
-    .auction-condition {
-      margin-bottom: 16px;
+    @media (max-width: $width-l) {
+      min-width: 240px;
     }
-    .auction-time {
-      font-size: 20px;
-      line-height: 29px;
-      margin-bottom: 16px;
-      @media screen and (max-width: $width-l) {
-        font-size: 18px;
-      }
+    @media (max-width: $width-mobile) {
+      width: 100%;
     }
-    .auction-end {
-      height: 32px;      
-      overflow: hidden;
-      font-size: 20px;
-      line-height: 29px;      
-      margin-bottom: 16px;
-      @media screen and (max-width: $width-l) {
-        height: 29px;      
-        font-size: 18px;
-      }
-    }
-    .reserve {
-      font-size: 20px;
-      margin-bottom: 16px;
-      @media screen and (max-width: $width-l) {
-        font-size: 18px;
-      }
-    }
-    .single_add_to_cart_button {display: none;}
-    .product_meta {display: none;}
-    .quantity {
-      margin-bottom: 16px;
-      .plus, .minus {
-        width: 32px;
-        height: 32px;
-        padding: 2px 8px;
-        border-radius: 2px;
-        background-color: $color-white;
-        border: 0.5px solid $color-gray-400;
-      }
-      .input-text {
-        border: none;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 38px;
-        text-align: center;
-        @media screen and (max-width: $width-l) {
-          font-size: 20px;
-          line-height: 32px;
-        }
-      }
-    }
-    .bid_button {
-      @extend .big-button;
-      border-radius: 0 50px 50px 50px;
-      min-width: 260px;
-      background-color: $color-yellow;
-      margin-bottom: 16px;          
-      &:hover {
-        border: 1px solid $color-text-primary;
-        box-shadow: $box-shadow-normal;
-      }
-      @media (max-width: $width-l) {
-        min-width: 240px;
-      }
-      @media (max-width: $width-mobile) {
-        width: 100%;
-      }
-    }
-    .add-wsawl.sa-watchlist-action:before,
-    .remove-wsawl.sa-watchlist-action:before {
+  }
+  .add-wsawl.sa-watchlist-action:before,
+  .remove-wsawl.sa-watchlist-action:before {
       content: '';
       background-image: url(../../../assets/images/heart-red.svg);
       background-size: contain;
@@ -201,14 +217,14 @@
       height: 18px;
       display: inline-block;
       vertical-align: middle;
-    }    
-    .back {
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-      margin-bottom: 56px;
-      @media (max-width: $width-l) {
-        margin-bottom: 44px;
-      }
+  }    
+  .back {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 56px;
+    @media (max-width: $width-l) {
+      margin-bottom: 44px;
     }
+  }
 }
