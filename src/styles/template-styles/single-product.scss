@@ -13,6 +13,16 @@
       top: 23%;
       right: 10%;
       z-index: 10;  
+      @media screen and (max-width: $width-m) {
+        top: 31%;
+      }
+      @media screen and (max-width: $width-s) {
+        top: 38%;
+      }
+      @media screen and (max-width: $width-mobile) {
+        top: 30%;
+        right: 0%;
+      }
       .wishlist {
         background-image: url(../../../assets/images/wishlist.png);
         background-size: contain;
@@ -24,8 +34,7 @@
         padding: 15px;
         margin-right: 20px;
       }
-      .wishlist-count {
-        position: absolute;
+      .wishlist-count {        
         position: absolute;
         top: -25px;
         right: 8px;
@@ -62,8 +71,7 @@
       content: "\e015";
       color: $color-blue;
   } 
-  &__info {
-    /*display: flex;*/
+  &__info {    
     display: grid;
     grid-template-columns: 0.75fr 1fr;
     gap: 100px;
@@ -72,21 +80,26 @@
       gap: 80px;
       margin-bottom: 44px;
     }
+    @media screen and (max-width: $width-m) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    @media screen and (max-width: $width-mobile) {     
+      gap: 20px;      
+    }
   }
   .woocommerce-product-gallery {       
-    position: relative;
-    /*width: 647px; 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    .woocommerce-product-gallery__wrapper {flex: 1 1 auto; display: flex;}   
-    .woocommerce-product-gallery__image { flex: 1 1 auto; display: flex; a {flex: 1 1 auto; display: flex;}}
-    /*@media screen and (max-width: $width-l) {
-      width: 525px;
-    }  */
+    position: relative;    
     .wp-post-image {
       border-radius: 32px;
       object-fit: cover;
+      @media screen and (max-width: $width-m) {
+        height: 536px;
+      }
+      @media screen and (max-width: $width-s) {
+        height: 448px;
+      }
     }
     .flex-control-nav {
         display: flex;
@@ -120,7 +133,12 @@
     @media screen and (max-width: $width-l) {
       font-size: 20px;
       line-height: 32px;      
-    }
+    }  
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;
+      line-height: 25px;     
+      margin-bottom: 8px;   
+    }  
     .amount {
       font-size: 32px;
       font-weight: 700;
@@ -130,11 +148,21 @@
         font-size: 24px;
         line-height: 36px;      
       }
+      @media screen and (max-width: $width-mobile) {
+        font-size: 16px;
+        line-height: 25px;  
+      }
     }
   }
   /*2.BLOCK short-description=================*/
   .woocommerce-product-details__short-description {
-    line-height: 47px;      
+    line-height: 47px; 
+    @media screen and (max-width: $width-m) {
+      line-height: 40px;      
+    }   
+    @media screen and (max-width: $width-mobile) {      
+      line-height: 34px;  
+    }  
   }
   /*3.BLOCK auction=================*/
   .auction-condition {
@@ -147,6 +175,9 @@
     @media screen and (max-width: $width-l) {
       font-size: 18px;
     }
+    @media screen and (max-width: $width-m) {
+      font-size: 16px;
+    }
   }
   .auction-end {
     height: 32px;      
@@ -157,7 +188,10 @@
     @media screen and (max-width: $width-l) {
       height: 29px;      
       font-size: 18px;
-    }
+    }  
+    @media screen and (max-width: $width-m) {           
+      font-size: 16px;
+    }  
   }
   .reserve {
     font-size: 20px;
@@ -165,9 +199,25 @@
     @media screen and (max-width: $width-l) {
       font-size: 18px;
     }
+    @media screen and (max-width: $width-m) {
+      font-size: 16px;
+    }
   }   
   .quantity {
     margin-bottom: 16px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    @media screen and (max-width: $width-m) {
+      margin-bottom: 28px;
+    }
+    @media screen and (max-width: $width-s) {
+      margin-bottom: 24px;
+    }    
+    @media screen and (max-width: $width-mobile) {
+      justify-content: center;
+    }
     .plus, .minus {
       width: 32px;
       height: 32px;
@@ -184,7 +234,9 @@
       text-align: center;
       @media screen and (max-width: $width-l) {
         font-size: 20px;
-        line-height: 32px;
+      }
+      @media screen and (max-width: $width-mobile) {
+        font-size: 18px;
       }
     }
   }
@@ -203,6 +255,14 @@
     }
     @media (max-width: $width-mobile) {
       width: 100%;
+    }
+  }
+  .wsawl-link {
+    @media screen and (max-width: $width-m) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;
     }
   }
   .add-wsawl.sa-watchlist-action:before,
@@ -225,6 +285,9 @@
     margin-bottom: 56px;
     @media (max-width: $width-l) {
       margin-bottom: 44px;
+    }
+    @media screen and (max-width: $width-m) {
+      display: none;
     }
   }
 }
