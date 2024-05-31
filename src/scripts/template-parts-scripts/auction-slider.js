@@ -1,13 +1,8 @@
-const auctionSwiper = new Swiper('.auction-slider', {
+const auctionSwiper = new Swiper('.auction-swiper', {
   navigation: {
     nextEl: '.button-next',
     prevEl: '.button-prev',
   },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  grabCursor: true,
   lazy: {
     loadOnTransitionStart: true,
     loadPrevNext: true,
@@ -16,6 +11,8 @@ const auctionSwiper = new Swiper('.auction-slider', {
   slidesPerView: 1,
   slidesPerGroup: 1, 
   spaceBetween: 20,
+  allowSlideNext: true,
+  allowSlidePrev: true,
   breakpoints: {
     991: {
       slidesPerView: 1.33,
@@ -33,4 +30,9 @@ const auctionSwiper = new Swiper('.auction-slider', {
       spaceBetween: 32,
     }  
   },
+  pagination: {
+    el: '.swiper-pagination',
+  },
 });
+
+console.log(auctionSwiper);
