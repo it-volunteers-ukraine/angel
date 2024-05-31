@@ -4,14 +4,15 @@
 .lot {  
   /*DELETED ELEMENTS==========================*/
   .single_add_to_cart_button, .buy-now, .product_meta {display: none;}  
-  &__container {
-      position: relative;
+  &__container {      
       border-bottom: 1px solid $color-gray-400;
-  }  
+  } 
   .shop-wishlist {
-      position: fixed;
-      top: 23%;
-      right: 10%;
+    position: relative;
+    text-align: end;
+      /*position: fixed;
+      top: 0px;
+      right: 0px;
       z-index: 10;  
       @media screen and (max-width: $width-m) {
         top: 31%;
@@ -22,7 +23,7 @@
       @media screen and (max-width: $width-mobile) {
         top: 30%;
         right: 0%;
-      }
+      }*/
       .wishlist {
         background-image: url(../../../assets/images/wishlist.png);
         background-size: contain;
