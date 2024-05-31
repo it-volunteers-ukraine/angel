@@ -1,59 +1,79 @@
 @import "../variables.scss";
 
-.inner {
-  position: relative;
-}
 .auction {
-  .page-title {
-    margin: 0 0 56px 0;
-    @media (max-width: $width-l) {
-      margin: 0 0 44px 0;
-    }
-    @media (max-width: $width-m) {
-      margin: 0 0 20px 0;
-    }
-  }
-  .auction-swiper {
-    min-height: 773px;
-    @media screen and (max-width: $width-l) {
-      min-height: 643px;
-    }
-    @media screen and (max-width: $width-m) {
-      min-height: 643px;
-    }
-    @media screen and (max-width: $width-s) {
-      min-height: 600px;
-    }
-    @media screen and (max-width: $width-xs) {
-      min-height: 542px;
-    }
-    .auction-wrapper {
-      display: flex;
-    }
-  } 
-  .swiper-pagination {
-    bottom: -7px;
-
-    @media screen and (max-width: 376px) {
-      bottom: -5px;
-    }
-    &-bullet {
-      width: 10px;
-      height: 10px;
-      background-color: $color-gray-400;
-      @media screen and (max-width: $width-s) {
-        width: 8px;
-        height: 8px;
+  .container {
+    min-width: 0;
+    overflow: hidden;
+    .page-title {
+      margin: 0 0 56px 0;
+      @media (max-width: $width-l) {
+        margin: 0 0 44px 0;
       }
-      &-active {
-        width: 14px;
-        height: 14px;
-        background-color: $color-gray-600;
+      @media (max-width: $width-m) {
+        margin: 0 0 20px 0;
+      }
+    }
+    .auction-slider {
+      position: relative;
+      &__wrapper {
+        min-width: 0;
+        width: 100%;
+        display: flex;
+        margin-bottom: 126px;
+        @media screen and (max-width: $width-l) {
+          margin-bottom: 102px;
+        }
+        @media screen and (max-width: $width-m) {
+          margin-bottom: 82px;
+        }
         @media screen and (max-width: $width-s) {
-          width: 10px;
-          height: 10px;
+          margin-bottom: 102px;
+        }
+        @media screen and (max-width: $width-mobile) {
+          margin-bottom: 82px;
         }
       }
+      .swiper-pagination {
+          position: absolute;
+          z-index: 10;
+          width: 100%;
+          bottom: calc((-126px / 2) - 5px);
+          @media screen and (max-width: $width-l) {
+            bottom: calc((-102px / 2) - 5px);
+          }
+          @media screen and (max-width: $width-m) {
+            bottom: calc((-82px / 2) - 5px);
+          }
+          @media screen and (max-width: $width-s) {
+            bottom: calc((-102px / 2) - 5px);
+          }
+          @media screen and (max-width: $width-mobile) {
+            bottom: calc((-82px / 2) - 5px);
+          }
+          &-bullet {
+            width: 10px;
+            height: 10px;
+            background-color: $color-gray-400;
+            @media screen and (max-width: $width-s) {
+              width: 8px;
+              height: 8px;
+            }
+            &-active {
+              width: 14px;
+              height: 14px;
+              background-color: $color-gray-600;
+              @media screen and (max-width: $width-s) {
+                width: 10px;
+                height: 10px;
+              }
+            }
+          }
+      }
+      .navigation-buttons {
+        left: -50px;
+        width: calc(100% + 100px);
+      }
     }
-  }     
-}  
+  }
+}
+
