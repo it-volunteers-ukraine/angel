@@ -2,29 +2,29 @@
     <div class="container">
         <h2 class="page-title title-h2"><?php the_field('charity_auction_title', 'option')?></h2>
         <!-- Slider Swiper -->
-        <div class="auction-slider swiper-container">
-            <ul class="auction-slider__wrapper swiper-wrapper">
-            <?php 
-                $category = isset($args["category"]) ? $args["category"] : '';
-                $query_args = array(
-                    'post_type'      => 'product',
-                    'posts_per_page' => -1, 
-                    'category_name'  => $category, 
-                );
-                
-                $products = new WP_Query($query_args);
-                if ($products->have_posts()) {
-                    while ($products->have_posts()) {
-                        $products->the_post();
-                        $product = wc_get_product(get_the_ID()); 
-                        if (!$product) {
-                            continue; 
+        <div class="swiper auction-slider">
+            <ul class="swiper-wrapper auction-slider__wrapper">
+                <?php 
+                    $category = isset($args["category"]) ? $args["category"] : '';
+                    $query_args = array(
+                        'post_type'      => 'product',
+                        'posts_per_page' => -1, 
+                        'category_name'  => $category, 
+                    );
+                    
+                    $products = new WP_Query($query_args);
+                    if ($products->have_posts()) {
+                        while ($products->have_posts()) {
+                            $products->the_post();
+                            $product = wc_get_product(get_the_ID()); 
+                            if (!$product) {
+                                continue; 
+                            }
+                            get_template_part('template-parts/auction-card', null, array('product' => $product, 'isSliderCard' => true));
                         }
-                        get_template_part('template-parts/auction-card', null, array('product' => $product, 'isSliderCard' => true));
+                        wp_reset_postdata();
                     }
-                    wp_reset_postdata();
-                }
-                ?>
+                    ?>
             </ul>
             <div class="swiper-pagination"></div>
             <div class="navigation-buttons">

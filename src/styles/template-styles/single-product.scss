@@ -1,32 +1,294 @@
 @import "../variables.scss";
+@import "../buttons.scss";
 
-.lot {   
-  position: relative;     
-    &__info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
+.lot {  
+  /*DELETED ELEMENTS==========================*/
+  .single_add_to_cart_button, .buy-now, .product_meta {display: none;}  
+  &__container {      
+      border-bottom: 1px solid $color-gray-400;
+  } 
+  .shop-wishlist {
+    position: relative;
+    text-align: end;
+      /*position: fixed;
+      top: 0px;
+      right: 0px;
+      z-index: 10;  
+      @media screen and (max-width: $width-m) {
+        top: 31%;
+      }
+      @media screen and (max-width: $width-s) {
+        top: 38%;
+      }
+      @media screen and (max-width: $width-mobile) {
+        top: 30%;
+        right: 0%;
+      }*/
+      .wishlist {
+        background-image: url(../../../assets/images/wishlist.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-origin: border-box;
+        border: none;
+        width: 32px;
+        height: 32px;
+        padding: 15px;
+        margin-right: 20px;
+      }
+      .wishlist-count {        
+        position: absolute;
+        top: -25px;
+        right: 8px;
+        padding: 1px 4px;
+        color: $color-white;
+        background-color: $color-blue;
+        border-radius: 50%;
+        vertical-align: middle;   
+      }
+  }  
+  .woocommerce-loop-product__title {      
+      font-family: $font-family-accent;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 120%;
+      text-align: center;
+      color: $color-blue;
+    
+      @media (max-width: $width-l) {
+        font-size: 40px;
+      }
+      @media (max-width: $width-m) {
+        font-size: 32px;
+      }
+      @media (max-width: 376px) {
+        font-size: 24px;
+      }
+  }
+  .woocommerce-message {
+      border-top-color: $color-blue;
+      border-radius: 8px;
+  }  
+  .woocommerce-message::before {
+      content: "\e015";
+      color: $color-blue;
+  } 
+  &__info {    
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    gap: 100px;
+    margin-bottom: 56px;        
+    @media screen and (max-width: $width-l) {
+      gap: 80px;
+      margin-bottom: 44px;
     }
-    .woocommerce-product-gallery {
-      position: relative;
+    @media screen and (max-width: $width-m) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
     }
-    .woocommerce-product-gallery__trigger {
+    @media screen and (max-width: $width-mobile) {     
+      gap: 20px;      
+    }
+  }
+  .woocommerce-product-gallery {       
+    position: relative;    
+    .wp-post-image {
+      border-radius: 32px;
+      object-fit: cover;
+      @media screen and (max-width: $width-m) {
+        height: 536px;
+      }
+      @media screen and (max-width: $width-s) {
+        height: 448px;
+      }
+    }
+    .flex-control-nav {
+        display: flex;
+        gap: 4px;
+        list-style-type: none;
+        padding: 0px;
+        img {border-radius: 8px;}
+    } 
+  }
+  .woocommerce-product-gallery__trigger {
       z-index: 1;
       position: absolute;
       top: 12px;
       right: 15px;
       width: 50px;
       height: 50px;
+  }
+  
+  /*SUMMARY has 3 blocks===============*/  
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  /*1.BLOCK price=================*/
+  .price {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 20px;
+      line-height: 32px;      
+    }  
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;
+      line-height: 25px;     
+      margin-bottom: 8px;   
+    }  
+    .amount {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 51px;
+      color: $color-blue;
+      @media screen and (max-width: $width-l) {
+        font-size: 24px;
+        line-height: 36px;      
+      }
+      @media screen and (max-width: $width-mobile) {
+        font-size: 16px;
+        line-height: 25px;  
+      }
     }
-    .woocommerce-product-gallery__wrapper {  
-      img {
-          border-radius: 32px;
-        }
+  }
+  /*2.BLOCK short-description=================*/
+  .woocommerce-product-details__short-description {
+    line-height: 47px; 
+    @media screen and (max-width: $width-m) {
+      line-height: 40px;      
+    }   
+    @media screen and (max-width: $width-mobile) {      
+      line-height: 34px;  
     }  
-    .flex-control-nav {
-      display: flex;
-      gap: 4px;
-      list-style-type: none;
-      padding: 0px;
+  }
+  /*3.BLOCK auction=================*/
+  .auction-condition {
+    margin-bottom: 16px;
+  }
+  .auction-time {
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: $width-m) {
+      font-size: 16px;
+    }
+  }
+  .auction-end {
+    height: 32px;      
+    overflow: hidden;
+    font-size: 20px;
+    line-height: 29px;      
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      height: 29px;      
+      font-size: 18px;
     }  
+    @media screen and (max-width: $width-m) {           
+      font-size: 16px;
+    }  
+  }
+  .reserve {
+    font-size: 20px;
+    margin-bottom: 16px;
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: $width-m) {
+      font-size: 16px;
+    }
+  }   
+  .quantity {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    @media screen and (max-width: $width-m) {
+      margin-bottom: 28px;
+    }
+    @media screen and (max-width: $width-s) {
+      margin-bottom: 24px;
+    }    
+    @media screen and (max-width: $width-mobile) {
+      justify-content: center;
+    }
+    .plus, .minus {
+      width: 32px;
+      height: 32px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      background-color: $color-white;
+      border: 0.5px solid $color-gray-400;
+    }
+    .input-text {
+      border: none;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 38px;
+      text-align: center;
+      @media screen and (max-width: $width-l) {
+        font-size: 20px;
+      }
+      @media screen and (max-width: $width-mobile) {
+        font-size: 18px;
+      }
+    }
+  }
+  .bid_button {
+    @extend .big-button;
+    border-radius: 0 50px 50px 50px;
+    min-width: 260px;
+    background-color: $color-yellow;
+    margin-bottom: 16px;          
+    &:hover {
+      border: 1px solid $color-text-primary;
+      box-shadow: $box-shadow-normal;
+    }
+    @media (max-width: $width-l) {
+      min-width: 240px;
+    }
+    @media (max-width: $width-mobile) {
+      width: 100%;
+    }
+  }
+  .wsawl-link {
+    @media screen and (max-width: $width-m) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;
+    }
+  }
+  .add-wsawl.sa-watchlist-action:before,
+  .remove-wsawl.sa-watchlist-action:before {
+      content: '';
+      background-image: url(../../../assets/images/heart-red.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-origin: border-box;
+      border: none;
+      width: 19px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+  }    
+  .back {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 56px;
+    @media (max-width: $width-l) {
+      margin-bottom: 44px;
+    }
+    @media screen and (max-width: $width-m) {
+      display: none;
+    }
+  }
 }

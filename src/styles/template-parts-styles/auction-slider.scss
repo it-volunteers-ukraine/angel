@@ -15,6 +15,7 @@
     }
     .auction-slider {
       position: relative;
+      overflow: visible;
       &__wrapper {
         min-width: 0;
         width: 100%;
