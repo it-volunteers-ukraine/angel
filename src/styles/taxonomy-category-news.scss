@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
-.media-about-us-page, 
+.media-about-us-page,
 .media-about-us-en-page {
   padding-bottom: 64px;
   border-bottom: 1px solid $color-gray-400;
@@ -43,12 +43,6 @@
       transition: all $transition-base;
       @media screen and (max-width: $width-m) {
         box-shadow: $box-shadow-normal;
-      }
-      .card-titleL:not(.card-title--media-about-us) {
-        color: $color-blue-hover;
-        @media screen and (max-width: $width-m) {
-          color: $color-text-primary;
-        }
       }
     }
     .card-img {
@@ -131,10 +125,14 @@
       -webkit-line-clamp: 3;
       min-height: 78px;
     }
-    .text--media-about-us {
+    .text-btn {
+      width: fit-content;
       font-weight: 700;
       font-size: 20px;
       line-height: 100%;
+      &:hover {
+        color: $color-blue;
+      }
       @media screen and (max-width: $width-l) {
         font-size: 18px;
       }
@@ -148,6 +146,11 @@
       @media (max-width: $width-mobile) {
         width: 100%;
       }
+    }
+  }
+  .media-about-us-card {
+    .card-title {
+      text-align: left;
     }
   }
 }
