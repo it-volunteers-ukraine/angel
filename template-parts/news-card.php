@@ -41,17 +41,16 @@
 <?php endif ?>
 
 <?php if(strpos($post_type, "media-about-us") !== false): ?>
-<li>
-    <a href="<?php echo esc_attr($website_link['url']);?>" class="news-card" target="__blank">
-        <div class="card-img">
-            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+<li class="news-card <?php echo (strpos($post_type, "media-about-us") !== false) ? "media-about-us": null?>-card">
+    <div class="card-img">
+        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+    </div>
+    <div class="info-wrapper">
+        <div class="title-wrapper">
+            <p class="card-title"><?php echo $website_name ?></p>
         </div>
-        <div class="info-wrapper">
-            <div class="title-wrapper title-wrapper--<?php echo $post_type ?>">
-                <p class="card-title card-title--<?php echo $post_type ?>"><?php echo $website_name ?></p>
-            </div>
-            <p class="text--media-about-us"><?php the_field('read_more_btn', 'option'); ?></p>
-        </div>
-    </a>
+        <a href=" <?php echo esc_attr($website_link['url']);?>" target="__blank" class="text-btn">
+            <?php the_field('read_more_btn', 'option'); ?></a>
+    </div>
 </li>
 <?php endif ?>
