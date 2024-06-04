@@ -6,39 +6,41 @@ get_header();
 ?>
 <main class="home">
     <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-image-wrapper">
-                <?php  if (get_field( 'hero_image' )) {?>
-                <img class="hero-image" src="<?php echo esc_url( get_field( 'hero_image' )['url'] ); ?>"
-                    alt="<?php echo esc_attr( get_field( 'hero_image' )['alt'] ); ?>" />
-                <?php } ?>
-            </div>
-            <div class="hero-text-wrapper">
-                <?php  if (get_field( 'hero_sub_title' )) {?>
-                <h3 class="hero-sub-title">
-                    <?php the_field("hero_sub_title")?>
-                </h3>
-                <?php } ?>
+        <div class="hero-image-wrapper">
+            <?php  if (get_field( 'hero_image' )) {?>
+            <img class="hero-image" src="<?php echo esc_url( get_field( 'hero_image' )['url'] ); ?>"
+                alt="<?php echo esc_attr( get_field( 'hero_image' )['alt'] ); ?>" />
+            <?php } ?>
+        </div>
+        <div class="hero-text-container">
+            <div class="container hero__container">
+                <div class="hero-text-wrapper">
+                    <?php  if (get_field( 'hero_sub_title' )) {?>
+                    <h3 class="hero-sub-title">
+                        <?php the_field("hero_sub_title")?>
+                    </h3>
+                    <?php } ?>
 
-                <?php  if (get_field( 'hero_main_title' )) {?>
-                <h1 class="title-h1">
-                    <?php the_field("hero_main_title")?>
-                </h1>
-                <?php } ?>
+                    <?php  if (get_field( 'hero_main_title' )) {?>
+                    <h1 class="title-h1">
+                        <?php the_field("hero_main_title")?>
+                    </h1>
+                    <?php } ?>
 
-                <?php  if (get_field( 'hero_text' )) {?>
-                <div class="hero-text">
-                    <?php the_field("hero_text")?>
-                </div>
-                <?php } ?>
+                    <?php  if (get_field( 'hero_text' )) {?>
+                    <div class="hero-text">
+                        <?php the_field("hero_text")?>
+                    </div>
+                    <?php } ?>
 
-                <?php 
+                    <?php 
                 $link = get_field('hero_link');
                 if( $link ): ?>
-                <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
-                    class="primary-button hero-btn"><?php echo get_field("hero_btn")?></a>
+                    <a href="<?php echo esc_url( get_term_link( $link ) ); ?>"
+                        class="primary-button hero-btn"><?php echo get_field("hero_btn")?></a>
 
-                <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </section>
