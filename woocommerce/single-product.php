@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<main>
-    <section class="lot section">
+<main class="lot">
+    <section class="about section">
 		<div class="container">
 			<div class="lot__container">
 				<?php 				
@@ -33,8 +33,8 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_main_content' );
 
-				echo '<div class="page-title">';
-				do_action( 'woocommerce_shop_loop_item_title' );
+				echo '<div class="page-title title-h2">';
+				the_title();
 				echo '</div>';
 			    ?>	
 
@@ -48,15 +48,43 @@ get_header( 'shop' ); ?>
 
 					<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-				<?php endwhile; // end of the loop. ?>
-
-				<div class="back"> 
-					<a href="<?php the_field( 'back-auctions', 'option' ); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a>    
-			    </div> 
+				<?php endwhile; // end of the loop. ?>				
 		    </div>
+			<div class="form__container">
+				<div class="information">					
+					<?php
+					echo '<p class="price price__reserved">';					
+            		$auction_reserved_price = get_post_meta( get_the_ID(), '_auction_reserved_price', true );
+            		$currency = get_woocommerce_currency_symbol();                                       
+            		echo '<span>' . get_field('reserved-price', 'option') . '</span><span class="amount">' . $auction_reserved_price . '</span><span class="amount">' . $currency . '</span>';
+            		echo '</p>';
+					?>
+					<p class="description"><?php the_field( 'reserve-price-info', 'option' ); ?></p>
+					<div class="share">
+						<p class="share__text">Поділіться цим аукціоном у соціальних мережах:</p>
+						<?php
+						$url = urlencode( get_permalink() ); 
+						$title = urlencode( get_the_title() );								
+
+						$fb_share_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $url . '&title=' . $title;
+						echo '<a href="' . $fb_share_url . '" target="_blank">
+							<svg class="icon">
+                                <use xlink:href="' . get_bloginfo('template_url') . '/assets/images/icons-sprite.svg#facebook" alt="facebook"></use>
+                            </svg> 						    
+						</a>';						
+						?>
+					</div>
+				</div>
+				<div id="contactForm" name="lot-form" class="form" method="post">
+              		<?php echo do_shortcode('[contact-form-7 id="cbb87ee" title="Форма для сторінки Лоту"]') ?>
+				</div>
+			</div>
+			<div class="back"> 
+				<a href="<?php the_field( 'back-auctions', 'option' ); ?>" class="tertiary-button"><?php the_field('back-name','option'); ?></a>    
+			</div> 
 		</div>
-	</section>
-	<section class="section">
+	</section>	
+	<section class="project__slider section">
 		<?php get_template_part('template-parts/projects-slider',); ?>	
 	</section>
 	<?php
