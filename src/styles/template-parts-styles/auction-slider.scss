@@ -13,43 +13,43 @@
         margin: 0 0 20px 0;
       }
     }
-    .auction-slider {
+    .inner {
       position: relative;
-      overflow: visible;
-      &__wrapper {
-        min-width: 0;
+      width: 100%;
+      margin-bottom: 56px;
+      @media screen and (max-width: $width-l) {
+        margin-bottom: 44px;
+      }
+      @media screen and (max-width: $width-m) {
+        margin-bottom: 36px;
+      }
+      .auction-slider {
         width: 100%;
-        display: flex;
-        margin-bottom: 126px;
+        height: 640px;
         @media screen and (max-width: $width-l) {
-          margin-bottom: 102px;
+          height: 620px;
         }
         @media screen and (max-width: $width-m) {
-          margin-bottom: 82px;
-        }
-        @media screen and (max-width: $width-s) {
-          margin-bottom: 102px;
+          height: 575px;
         }
         @media screen and (max-width: $width-mobile) {
-          margin-bottom: 82px;
+          height: 970px;
         }
-      }
-      .swiper-pagination {
+        .auction-slider-wrapper {
+          min-width: 0;
+          width: 100%;
+          display: flex;  
+        } 
+        .swiper-pagination {
           position: absolute;
           z-index: 10;
           width: 100%;
-          bottom: calc((-126px / 2) - 5px);
+          bottom: 10px;
           @media screen and (max-width: $width-l) {
-            bottom: calc((-102px / 2) - 5px);
+            bottom: 8px;
           }
           @media screen and (max-width: $width-m) {
-            bottom: calc((-82px / 2) - 5px);
-          }
-          @media screen and (max-width: $width-s) {
-            bottom: calc((-102px / 2) - 5px);
-          }
-          @media screen and (max-width: $width-mobile) {
-            bottom: calc((-82px / 2) - 5px);
+            bottom: 7px;
           }
           &-bullet {
             width: 10px;
@@ -69,12 +69,13 @@
               }
             }
           }
+        }
       }
       .navigation-buttons {
         left: -50px;
         width: calc(100% + 100px);
       }
-    }
+    }  
   }
 }
 
