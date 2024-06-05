@@ -33,8 +33,8 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_main_content' );
 
-				echo '<div class="page-title">';
-				do_action( 'woocommerce_shop_loop_item_title' );
+				echo '<div class="page-title title-h2">';
+				the_title();
 				echo '</div>';
 			    ?>	
 
@@ -59,6 +59,17 @@ get_header( 'shop' ); ?>
             		echo '<span>' . get_field('reserved-price', 'option') . '</span><span class="amount">' . $auction_reserved_price . '</span><span class="amount">' . $currency . '</span>';
             		echo '</p>';
 					?>
+					<p class="description"><?php the_field( 'reserve-price-info', 'option' ); ?></p>
+					<div class="sharer">
+						<p>Поділіться цим аукціоном у соціальних мережах:</p>
+						<?php
+						$url = urlencode( get_permalink() ); 
+						$title = urlencode( get_the_title() );								
+
+						$fb_share_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $url . '&title=' . $title;
+						echo '<a href="' . $fb_share_url . '" target="_blank">Поделиться на Facebook</a>';
+						?>
+					</div>
 				</div>
 				<div id="contactForm" name="lot-form" class="form" method="post">
               		<?php echo do_shortcode('[contact-form-7 id="cbb87ee" title="Форма для сторінки Лоту"]') ?>

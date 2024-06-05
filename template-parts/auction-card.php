@@ -10,10 +10,11 @@ if ($product) : ?>
             echo '<div class="product__img">';
                 do_action( 'woocommerce_before_shop_loop_item_title' );
             echo '</div>';
-            echo '<div class="product__info">';                                    
-                do_action( 'woocommerce_shop_loop_item_title' );
-                echo '<div class="product__description">';
-                    //echo apply_filters( 'the_content', $product->get_description() );
+            echo '<div class="product__info">';    
+                echo '<h2 class="woocommerce-loop-product__title">';
+                the_title();
+                echo '</h2>';                
+                echo '<div class="product__description">';                    
                     echo '<p>'; the_field('lot-description'); echo '</p>';
                 echo '</div>';  
                 echo '<div class="auction__price">';
