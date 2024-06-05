@@ -7,10 +7,12 @@ get_header();
 <main class="home">
     <section class="hero">
         <div class="hero-image-wrapper">
-            <?php  if (get_field( 'hero_image' )) {?>
-            <img class="hero-image" src="<?php echo esc_url( get_field( 'hero_image' )['url'] ); ?>"
-                alt="<?php echo esc_attr( get_field( 'hero_image' )['alt'] ); ?>" />
-            <?php } ?>
+            <div class="hero-image">
+                <?php  if (get_field( 'hero_image' )) {?>
+                <img class="image" src="<?php echo esc_url( get_field( 'hero_image' )['url'] ); ?>"
+                    alt="<?php echo esc_attr( get_field( 'hero_image' )['alt'] ); ?>" />
+                <?php } ?>
+            </div>
         </div>
         <div class="hero-text-container">
             <div class="container hero__container">
