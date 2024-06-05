@@ -53,7 +53,7 @@ get_header( 'shop' ); ?>
 			<div class="form__container">
 				<div class="information">					
 					<?php
-					echo '<p class="price">';					
+					echo '<p class="price price__reserved">';					
             		$auction_reserved_price = get_post_meta( get_the_ID(), '_auction_reserved_price', true );
             		$currency = get_woocommerce_currency_symbol();                                       
             		echo '<span>' . get_field('reserved-price', 'option') . '</span><span class="amount">' . $auction_reserved_price . '</span><span class="amount">' . $currency . '</span>';
