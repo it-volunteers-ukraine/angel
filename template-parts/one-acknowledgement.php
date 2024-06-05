@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card__img">
         <?php if (!empty($acknowledgementImg)) : ?>
-            <a href="<?php echo esc_url($acknowledgementImg['url']); ?>">
+            <a href="<?php echo esc_url($acknowledgementImg['url']); ?>" data-lightbox="acknowledgement-gallery">
                 <img src="<?php echo esc_url($acknowledgementImg['url']); ?>" alt="<?php echo esc_attr($acknowledgementImg['alt']); ?>"/>
             </a>
         <?php endif; ?>
