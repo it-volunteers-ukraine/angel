@@ -26,5 +26,6 @@ const partnersSwiper = new Swiper(".partners-swiper", {
   },
   pagination: {
     el: ".swiper-pagination",
+    dynamicBullets: true,
   },
 });

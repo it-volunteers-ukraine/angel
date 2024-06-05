@@ -1,7 +1,7 @@
-const auctionSwiper = new Swiper('.auction-slider', {
+const auctionSwiper = new Swiper(".auction-slider", {
   navigation: {
-    nextEl: '.button-next',
-    prevEl: '.button-prev',
+    nextEl: ".button-next",
+    prevEl: ".button-prev",
   },
   lazy: {
     loadOnTransitionStart: true,
@@ -9,7 +9,7 @@ const auctionSwiper = new Swiper('.auction-slider', {
   },
   lazyPreloadPrevNext: 1,
   slidesPerView: 2,
-  slidesPerGroup: 2, 
+  slidesPerGroup: 2,
   spaceBetween: 32,
   breakpoints: {
     993: {
@@ -26,9 +26,10 @@ const auctionSwiper = new Swiper('.auction-slider', {
       slidesPerView: 1,
       slidesPerGroup: 1,
       spaceBetween: 20,
-    }  
+    },
   },
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
+    dynamicBullets: true,
   },
 });

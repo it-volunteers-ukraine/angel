@@ -32,5 +32,6 @@ const projectsSwiper = new Swiper(".projects-swiper", {
   },
   pagination: {
     el: ".swiper-pagination",
+    dynamicBullets: true,
   },
 });
