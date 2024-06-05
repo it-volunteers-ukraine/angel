@@ -60,14 +60,18 @@ get_header( 'shop' ); ?>
             		echo '</p>';
 					?>
 					<p class="description"><?php the_field( 'reserve-price-info', 'option' ); ?></p>
-					<div class="sharer">
-						<p>Поділіться цим аукціоном у соціальних мережах:</p>
+					<div class="share">
+						<p class="share__text">Поділіться цим аукціоном у соціальних мережах:</p>
 						<?php
 						$url = urlencode( get_permalink() ); 
 						$title = urlencode( get_the_title() );								
 
 						$fb_share_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $url . '&title=' . $title;
-						echo '<a href="' . $fb_share_url . '" target="_blank">Поделиться на Facebook</a>';
+						echo '<a href="' . $fb_share_url . '" target="_blank">
+							<svg class="icon">
+                                <use xlink:href="' . get_bloginfo('template_url') . '/assets/images/icons-sprite.svg#facebook" alt="facebook"></use>
+                            </svg> 						    
+						</a>';						
 						?>
 					</div>
 				</div>

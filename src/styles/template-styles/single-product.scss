@@ -291,8 +291,28 @@
       display: flex;
       gap: 32px;
       justify-content: space-between;
-      flex-direction: column;
-    }    
+      flex-direction: column;      
+    }  
+    .share {
+      &__text {
+        margin-bottom: 20px;
+      }
+      .icon {
+        fill: $color-blue;
+        vertical-align: middle;
+        width: 32px;
+        height: 32px;  
+        transition: all 1s ease;
+        @media screen and (max-width: $width-m) {
+            width: 24px;
+            height: 24px;                      
+        }              
+        &:hover {
+          fill: $color-blue-hover;
+          transition: all 1s ease;
+        }
+      }
+    }
   }
   .form {  
     padding: 0px 15% 0px 32px;
