@@ -27,9 +27,8 @@
                 }
                 ?>
                 </ul>
-                
+                <div class="swiper-pagination"></div>
             </div> 
-            <div class="swiper-pagination"></div>
             <div class="navigation-buttons">
                 <svg class="button-arrow button-next" width="40" height="40">
                     <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/sprite.svg#icon-slider-arrow">
