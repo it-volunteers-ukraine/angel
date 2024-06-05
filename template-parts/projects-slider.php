@@ -14,7 +14,7 @@ $seeMoreBtn = get_field( 'projects_btn', 'option' );
             <div class="swiper projects-swiper">
                 <ul class="swiper-wrapper projects-list">
                     <?php 
-                    $my_posts = get_posts(['category_name' => 'projects', 'posts_per_page' => 21,]);
+                    $my_posts = get_posts(['category_name' => 'projects', 'posts_per_page' => -1,]);
                     foreach ($my_posts as $post):
                         get_template_part('template-parts/projects-card', null, array("isSliderCard" => true));
                     ?>
