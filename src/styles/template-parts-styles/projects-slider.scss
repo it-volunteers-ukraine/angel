@@ -56,6 +56,20 @@
           width: 10px;
           height: 10px;
         }
+        &-prev,
+        &-next {
+          transform: scale(1);
+          @media screen and (max-width: $width-s) {
+            transform: scale(0.8);
+          }
+          &-prev,
+          &-next {
+            transform: scale(0.66);
+            @media screen and (max-width: $width-s) {
+              transform: scale(0.4);
+            }
+          }
+        }
       }
     }
   }
