@@ -137,6 +137,9 @@ function wp_it_volunteers_scripts() {
   if (is_singular() && locate_template('template-parts/depositing-funds.php')) {
     wp_enqueue_style( 'depositing-funds-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/depositing-funds.css', array('main') );    
   }
+  if (is_singular() && locate_template('template-parts/share.php')) {
+    wp_enqueue_style( 'share-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/share.css', array('main') );    
+  }
   if (is_singular() && locate_template('template-parts/auction-card.php')) {
     wp_enqueue_style( 'auction-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/auction-card.css', array('main') );   
   }

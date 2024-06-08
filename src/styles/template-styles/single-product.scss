@@ -328,22 +328,7 @@
       }
       &__text {
         margin-bottom: 20px;
-      }
-      .icon {
-        fill: $color-blue;
-        vertical-align: middle;
-        width: 32px;
-        height: 32px;  
-        transition: all 1s ease;
-        @media screen and (max-width: $width-m) {
-            width: 24px;
-            height: 24px;                      
-        }              
-        &:hover {
-          fill: $color-blue-hover;
-          transition: all 1s ease;
-        }
-      }
+      }      
     }
   }
   .form {  
