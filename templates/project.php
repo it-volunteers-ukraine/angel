@@ -78,34 +78,8 @@ $project_alt = get_field('project-name', $post);
                             <?php get_template_part('template-parts/depositing-funds'); ?>
                         </div>
                         <div class="about__social">
-                            <div class="share"><?php the_field('projects-share', 'option'); ?></div>    
-                            <div class="about__social-block">                       
-                                <a class="link" href="<?php the_field( 'telegram', 'option' ); ?>" target="_blank">
-                                    <svg class="icon">
-                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#telegram" alt="telegram"></use>
-                                    </svg>                                                       
-                                </a> 
-                                <a class="link" href="<?php the_field( 'instagram', 'option' ); ?>" target="_blank">
-                                    <svg class="icon">
-                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#instagram" alt="instagram"></use>
-                                    </svg>                                                       
-                                </a> 
-                                <a class="link" href="<?php the_field( 'youtube', 'option' ); ?>" target="_blank">
-                                    <svg class="icon">
-                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#youtube" alt="youtube"></use>
-                                    </svg>                                                       
-                                </a>
-                                <a class="link" href="<?php the_field( 'facebook', 'option' ); ?>" target="_blank">
-                                    <svg class="icon">
-                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#facebook" alt="facebook"></use>
-                                    </svg>                                                       
-                                </a>     
-                                <a class="link" href="<?php the_field( 'twitter', 'option' ); ?>" target="_blank">
-                                    <svg class="icon">
-                                        <use xlink:href="<?php bloginfo('template_url'); ?>/assets/images/icons-sprite.svg#twitter" alt="twitter"></use>
-                                    </svg>                                                       
-                                </a>
-                            </div>
+                            <p class="share"><?php the_field('projects-share', 'option'); ?></p>    
+                            <?php get_template_part('template-parts/share'); ?>
                         </div>
                         <div class="back">           
                             <?php $link = get_field('back-link', 'option'); ?>

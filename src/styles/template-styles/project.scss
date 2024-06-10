@@ -276,7 +276,7 @@
             @media screen and (max-width: $width-mobile) {            
                 margin-bottom: 20px; 
             }
-        }
+        }        
         .about__social {           
             display: flex;
             justify-content:center;
@@ -291,6 +291,7 @@
             @media screen and (max-width: $width-m) {
                 gap: 12px;
                 margin-bottom: 0px;
+                justify-content: flex-start;
             }
             @media screen and (max-width: $width-mobile) {
                 flex-direction: column;
@@ -304,7 +305,7 @@
                     font-size: 18px;
                     line-height: 28px;
                 } 
-                @media screen and (max-width: $width-m) {
+                @media screen and (max-width: $width-s) {
                     font-size: 16px;
                     line-height: 26px;
                 }
@@ -313,27 +314,7 @@
                     font-weight: 500;
                     line-height: 25.6px;
                 }                
-            }
-            &-block {                
-                display: flex;               
-                gap: 20px;                                
-                @media screen and (max-width: $width-mobile) {                    
-                    gap: 30px;
-                }           
-            }           
-            .icon {
-                fill: $color-blue;
-                vertical-align: middle;
-                width: 32px;
-                height: 32px;  
-                @media screen and (max-width: $width-m) {
-                    width: 24px;
-                    height: 24px;                      
-                }              
-                &:hover {
-                    fill: $color-blue-hover;
-                }
-            }
+            }            
         }
         .back {
             display: flex;

@@ -42,7 +42,11 @@
         @media (max-width: $width-mobile) {
           height: 399px;
         }
-    }
+      }
+      .winning {
+        top: 2px;
+        left: 1px;
+      }
     }
     &__info {
       display: flex;

@@ -172,3 +172,17 @@ body {
     margin-bottom: 16px;
   }
 }
+
+
+//Styles for forms
+.wpcf7 form.sent .wpcf7-response-output {
+  border-color: $color-blue;
+  border-radius: 8px;
+}
+
+
+//Styles for WooCommerce
+.auction-bage {display: none;} 
+.product__img, .product-thumbnail {
+  .winning {background: $color-object-1;}
+}

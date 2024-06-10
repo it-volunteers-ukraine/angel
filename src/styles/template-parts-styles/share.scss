@@ -1,0 +1,27 @@
+@import "../variables.scss";
+
+.social__block {                
+    display: flex;               
+    gap: 28px;     
+    @media screen and (max-width: $width-s) {
+        gap: 20px;                      
+    }                            
+    @media screen and (max-width: $width-mobile) {                    
+        gap: 30px;
+    }   
+    .icon {
+        fill: $color-blue;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;  
+        transition: all 1s ease;
+        @media screen and (max-width: $width-s) {
+            width: 18px;
+            height: 18px;                      
+        }              
+        &:hover {
+            fill: $color-blue-hover;
+            transition: all 1s ease;
+        }
+    }        
+}  
