@@ -1,0 +1,43 @@
+@import "../variables.scss";
+
+.top__section {
+  margin-top: 80px;  
+  @media screen and (max-width: $width-m) {
+    margin-top: 56px;
+  }
+  @media screen and (max-width: $width-mobile) {
+    margin-top: 40px;
+  }
+}
+
+.woocommerce-MyAccount-navigation {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 32px;    
+      border-bottom: 1px solid $color-blue;
+    }
+  }
+  .woocommerce-MyAccount-navigation-link {
+    padding: 10px;
+  }
+  .woocommerce-MyAccount-navigation-link.is-active {
+    border-radius: 50px;
+    padding: 10px;
+    background-color: $color-blue;
+    color: $color-white;
+  }		
+  .woocommerce-MyAccount-content {
+    padding-top: 32px;
+  }	
+  .woocommerce-info {border-top: 0px;}
+  .woocommerce form .show-password-input, .woocommerce-page form .show-password-input {  
+    top: 0px;  
+  }
+  
+  .auction-bage {display: none;} 
+  .product__img, .product-thumbnail {
+    .winning {background: $color-object-1;}
+  }
+  
