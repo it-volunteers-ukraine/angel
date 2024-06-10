@@ -179,3 +179,10 @@ body {
   border-color: $color-blue;
   border-radius: 8px;
 }
+
+
+//Styles for WooCommerce
+.auction-bage {display: none;} 
+.product__img, .product-thumbnail {
+  .winning {background: $color-object-1;}
+}
