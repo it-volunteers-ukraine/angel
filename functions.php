@@ -155,15 +155,17 @@ function wp_it_volunteers_scripts() {
     ) {
         wp_enqueue_style('auction-slider-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/auction-slider.css', array('main'));
         wp_enqueue_script('auction-slider-scripts', get_template_directory_uri() . '/assets/scripts/template-parts-scripts/auction-slider.js', array(), false, true);
-    }
+  }
 
-    if (is_tax('category-news')) {
-        wp_enqueue_style('auction-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/auction-card.css', array('main'));
-    }
-    if (get_post_type() === 'news' ) {
-      wp_enqueue_style('single-news-style', get_template_directory_uri() . '/assets/styles/single-pages-styles/single-news.css', array('main') );
-      wp_enqueue_script('single-news-scripts', get_template_directory_uri() . '/assets/scripts/single-pages-scripts/single-news.js', array(), false, true);
-    }
+  if (get_post_type() === 'news' ) {
+    wp_enqueue_style('single-news-style', get_template_directory_uri() . '/assets/styles/single-pages-styles/single-news.css', array('main') );
+    wp_enqueue_script('single-news-scripts', get_template_directory_uri() . '/assets/scripts/single-pages-scripts/single-news.js', array(), false, true);
+  }
+
+  if (is_tax('category-news')) {
+    wp_enqueue_style('category-news-style', get_template_directory_uri() . '/assets/styles/template-styles/category-news.css', array('main'));
+    wp_enqueue_style('auction-card-style', get_template_directory_uri() . '/assets/styles/template-parts-styles/auction-card.css', array('main'));
+  }
 }
 
 /** add fonts */
@@ -225,27 +227,21 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 /** AJAX acknowledgements */
 
-// Функція для обробки AJAX запитів на виведення постів і пагінації
 add_action('wp_ajax_load_acknowledgements', 'load_acknowledgements');
 add_action('wp_ajax_nopriv_load_acknowledgements', 'load_acknowledgements');
 
 function load_acknowledgements() {
-  // Перевірка nonce
   if (!isset($_POST["nonce"]) || !wp_verify_nonce($_POST["nonce"], "acknowledgements_nonce")) {
     exit;
   }
   
-  // Отримання параметрів з AJAX-запиту
   $paged = $_POST['page'];
   $width = $_POST['width'];
   
-  // Визначення кількості постів на сторінку залежно від ширини
   $number = get_acknowledgements_per_page($width);
 
-  // Отримання загальної кількості постів
   $total_posts = wp_count_posts('acknowledgements')->publish;
   
-  // Побудова запиту для отримання постів
   $args = array(
     'post_type' => 'acknowledgements',
     'posts_per_page' => $number,
@@ -258,7 +254,6 @@ function load_acknowledgements() {
   $total_pages  = $custom_posts->max_num_pages; 
   $current_page = max( 1, $paged );
 
-  // Виведення постів
   ob_start();
     $posts_markup = '';
       if ($custom_posts->have_posts()) :
@@ -270,7 +265,6 @@ function load_acknowledgements() {
         endwhile;
       $posts_markup = ob_get_clean();
       wp_reset_postdata();
-      // Виведення пагінації
       if ( $total_pages > 1 ) {
         $pagination_markup = paginate_links( array(
           'base'    => '?paged=%#%',
@@ -293,7 +287,6 @@ function load_acknowledgements() {
   wp_die();
 }
 
-// Визначення кількості постів на сторінку залежно від ширини
 function get_acknowledgements_per_page($width) {
   if ($width > 1440.98) {
     return 8;
