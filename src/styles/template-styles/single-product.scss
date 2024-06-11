@@ -3,27 +3,14 @@
 
 .lot {  
   /*DELETED ELEMENTS==========================*/
-  .single_add_to_cart_button, .buy-now, .product_meta {display: none;}  
+  .single_add_to_cart_button, .buy-now, .product_meta, 
+  .auction-condition {display: none;}  
   &__container {      
       border-bottom: 1px solid $color-gray-400;
   } 
   .shop-wishlist {
     position: relative;
-    text-align: end;
-      /*position: fixed;
-      top: 0px;
-      right: 0px;
-      z-index: 10;  
-      @media screen and (max-width: $width-m) {
-        top: 31%;
-      }
-      @media screen and (max-width: $width-s) {
-        top: 38%;
-      }
-      @media screen and (max-width: $width-mobile) {
-        top: 30%;
-        right: 0%;
-      }*/
+    text-align: end;      
       .wishlist {
         background-image: url(../../../assets/images/wishlist.png);
         background-size: contain;
@@ -45,25 +32,7 @@
         border-radius: 50%;
         vertical-align: middle;   
       }
-  }  
-  /*.woocommerce-loop-product__title {      
-      font-family: $font-family-accent;
-      font-weight: 700;
-      font-size: 48px;
-      line-height: 120%;
-      text-align: center;
-      color: $color-blue;
-    
-      @media (max-width: $width-l) {
-        font-size: 40px;
-      }
-      @media (max-width: $width-m) {
-        font-size: 32px;
-      }
-      @media (max-width: 376px) {
-        font-size: 24px;
-      }
-  }*/
+  }    
   .woocommerce-message {
       border-top-color: $color-blue;
       border-radius: 8px;
@@ -96,11 +65,17 @@
     .wp-post-image {
       border-radius: 32px;
       object-fit: cover;
+      min-height: 800px;
+      @media screen and (max-width: $width-l) {
+        min-height: 716px;
+      }
       @media screen and (max-width: $width-m) {
-        height: 536px;
+        min-height: 536px;
+        max-height: 536px;        
       }
       @media screen and (max-width: $width-s) {
-        height: 448px;
+        min-height: 448px;
+        max-height: 448px; 
       }
     }
     .flex-control-nav {
@@ -128,21 +103,42 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    gap: 16px;
   }
   /*1.BLOCK price=================*/
+  .starting__bid {
+    font-size: 20px;
+    line-height: 32px;  
+    @media screen and (max-width: $width-l) {
+      font-size: 18px;
+      line-height: 28px;  
+    }  
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;
+      line-height: 26px;  
+    }
+  }
+  .size {
+    font-size: 24px;
+    font-weight: 700; 
+    @media screen and (max-width: $width-l) {
+      font-size: 20px;      
+    }  
+    @media screen and (max-width: $width-mobile) {
+      font-size: 16px;      
+    }    
+  }
   .price {
     font-size: 24px;
     font-weight: 700;
-    line-height: 38px;
-    margin-bottom: 16px;    
+    line-height: 38px;      
     @media screen and (max-width: $width-l) {
       font-size: 20px;
       line-height: 32px;      
     }  
     @media screen and (max-width: $width-mobile) {
       font-size: 16px;
-      line-height: 25px;     
-      margin-bottom: 8px;   
+      line-height: 25px; 
     }  
     .amount {
       font-size: 32px;
@@ -212,12 +208,23 @@
       font-size: 16px;
     }
   }   
+  .increase__bid {
+    font-family: $font-family-accent;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    color: $color-blue;
+    margin: 30px 0px;    
+    @media screen and (max-width: $width-mobile) {
+      margin: 24px 0px;  
+    }
+  }
   .quantity {
     margin-bottom: 16px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end;    
     @media screen and (max-width: $width-m) {
       margin-bottom: 28px;
     }
@@ -239,10 +246,11 @@
       border: none;
       font-size: 24px;
       font-weight: 700;
-      line-height: 38px;
+      line-height: 44px;
       text-align: center;
       @media screen and (max-width: $width-l) {
         font-size: 20px;
+        line-height: 38px;
       }
       @media screen and (max-width: $width-mobile) {
         font-size: 18px;
@@ -304,8 +312,7 @@
     }
     .information {      
       display: flex;
-      gap: 32px;
-      justify-content: space-between;
+      gap: 32px;      
       flex-direction: column;  
       @media screen and (max-width: $width-l) {
         gap: 21px;  
@@ -366,15 +373,18 @@
     }    
     @media screen and (max-width: $width-mobile) {
       padding: 0px;
-    } 
+    }     
     .name, .phone, .email {
       border-radius: 12px;
       border: 1px solid $color-gray-300;
       background: $color-white;
       width: 100%;      
       padding: 12px 16px;
-      margin-bottom: 11px;
-      cursor: text;    
+      margin: 6px 0px;
+      cursor: text;   
+      @media screen and (max-width: $width-l) {
+        margin: 10px 0px;
+      }    
       @media screen and (max-width: $width-m) {
         width: 533px;
       }   
