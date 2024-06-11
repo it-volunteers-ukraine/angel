@@ -1,12 +1,15 @@
 @import "../variables.scss";
 
-.wishlist {
-    .product-content > :last-child {
-        display: none;
-    }
+.wishlist {    
     .product-thumbnail {
         img {
             border-radius: 16px;
         }
     }
+    .product-content > :last-child {
+        display: none;
+    }
+    .auction-details {
+        min-width: 100%;
+    }    
 }
