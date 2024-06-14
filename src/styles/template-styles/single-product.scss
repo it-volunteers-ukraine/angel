@@ -26,7 +26,9 @@
         position: absolute;
         top: -25px;
         right: 8px;
-        padding: 1px 4px;
+        width: 24px;
+        height: 24px;        
+        text-align: center;
         color: $color-white;
         background-color: $color-blue;
         border-radius: 50%;
@@ -179,6 +181,13 @@
     }
     @media screen and (max-width: $width-m) {
       font-size: 16px;
+    }
+  }
+  .auction-time-countdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media screen and (max-width: $width-mobile) {
+      grid-template-columns: 1fr;
     }
   }
   .auction-end {

@@ -1,4 +1,5 @@
 @import "../variables.scss";
+@import "../buttons.scss";
 
 .top__section {
   margin-top: 80px;  
@@ -31,7 +32,80 @@
   .woocommerce-MyAccount-content {
     padding-top: 32px;
   }	
-  .woocommerce-info {border-top: 0px;}
-  .woocommerce form .show-password-input, .woocommerce-page form .show-password-input {  
-    top: 0px;  
-  }  
+  .woocommerce-info {border-top: 0px;}  
+
+
+/*Registration====================*/  
+.u-column1, .u-column2 {
+  background-color: $color-white;
+  border: 1px solid $color-gray-300;
+  border-radius: 32px;
+  padding: 48px 56px 56px;
+  @media screen and (max-width: $width-l) {
+    padding: 48px;
+  }
+  @media screen and (max-width: $width-m) {
+    padding: 44px 40px;
+  }
+  @media screen and (max-width: $width-mobile) {
+    padding: 16px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 38.4px;
+    text-align: center;
+    color: #1D93D3;
+    @media screen and (max-width: $width-l) {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+}
+.u-column1 {
+  @media screen and (max-width: $width-s) {
+    margin-bottom: 16px;
+  }
+}
+.woocommerce form.login, .woocommerce form.register {
+  margin: 0px;
+  padding: 24px 0px 0px;
+  min-height: 334px;  
+  border: none;  
+  @media screen and (max-width: $width-l) {
+    min-height: 355px; 
+  }
+  @media screen and (max-width: $width-s) {
+    min-height: max-content; 
+  }
+  @media screen and (max-width: $width-mobile) {
+    padding: 20px 0px 0px;
+  }
+  .input-text {
+    min-height: 50px;
+    border: 1px solid $color-gray-200;
+    background: $color-gray-100;
+    border-radius: 12px;
+  }
+}
+.woocommerce form .show-password-input::after {
+  line-height: 2;
+}
+.woocommerce-form-login__rememberme {
+  display: flex;
+  align-items: center;   
+}
+.woocommerce button.button {  
+  @extend .secondary-button;
+  &:hover {    
+    color: $color-white;
+  }
+}
+#reg_password {
+  @media screen and (max-width: $width-m) {    
+    margin-bottom: 32px;
+  }
+  @media screen and (max-width: $width-s) {
+    margin-bottom: 20px;
+  }
+}
