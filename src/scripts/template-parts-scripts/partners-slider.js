@@ -1,6 +1,6 @@
 const partnersSwiper = new Swiper(".partners-swiper", {
   loop: true,
-  slidesPerView: 6,
+  slidesPerView: 3,
   spaceBetween: 32,
   lazy: {
     loadOnTransitionStart: true,
@@ -12,16 +12,12 @@ const partnersSwiper = new Swiper(".partners-swiper", {
   },
   lazyPreloadPrevNext: 1,
   breakpoints: {
-    992: {
-      slidesPerView: 6,
-      spaceBetween: 24,
-    },
     768: {
       spaceBetween: 40,
     },
-    375: {
-      slidesPerView: 3,
-      spaceBetween: 32,
+    992: {
+      slidesPerView: 6,
+      spaceBetween: 24,
     },
   },
   pagination: {

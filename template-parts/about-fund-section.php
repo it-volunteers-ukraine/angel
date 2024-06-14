@@ -32,8 +32,7 @@ $advantagesCards = get_field( 'advantages_cards', 'option' )
             <?php echo $subInfo ?>
             <div class="about-heading-icon-wrapper">
                 <svg class="about-heading-icon" width="13.82" height="8">
-                    <use
-                        href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-arrow">
+                    <use href="<?php bloginfo( 'template_url' ); ?>/assets/images/footer-sprite.svg#icon-arrow">
                     </use>
                 </svg>
             </div>
@@ -56,7 +55,7 @@ $advantagesCards = get_field( 'advantages_cards', 'option' )
             echo '</ul>';
         } ?>
 
-        <div class="swiper swiper-container">
+        <div class="swiper advantages-container">
             <?php if( $advantagesCards ) {
                 echo '<ul class="swiper-wrapper">';
                 foreach( $advantagesCards as $advantagesCard ) {

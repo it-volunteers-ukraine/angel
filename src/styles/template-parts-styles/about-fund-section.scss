@@ -130,11 +130,9 @@
       }
       @media (max-width: $width-m) {
         padding: 24px;
-        width: calc((100% - 24px) / 2);
       }
       @media (max-width: 376px) {
         padding: 28px 20px;
-        width: 343px;
       }
       svg {
         width: 80px;
@@ -183,18 +181,25 @@
       }
     }
 
-    .swiper-container {
+    .advantages-container {
       display: none;
-      @media (max-width: 426px) {
+      @media (max-width: 591px) {
         display: block;
         position: relative;
-        width: 343px;
-        height: 295px;
+        max-width: 343px;
+        min-height: 295px;
+      }
+      @media (max-width: 360px) {
+        max-width: 320px;
+      }
+      @media (max-width: 320px) {
+        max-width: 288px;
       }
     }
     .swiper-wrapper {
-      height: 239px;
+      min-height: 239px;
     }
+
     .swiper-pagination-bullet {
       background-color: $color-gray-400;
       &-active {
@@ -215,8 +220,13 @@
       @media (max-width: $width-s) {
         width: 100%;
       }
-      @media (max-width: 426px) {
+      @media (max-width: 591px) {
         display: none;
+      }
+      .card {
+        @media (max-width: $width-m) {
+          width: calc((100% - 24px) / 2);
+        }
       }
     }
     .advantages-text {
