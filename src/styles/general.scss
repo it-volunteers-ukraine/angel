@@ -40,7 +40,7 @@ a {
 button {
   cursor: pointer;
   color: inherit;
-  font: inherit;  
+  font: inherit;
   outline: none;
   border: none;
   background: transparent;
@@ -51,7 +51,9 @@ html,
 body {
   height: 100%;
 }
-
+body._lock {
+  overflow: hidden;
+}
 .wrapper {
   min-height: 100%;
   display: flex;

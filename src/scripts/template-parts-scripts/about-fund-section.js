@@ -1,4 +1,4 @@
-const swiper = new Swiper(".swiper-container", {
+const swiper = new Swiper(".advantages-container", {
   direction: "horizontal",
   loop: false,
   slidesPerView: 1,
@@ -11,7 +11,7 @@ const swiper = new Swiper(".swiper-container", {
 function showSwiper() {
   const section = document.querySelector(".about-fund");
   if (section) {
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 590) {
       swiper.init();
     } else {
       swiper.destroy();

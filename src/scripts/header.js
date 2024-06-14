@@ -5,6 +5,7 @@ const mobileHeaderMenu = document.querySelector(".mobile-menu_list");
 headerMenuToggel.addEventListener("click", () => {
   jQuery(headerMenu).toggleClass("menu--mobile");
   jQuery(headerMenuToggel).toggleClass("is-open");
+  document.body.classList.toggle("_lock");
 });
 
 mobileHeaderMenu.querySelectorAll("& > li > a").forEach((item) => {
