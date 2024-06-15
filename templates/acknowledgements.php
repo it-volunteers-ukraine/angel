@@ -25,8 +25,10 @@ get_header();
 <!-- Модальне вікно -->
 <div id="acknowledgementsModal" class="popup">
     <div class="popup__content">
-        <a href="#" class="close-popup">&times;</a>
-        <img id="modalImg" src="" alt="Подяка" style="width: 100%; height: auto;"/>
+        <div class="popup__content-inner">
+            <a href="#" class="close-popup"></a>
+            <img id="modalImg" src="" alt="Подяка" style="width: 100%; height: auto;"/>
+        </div>
     </div>
 </div>
 
