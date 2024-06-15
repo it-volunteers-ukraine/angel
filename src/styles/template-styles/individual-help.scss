@@ -67,15 +67,18 @@
 
     .second-text {
         text-align: center;
-        margin-bottom: 56px;
+        margin: 0 auto 56px auto;
+        max-width: 1056px;
         @media (max-width: $width-l) {
             margin-bottom: 44px;
+            max-width: 792px;
         }
         @media (max-width: $width-m) {
             text-align: start;
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 24px;
+            max-width: 100%;
         }
         @media (max-width: $width-mobile) {
             font-size: 14px;
@@ -141,6 +144,7 @@
                 }
 
                 &:last-of-type {
+                    margin-top: 44px;
                     @media (max-width: $width-mobile) {
                         margin-top: 36px;
                     }
