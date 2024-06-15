@@ -31,46 +31,41 @@
         display: flex;
         justify-content: center;
     } 
-    .popup {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        top: 0;
-        left: 0;
-        z-index: 100;
-        &__body {
-            min-height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 10px;
-        }
-        &__close {
-            width: 24px;
-            height: 24px;
-            background-color: #fff;
-            .card {
-                &__img {
-                    height: 529px;
-                    width: 100%;
-                    @media (max-width: $width-m) {
-                        height: 441px;
-                    }
-                    @media (max-width: $width-s) {
-                        height: 326px;
-                    }
-                    @media (max-width: $width-mobile) {
-                        height: 100%;
-                        align-self: center;
-                    }
-                    img {
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                }
-            }
-        }
-    }
 }
+
+/* Стилі для модального вікна */
+.popup {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.8); 
+    z-index: 100; 
+    overflow-y: auto;
+    &.open {
+        display: block;
+      }
+    &__content {
+        position: relative; 
+        margin: 10px auto; 
+        padding: 1px; 
+        width: 99%; 
+        max-width: 500px; 
+        background: white; 
+        border-radius: 10px;
+        .close-popup {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            font-size: 30px; 
+            text-decoration: none; 
+            color: black;
+          }
+      }  
+  }
+  body.lock {
+    overflow: hidden;
+  }
+  
