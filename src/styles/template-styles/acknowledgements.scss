@@ -56,9 +56,6 @@
         &-inner {
             max-width: 500px;
             position: relative; 
-            @media (max-width: $width-l) {
-                max-width: 400px;
-            }
             .close-popup {
                 position: absolute; 
                 top: 24px; 
