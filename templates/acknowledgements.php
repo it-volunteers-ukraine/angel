@@ -21,7 +21,17 @@ get_header();
             </div>
         </div>
     </section>
-    
 </main>  
+<!-- Modal window  -->
+<div id="acknowledgementsModal" class="popup">
+    <div class="popup__content">
+        <div class="popup__content-inner">
+            <a href="#" class="close-popup">
+                <span></span>
+            </a>
+            <img id="modalImg" src="" alt="Acknowledgement" style="width: 100%; height: auto;"/>
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>
