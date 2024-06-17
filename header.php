@@ -17,7 +17,7 @@
 
 <body>
     <div class="wrapper">
-        <header class="header">
+        <header class="header lock-padding">
             <div class="container">
                 <div class="header-content">
                     <div class="logo-wrapper">
