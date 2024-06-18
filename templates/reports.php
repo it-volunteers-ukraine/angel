@@ -21,7 +21,7 @@ get_header();
                 <ul class="docs-gallery-list">
                     <?php foreach( $images as $image ): ?>
                         <li class="docs-gallery-item">
-                            <a class="docs-gallery-link" href="<?php echo esc_url($image['url']); ?>" data-lightbox="docs-gallery">
+                            <a class="docs-gallery-link docs-reports-popup-link open-modal" href="<?php echo esc_url($image['url']); ?>" data-popup="docsAndReportsModal" >
                                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                             </a>
                         </li>
@@ -35,7 +35,7 @@ get_header();
                 <ul class="swiper-wrapper">
                     <?php foreach( $images as $image ): ?>
                         <li class="docs-gallery-item swiper-slide">
-                            <a class="docs-gallery-link" href="<?php echo esc_url($image['url']); ?>" data-lightbox="docs-gallery-mob">
+                            <a class="docs-gallery-link docs-reports-popup-link open-modal" href="<?php echo esc_url($image['url']); ?>" data-popup="docsAndReportsModal" >
                                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                             </a>
                         </li>
@@ -81,7 +81,7 @@ get_header();
                                             <div class="image-wrapper">
                                                 
 
-                                                    <a class="" href="<?php echo esc_url( $image['url'] ); ?>" data-lightbox="reports-four-el">
+                                                    <a class="docs-reports-popup-link open-modal" href="<?php echo esc_url( $image['url'] ); ?>" data-popup="docsAndReportsModal" >
                                                         <img src="<?php echo esc_url( $image['url'] ); ?>"
                                                             alt="<?php echo esc_attr( $image['alt'] ); ?>">
                                                     </a>
@@ -120,7 +120,7 @@ get_header();
                                         if ( $image ): ?>
                                             <div class="image-wrapper">
 
-                                                    <a class="" href="<?php echo esc_url( $image['url'] ); ?>" data-lightbox="reports-three-el">
+                                                    <a class="docs-reports-popup-link open-modal" href="<?php echo esc_url( $image['url'] ); ?>" data-popup="docsAndReportsModal">
                                                         <img src="<?php echo esc_url( $image['url'] ); ?>"
                                                             alt="<?php echo esc_attr( $image['alt'] ); ?>">
                                                     </a>
@@ -158,7 +158,18 @@ get_header();
                     ?>
         </div>
     </section>
+</main>
 
-
+<!-- Modal window  -->
+<div id="docsAndReportsModal" class="popup">
+    <div class="popup__content">
+        <div class="popup__content-inner">
+            <a href="#" class="close-popup">
+                <span></span>
+            </a>
+            <img id="modalImg" src="" alt="Documents" style="width: 100%; height: auto;"/>
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>
