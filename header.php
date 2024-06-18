@@ -109,6 +109,13 @@
         </header>
 
         <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (document.body) {
+                    <?php if (is_user_logged_in()) : ?>
+                        document.body.classList.add('logged-in');
+                    <?php endif; ?>
+                }
+            });
         jQuery(document).ready(function($) {
             let currentMenuItemSubmenu = $(
                 '.menu_list .current-post-ancestor .sub-menu, .menu_list .current_page_parent  .sub-menu')
