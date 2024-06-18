@@ -394,7 +394,7 @@
 }
 //Sub-menu
 .sub-menu-section {
-  .sub-menu-wrapper {
+  .sub-menu-container {
     display: flex;
     justify-content: center;
     height: 120px;
@@ -402,10 +402,10 @@
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
-    padding-left: 40px;
     color: $color-gray-600;
     overflow: hidden;
     white-space: nowrap;
+    padding-left: 40px;
     @media (max-width: $width-l) {
       height: 108px;
       font-weight: 500;
@@ -415,10 +415,20 @@
       height: 70px;
       justify-content: start;
     }
-    @media (max-width: $width-xs) {
+    @media (max-width: $width-mobile) {
       background-image: url("../images/bg/crop-sub-menu-bg-mobile.jpg");
       height: 66px;
-      padding: 0px 16px;
+      padding-left: 16px;
+    }
+    .sub-menu-wrapper {
+      display: flex;
+      padding-right: 40px;
+      overflow-x: auto;
+      white-space: nowrap;
+      position: relative;
+      @media (max-width: $width-mobile) {
+        padding-right: 16px;
+      }
     }
     .first-level {
       display: none;
