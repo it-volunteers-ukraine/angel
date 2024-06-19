@@ -209,8 +209,10 @@
             </div>
        </div>
        <div class="footer-copyright-wrapper">
-                <p class="footer-copyright-text">© By using this website, you agree to the Terms of Service and Privacy Policy  </p>
-            </div>
+                 <?php if ( get_field( 'footer_btn_3_text', 'option' ) ) { ?>
+                    <p class="footer-copyright-text"><?php the_field( 'terms_policy_text', 'option' ); ?><a class="terms-policy-link" href="<?php the_field( 'terms_link', 'option' ); ?>"><?php the_field( 'terms_name_for_link','option' ); ?></a> <?php the_field( 'terms_policy_text_union', 'option' ); ?>  <a class="terms-policy-link" href="<?php the_field( 'policy_link', 'option' ); ?>"><?php the_field( 'policy_name_for_link','option' ); ?></a></p> 
+                <?php } ?>
+        </div>
 
     </div>
       
