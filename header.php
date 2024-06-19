@@ -172,12 +172,14 @@
         </script>
 
         <section class="sub-menu-section" style="display: none">
-            <div class="sub-menu-wrapper">
-                <ul class="sub-menu">
-                </ul>
-                <a class="first-level">
-                </a>
-                <a class="second-level">
-                </a>
+            <div class="sub-menu-container">
+                <div class="sub-menu-wrapper">
+                    <ul class="sub-menu">
+                    </ul>
+                    <a class="first-level">
+                    </a>
+                    <a class="second-level">
+                    </a>
+                </div>
             </div>
         </section>
