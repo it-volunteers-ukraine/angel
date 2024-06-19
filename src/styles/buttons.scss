@@ -38,9 +38,8 @@
   background-color: $color-blue;
   border-radius: 100px;
   padding: 6px 32px;
-  min-width: 120px;
   height: 38px;
-
+  width: max-content;
   @media (max-width: $width-l) {
     font-size: 18px;
   }
