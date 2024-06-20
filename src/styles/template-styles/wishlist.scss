@@ -11,5 +11,14 @@
     }
     .auction-details {
         min-width: 100%;
-    }    
+    }
+    .auction-time-countdown {       
+        display: flex;
+        flex-wrap: wrap;              
+    }     
+    .countdown_section {
+        @media screen and (max-width: 1200px) {
+            font-size: 8px;
+        }
+    }      
 }
