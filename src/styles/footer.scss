@@ -437,4 +437,11 @@
         }
         
     }
+
+    .terms-policy-link{
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+        
+    }    
 }
