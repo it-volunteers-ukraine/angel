@@ -173,6 +173,15 @@ body {
   }
 }
 
+.top__section {
+  margin-top: 80px;  
+  @media screen and (max-width: $width-m) {
+    margin-top: 56px;
+  }
+  @media screen and (max-width: $width-mobile) {
+    margin-top: 40px;
+  }
+}
 
 //Styles for forms
 .wpcf7 form.sent .wpcf7-response-output {
