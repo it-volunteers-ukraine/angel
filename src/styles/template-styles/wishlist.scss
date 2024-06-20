@@ -17,7 +17,7 @@
         flex-wrap: wrap;              
     }     
     .countdown_section {
-        @media screen and (max-width: $width-m) {
+        @media screen and (max-width: 1200px) {
             font-size: 8px;
         }
     }  
