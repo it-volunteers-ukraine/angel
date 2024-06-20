@@ -195,3 +195,12 @@ body {
 .product__img, .product-thumbnail {
   .winning {background: $color-object-1;}
 }
+.auction-time-countdown {       
+  display: flex;
+  flex-wrap: wrap;              
+}     
+.countdown_section {
+  @media screen and (max-width: 1200px) {
+      font-size: 8px;
+  }
+} 
