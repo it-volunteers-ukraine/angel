@@ -1,1 +1,1 @@
-.wishlist .product-thumbnail img{border-radius:16px}.wishlist .product-content>:last-child{display:none}.wishlist .auction-details{min-width:100%}
+.wishlist .product-thumbnail img{border-radius:16px}.wishlist .product-content>:last-child{display:none}.wishlist .auction-details{min-width:100%}.wishlist .auction-time-countdown{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}@media screen and (max-width: 992px){.wishlist .countdown_section{font-size:8px}}
