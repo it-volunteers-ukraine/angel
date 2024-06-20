@@ -1,23 +1,23 @@
 @import "../variables.scss";
 @import "../buttons.scss";
 
-.top__section {
-  margin-top: 80px;  
-  @media screen and (max-width: $width-m) {
-    margin-top: 56px;
-  }
-  @media screen and (max-width: $width-mobile) {
-    margin-top: 40px;
-  }
+.woocommerce {
+  display: flex;
+  flex-direction: column;
 }
-
 .woocommerce-MyAccount-navigation {
     ul {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      text-align: center;
       gap: 16px;
       padding-bottom: 32px;    
       border-bottom: 1px solid $color-blue;
+      @media screen and (max-width: $width-m) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
   .woocommerce-MyAccount-navigation-link {
